@@ -4,12 +4,12 @@ protoc -I. \
   -Ithird_party/googleapis \
   -Ithird_party/grpc-gateway \
   -Ithird_party/protovalidate/proto/protovalidate \
-  --openapiv2_out . \
-  --grpc-gateway_out . \
+  --openapiv2_out=pkg \
+  --grpc-gateway_out=pkg \
   --grpc-gateway_opt=paths=source_relative \
-  --go_out=. \
+  --go_out=pkg \
   --go_opt=paths=source_relative \
-  --go-grpc_out=. \
+  --go-grpc_out=pkg \
   --go-grpc_opt=paths=source_relative \
-  --validate_out="lang=go,paths=source_relative:." \
-  pkg/proto/healthcheck/*.proto
+  --validate_out="lang=go,paths=source_relative:pkg" \
+  proto/template/*.proto
