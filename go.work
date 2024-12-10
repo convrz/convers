@@ -5,8 +5,8 @@ use (
 	./cmd/gateway
 	./pkg/proto
 	./pkg/models
-	./core/runtime
-	./mod/gateway
-	./mod/healthcheck
+	./pkg/core/runtime
+	./pkg/mod/gateway
+	./pkg/mod/healthcheck
 	./tools
 )

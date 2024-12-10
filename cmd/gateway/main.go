@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/makegalxy/galxy/mod/gateway"
+	"github.com/makegalxy/galxy/pkg/mod/gateway"
 	"google.golang.org/grpc/grpclog"
 )
 

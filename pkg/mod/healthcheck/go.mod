@@ -1,8 +1,8 @@
-module github.com/makegalxy/galxy/mod/healthcheck
+module github.com/makegalxy/galxy/pkg/mod/healthcheck
 
 go 1.23.3
 
-replace github.com/makegalxy/galxy/pkg/proto => ./../../pkg/proto
+replace github.com/makegalxy/galxy/pkg/proto => ./../../proto
 
 require (
 	github.com/makegalxy/galxy/pkg/proto v0.0.0-00010101000000-000000000000

@@ -1,8 +1,8 @@
-module github.com/makegalxy/galxy/mod/gateway
+module github.com/makegalxy/galxy/pkg/mod/gateway
 
 go 1.23.3
 
-replace github.com/makegalxy/galxy/pkg/proto => ./../../pkg/proto
+replace github.com/makegalxy/galxy/pkg/proto => ./../../proto
 
 require (
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.24.0

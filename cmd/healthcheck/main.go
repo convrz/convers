@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/makegalxy/galxy/mod/healthcheck"
+	"github.com/makegalxy/galxy/pkg/mod/healthcheck"
 	"google.golang.org/grpc/grpclog"
 )
 
