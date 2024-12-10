@@ -1,0 +1,19 @@
+version: "2"
+sql:
+  - engine: "postgresql"
+    queries: "sql/authors/query.sql"
+    schema: "sql/authors/schema.sql"
+    gen:
+      go:
+        package: "authors"
+        out: "authors"
+        sql_package: "pgx/v5"
+
+  - engine: "postgresql"
+    queries: "sql/news/query.sql"
+    schema: "sql/news/schema.sql"
+    gen:
+      go:
+        package: "news"
+        out: "news"
+        sql_package: "pgx/v5"

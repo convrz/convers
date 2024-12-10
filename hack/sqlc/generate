@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sqlc generate -f core/models/sqlc.yaml

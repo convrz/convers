@@ -1,0 +1,12 @@
+go 1.23.3
+
+use (
+	./cmd/healthcheck
+	./cmd/gateway
+	./pkg/proto
+	./pkg/models
+	./core/runtime
+	./mod/gateway
+	./mod/healthcheck
+	./tools
+)
