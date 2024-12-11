@@ -6,7 +6,7 @@ use (
 	./pkg/proto
 	./pkg/models
 	./pkg/core/runtime
-	./pkg/mod/gateway
-	./pkg/mod/healthcheck
+	./pkg/services/gateway
+	./pkg/services/healthcheck
 	./tools
 )

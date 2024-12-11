@@ -28,7 +28,7 @@ import (
 	gw "github.com/makegalxy/galxy/pkg/proto/healthcheck" // Update
 )
 
-func Serve() error {
+func Run() error {
 	ctx := context.Background()
 	ctx, cancel := context.WithCancel(ctx)
 	defer cancel()

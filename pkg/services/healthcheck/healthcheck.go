@@ -21,8 +21,8 @@ import (
 	"log"
 	"net"
 
-	"github.com/makegalxy/galxy/pkg/mod/healthcheck/internal/handlers"
 	"github.com/makegalxy/galxy/pkg/proto/healthcheck"
+	"github.com/makegalxy/galxy/pkg/services/healthcheck/internal/handlers"
 	"google.golang.org/grpc"
 )
 
@@ -39,8 +39,8 @@ func NewGreeter() *_Greeter {
 	}
 }
 
-// Serve implements IGreeter.
-func (g *_Greeter) Serve() error {
+// Run implements IGreeter.
+func (g *_Greeter) Run() error {
 	listener, err := net.Listen("tcp", fmt.Sprintf("localhost:%d", 8000))
 	if err != nil {
 		return err

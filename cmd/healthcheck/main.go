@@ -17,13 +17,13 @@ limitations under the License.
 package main
 
 import (
-	"github.com/makegalxy/galxy/pkg/mod/healthcheck"
+	"github.com/makegalxy/galxy/pkg/services/healthcheck"
 	"google.golang.org/grpc/grpclog"
 )
 
 func main() {
 	server := healthcheck.NewGreeter()
-	if err := server.Serve(); err != nil {
+	if err := server.Run(); err != nil {
 		grpclog.Fatal(err)
 	}
 }

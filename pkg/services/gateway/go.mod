@@ -1,4 +1,4 @@
-module github.com/makegalxy/galxy/pkg/mod/gateway
+module github.com/makegalxy/galxy/pkg/services/gateway
 
 go 1.23.3
 

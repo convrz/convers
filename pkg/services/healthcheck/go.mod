@@ -1,4 +1,4 @@
-module github.com/makegalxy/galxy/pkg/mod/healthcheck
+module github.com/makegalxy/galxy/pkg/services/healthcheck
 
 go 1.23.3
 
