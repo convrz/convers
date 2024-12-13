@@ -1,14 +1,14 @@
 go 1.23.3
 
 use (
+	./build/tools
 	./cmd/healthcheck
 	./cmd/gateway
-	./core/runtime
-	./core/storage
+	./pkg/runtime
+	./pkg/storage
 	./pkg/proto
 	./pkg/models
+	./pkg/utils
 	./module/gateway
 	./module/healthcheck
-	./pkg/utils
-	./pkg/tools
 )

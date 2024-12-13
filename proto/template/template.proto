@@ -6,7 +6,7 @@ import "buf/validate/validate.proto";
 import "google/api/annotations.proto";
 import "google/protobuf/wrappers.proto";
 
-option go_package = "github.com/makegalxy/galxy/pkg/proto/template";
+option go_package = "proto/template";
 
 service Greeter {
   rpc SayHello(HelloRequest) returns (HelloReply) {
