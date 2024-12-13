@@ -1,4 +1,4 @@
-module github.com/makegalxy/galxy/internal/gateway
+module github.com/makegalxy/galxy/module/gateway
 
 go 1.23.3
 

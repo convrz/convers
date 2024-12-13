@@ -17,7 +17,7 @@ limitations under the License.
 package main
 
 import (
-	"github.com/makegalxy/galxy/pkg/services/healthcheck"
+	"github.com/makegalxy/galxy/module/healthcheck"
 	"google.golang.org/grpc/grpclog"
 )
 

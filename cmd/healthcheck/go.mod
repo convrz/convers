@@ -3,12 +3,12 @@ module github.com/makegalxy/galxy/cmd/healthcheck
 go 1.23.3
 
 replace (
-	github.com/makegalxy/galxy/pkg/services/healthcheck => ./../../pkg/services/healthcheck
+	github.com/makegalxy/galxy/module/healthcheck => ./../../module/healthcheck
 	github.com/makegalxy/galxy/pkg/proto => ./../../pkg/proto
 )
 
 require (
-	github.com/makegalxy/galxy/pkg/services/healthcheck v0.0.0-00010101000000-000000000000
+	github.com/makegalxy/galxy/module/healthcheck v0.0.0-00010101000000-000000000000
 	google.golang.org/grpc v1.68.0
 )
 

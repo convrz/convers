@@ -21,7 +21,7 @@ import (
 	"log"
 	"net"
 
-	"github.com/makegalxy/galxy/internal/healthcheck/internal/handlers"
+	"github.com/makegalxy/galxy/module/healthcheck/internal/handlers"
 	"github.com/makegalxy/galxy/pkg/proto/healthcheck"
 	"google.golang.org/grpc"
 )

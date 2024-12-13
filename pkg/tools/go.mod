@@ -1,4 +1,4 @@
-module github.com/makegalxy/galxy/tools
+module github.com/makegalxy/galxy/pkg/tools
 
 go 1.23.3
 

@@ -7,8 +7,8 @@ use (
 	./core/storage
 	./pkg/proto
 	./pkg/models
-	./pkg/services/gateway
-	./pkg/services/healthcheck
+	./module/gateway
+	./module/healthcheck
 	./pkg/utils
-	./tools
+	./pkg/tools
 )
