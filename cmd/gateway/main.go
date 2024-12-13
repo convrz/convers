@@ -17,7 +17,7 @@ limitations under the License.
 package main
 
 import (
-	"github.com/makegalxy/galxy/pkg/services/gateway"
+	"github.com/makegalxy/galxy/module/gateway"
 	"google.golang.org/grpc/grpclog"
 )
 

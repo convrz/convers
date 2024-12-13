@@ -21,8 +21,8 @@ import (
 	"log"
 	"net"
 
+	"github.com/makegalxy/galxy/internal/healthcheck/internal/handlers"
 	"github.com/makegalxy/galxy/pkg/proto/healthcheck"
-	"github.com/makegalxy/galxy/pkg/services/healthcheck/internal/handlers"
 	"google.golang.org/grpc"
 )
 
@@ -31,7 +31,7 @@ type _Greeter struct {
 	service    healthcheck.GreeterServer
 }
 
-// NewGreeter creates a new Greeter service.
+// NewGreeter creates a new Greeter module.
 func NewGreeter() *_Greeter {
 	return &_Greeter{
 		grpcServer: grpc.NewServer(),

@@ -22,12 +22,12 @@ import (
 	"github.com/makegalxy/galxy/pkg/proto/healthcheck"
 )
 
-// Greeter is the service for Greeter.
+// Greeter is the module for Greeter.
 type Greeter struct {
 	healthcheck.UnimplementedGreeterServer
 }
 
-// NewGreeter creates a new Greeter service.
+// NewGreeter creates a new Greeter module.
 func NewGreeter() healthcheck.GreeterServer {
 	return &Greeter{}
 }

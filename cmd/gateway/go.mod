@@ -3,12 +3,12 @@ module github.com/makegalxy/galxy/cmd/gateway
 go 1.23.3
 
 replace (
-	github.com/makegalxy/galxy/pkg/services/gateway => ./../../pkg/services/gateway
+	github.com/makegalxy/galxy/module/gateway => ./../../module/gateway
 	github.com/makegalxy/galxy/pkg/proto => ./../../pkg/proto
 )
 
 require (
-	github.com/makegalxy/galxy/pkg/services/gateway v0.0.0-00010101000000-000000000000
+	github.com/makegalxy/galxy/module/gateway v0.0.0-00010101000000-000000000000
 	google.golang.org/grpc v1.68.0
 )
 
