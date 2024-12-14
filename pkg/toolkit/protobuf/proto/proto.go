@@ -14,28 +14,16 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package handlers
+package proto
 
 import (
-	"context"
-
-	"github.com/makegalxy/galxy/pkg/proto/greeter/v1"
+	google "google.golang.org/protobuf/proto"
 )
 
-// Greeter is the module for Greeter.
-type Greeter struct {
-	greeter.UnimplementedGreeterServer
+func Marshal(input google.Message) ([]byte, error) {
+	return google.Marshal(input)
 }
 
-// NewGreeter creates a new Greeter module.
-func NewGreeter() greeter.GreeterServer {
-	return &Greeter{}
-}
-
-// SayHello implements GreeterServer.
-func (g *Greeter) SayHello(_ context.Context, msg *greeter.HelloRequest) (*greeter.HelloReply, error) {
-	name := msg.GetName()
-	return &greeter.HelloReply{
-		Message: "Reply " + name,
-	}, nil
+func Unmarshal(input []byte, output google.Message) error {
+	return google.Unmarshal(input, output)
 }

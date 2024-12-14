@@ -4,11 +4,12 @@ use (
 	./build/tools
 	./cmd/greeter
 	./cmd/gateway
-	./pkg/runtime
+	./core/runtime
+	./core/app
 	./pkg/storage
 	./pkg/proto
 	./pkg/models
-	./pkg/utils
+	./pkg/toolkit
 	./module/gateway
 	./module/greeter
 )

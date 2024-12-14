@@ -1,0 +1,57 @@
+// Copyright 2024 The Galxy Authors.
+
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+
+//     http://www.apache.org/licenses/LICENSE-2.0
+
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+syntax = "proto3";
+
+package galxy.react.v1;
+
+import "buf/validate/validate.proto";
+import "google/api/annotations.proto";
+import "google/protobuf/wrappers.proto";
+
+option go_package = "github.com/makegalxy/galxy/proto/react/v1;react";
+
+service Greeter {
+  rpc SayHello(HelloRequest) returns (HelloReply) {
+    option (google.api.http) = {
+      get: "/say/{name}"
+      additional_bindings: {get: "/say/strval/{strVal}"}
+      additional_bindings: {get: "/say/floatval/{floatVal}"}
+      additional_bindings: {get: "/say/doubleval/{doubleVal}"}
+      additional_bindings: {get: "/say/boolval/{boolVal}"}
+      additional_bindings: {get: "/say/bytesval/{bytesVal}"}
+      additional_bindings: {get: "/say/int32val/{int32Val}"}
+      additional_bindings: {get: "/say/uint32val/{uint32Val}"}
+      additional_bindings: {get: "/say/int64val/{int64Val}"}
+      additional_bindings: {get: "/say/uint64val/{uint64Val}"}
+    };
+  }
+}
+
+message HelloRequest {
+  string name = 1 [(buf.validate.field).string.min_len = 1];;
+  google.protobuf.StringValue strVal = 2;
+  google.protobuf.FloatValue floatVal = 3;
+  google.protobuf.DoubleValue doubleVal = 4;
+  google.protobuf.BoolValue boolVal = 5;
+  google.protobuf.BytesValue bytesVal = 6;
+  google.protobuf.Int32Value int32Val = 7;
+  google.protobuf.UInt32Value uint32Val = 8;
+  google.protobuf.Int64Value int64Val = 9;
+  google.protobuf.UInt64Value uint64Val = 10;
+}
+
+message HelloReply {
+  string message = 1;
+}

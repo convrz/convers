@@ -22,7 +22,7 @@ import (
 	"net"
 
 	"github.com/makegalxy/galxy/module/greeter/internal/handlers"
-	"github.com/makegalxy/galxy/pkg/proto/greeter"
+	"github.com/makegalxy/galxy/pkg/proto/greeter/v1"
 	"google.golang.org/grpc"
 )
 
