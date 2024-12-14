@@ -2,10 +2,9 @@ go 1.23.3
 
 use (
 	./build/tools
+	./core
 	./cmd/greeter
 	./cmd/gateway
-	./core/runtime
-	./core/app
 	./pkg/storage
 	./pkg/proto
 	./pkg/models
