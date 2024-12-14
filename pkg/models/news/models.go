@@ -9,7 +9,8 @@ import (
 )
 
 type News struct {
-	ID       int64
-	Content  string
-	Category pgtype.Text
+	ID       int64            `json:"id"`
+	Content  string           `json:"content"`
+	Category pgtype.Text      `json:"category"`
+	CreateAt pgtype.Timestamp `json:"create_at"`
 }

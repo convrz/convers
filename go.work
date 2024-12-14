@@ -2,7 +2,7 @@ go 1.23.3
 
 use (
 	./build/tools
-	./cmd/healthcheck
+	./cmd/greeter
 	./cmd/gateway
 	./pkg/runtime
 	./pkg/storage
@@ -10,5 +10,5 @@ use (
 	./pkg/models
 	./pkg/utils
 	./module/gateway
-	./module/healthcheck
+	./module/greeter
 )

@@ -25,7 +25,7 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 
-	gw "github.com/makegalxy/galxy/pkg/proto/healthcheck" // Update
+	gw "github.com/makegalxy/galxy/pkg/proto/greeter" // Update
 )
 
 func Run() error {

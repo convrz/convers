@@ -14,13 +14,13 @@
 
 syntax = "proto3";
 
-package template;
+package media;
 
 import "buf/validate/validate.proto";
 import "google/api/annotations.proto";
 import "google/protobuf/wrappers.proto";
 
-option go_package = "proto/template";
+option go_package = "proto/media";
 
 service Greeter {
   rpc SayHello(HelloRequest) returns (HelloReply) {

@@ -17,18 +17,23 @@ INSERT INTO news (
 ) VALUES (
   $1, $2
 )
-RETURNING id, content, category
+RETURNING id, content, category, create_at
 `
 
 type CreateParams struct {
-	Content  string
-	Category pgtype.Text
+	Content  string      `json:"content"`
+	Category pgtype.Text `json:"category"`
 }
 
 func (q *Queries) Create(ctx context.Context, arg CreateParams) (News, error) {
 	row := q.db.QueryRow(ctx, create, arg.Content, arg.Category)
 	var i News
-	err := row.Scan(&i.ID, &i.Content, &i.Category)
+	err := row.Scan(
+		&i.ID,
+		&i.Content,
+		&i.Category,
+		&i.CreateAt,
+	)
 	return i, err
 }
 
@@ -43,19 +48,24 @@ func (q *Queries) Delete(ctx context.Context, id int64) error {
 }
 
 const get = `-- name: Get :one
-SELECT id, content, category FROM news
+SELECT id, content, category, create_at FROM news
 WHERE id = $1 LIMIT 1
 `
 
 func (q *Queries) Get(ctx context.Context, id int64) (News, error) {
 	row := q.db.QueryRow(ctx, get, id)
 	var i News
-	err := row.Scan(&i.ID, &i.Content, &i.Category)
+	err := row.Scan(
+		&i.ID,
+		&i.Content,
+		&i.Category,
+		&i.CreateAt,
+	)
 	return i, err
 }
 
 const getMany = `-- name: GetMany :many
-SELECT id, content, category FROM news
+SELECT id, content, category, create_at FROM news
 ORDER BY category
 `
 
@@ -68,7 +78,12 @@ func (q *Queries) GetMany(ctx context.Context) ([]News, error) {
 	var items []News
 	for rows.Next() {
 		var i News
-		if err := rows.Scan(&i.ID, &i.Content, &i.Category); err != nil {
+		if err := rows.Scan(
+			&i.ID,
+			&i.Content,
+			&i.Category,
+			&i.CreateAt,
+		); err != nil {
 			return nil, err
 		}
 		items = append(items, i)
@@ -84,18 +99,23 @@ UPDATE news
   set content = $2,
   category = $3
 WHERE id = $1
-RETURNING id, content, category
+RETURNING id, content, category, create_at
 `
 
 type UpdateParams struct {
-	ID       int64
-	Content  string
-	Category pgtype.Text
+	ID       int64       `json:"id"`
+	Content  string      `json:"content"`
+	Category pgtype.Text `json:"category"`
 }
 
 func (q *Queries) Update(ctx context.Context, arg UpdateParams) (News, error) {
 	row := q.db.QueryRow(ctx, update, arg.ID, arg.Content, arg.Category)
 	var i News
-	err := row.Scan(&i.ID, &i.Content, &i.Category)
+	err := row.Scan(
+		&i.ID,
+		&i.Content,
+		&i.Category,
+		&i.CreateAt,
+	)
 	return i, err
 }
