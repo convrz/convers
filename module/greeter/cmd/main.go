@@ -17,12 +17,12 @@ limitations under the License.
 package main
 
 import (
-	"github.com/makegalxy/galxy/module/greeter"
+	"github.com/makegalxy/galxy/module/greeter/app"
 	"google.golang.org/grpc/grpclog"
 )
 
 func main() {
-	server := greeter.NewGreeter()
+	server := app.NewGreeter()
 	if err := server.Run(); err != nil {
 		grpclog.Fatal(err)
 	}

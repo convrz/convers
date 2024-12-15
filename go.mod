@@ -7,8 +7,6 @@ require (
 	github.com/google/go-cmp v0.6.0
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.24.0
 	github.com/jackc/pgx/v5 v5.7.1
-	github.com/makegalxy/galxy/module/gateway v0.0.0-20241215104747-b4d20f07a36c
-	github.com/makegalxy/galxy/module/greeter v0.0.0-20241215104747-b4d20f07a36c
 	google.golang.org/genproto/googleapis/api v0.0.0-20241209162323-e6fa225c2576
 	google.golang.org/grpc v1.69.0
 	google.golang.org/protobuf v1.35.2

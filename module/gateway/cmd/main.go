@@ -17,12 +17,12 @@ limitations under the License.
 package main
 
 import (
-	"github.com/makegalxy/galxy/module/gateway"
+	"github.com/makegalxy/galxy/module/gateway/app"
 	"google.golang.org/grpc/grpclog"
 )
 
 func main() {
-	if err := gateway.Run(); err != nil {
+	if err := app.Run(); err != nil {
 		grpclog.Fatal(err)
 	}
 }
