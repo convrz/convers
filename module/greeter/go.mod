@@ -2,10 +2,9 @@ module github.com/makegalxy/galxy/module/greeter
 
 go 1.23.3
 
-replace github.com/makegalxy/galxy/pkg/proto => ./../../pkg/proto
-
 require (
-	github.com/makegalxy/galxy/pkg/proto v0.0.0-00010101000000-000000000000
+	github.com/makegalxy/galxy/core v0.0.0-20241215104747-b4d20f07a36c
+	github.com/makegalxy/galxy/pkg/proto v0.0.0-20241215104747-b4d20f07a36c
 	google.golang.org/grpc v1.68.0
 )
 

@@ -2,11 +2,9 @@ module github.com/makegalxy/galxy/module/gateway
 
 go 1.23.3
 
-replace github.com/makegalxy/galxy/pkg/proto => ./../../pkg/proto
-
 require (
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.24.0
-	github.com/makegalxy/galxy/pkg/proto v0.0.0-00010101000000-000000000000
+	github.com/makegalxy/galxy/pkg/proto v0.0.0-20241215104747-b4d20f07a36c
 	google.golang.org/grpc v1.68.0
 )
 

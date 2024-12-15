@@ -21,6 +21,7 @@ import (
 	"log"
 	"net"
 
+	"github.com/makegalxy/galxy/core/runtime"
 	"github.com/makegalxy/galxy/module/greeter/internal/handlers"
 	"github.com/makegalxy/galxy/pkg/proto/greeter/v1"
 	"google.golang.org/grpc"
@@ -41,6 +42,9 @@ func NewGreeter() *_Greeter {
 
 // Run implements IGreeter.
 func (g *_Greeter) Run() error {
+
+	runtime.Run()
+
 	listener, err := net.Listen("tcp", fmt.Sprintf("localhost:%d", 8000))
 	if err != nil {
 		return err
