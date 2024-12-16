@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "api/services/media/v1/media.proto",
+    "title": "media.proto",
     "version": "version not set"
   },
   "tags": [

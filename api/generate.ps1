@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # Copyright 2024 The Galxy Authors.
 
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,17 +11,3 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-protoc -I. \
-  -Ithird_party/googleapis \
-  -Ithird_party/grpc-gateway \
-  -Ithird_party/protovalidate/proto/protovalidate \
-  --openapiv2_out=. \
-  --grpc-gateway_out=. \
-  --grpc-gateway_opt=paths=source_relative \
-  --go_out=. \
-  --go_opt=paths=source_relative \
-  --go-grpc_out=. \
-  --go-grpc_opt=paths=source_relative \
-  --validate_out="lang=go,paths=source_relative:." \
-  api/services/media/*/*.proto

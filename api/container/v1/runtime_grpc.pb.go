@@ -16,7 +16,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v3.21.12
-// source: api/container/v1/runtime.proto
+// source: runtime.proto
 
 package container
 
@@ -131,5 +131,5 @@ var Greeter_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "api/container/v1/runtime.proto",
+	Metadata: "runtime.proto",
 }

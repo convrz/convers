@@ -16,7 +16,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v3.21.12
-// source: api/storage/v1/storage.proto
+// source: storage.proto
 
 package storage
 
@@ -131,5 +131,5 @@ var Greeter_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "api/storage/v1/storage.proto",
+	Metadata: "storage.proto",
 }

@@ -16,9 +16,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v3.21.12
-// source: react.proto
+// source: template.proto
 
-package react
+package template
 
 import (
 	context "context"
@@ -33,7 +33,7 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	Greeter_SayHello_FullMethodName = "/galxy.services.react.v1.Greeter/SayHello"
+	Greeter_SayHello_FullMethodName = "/galxy.template.v1.Greeter/SayHello"
 )
 
 // GreeterClient is the client API for Greeter service.
@@ -122,7 +122,7 @@ func _Greeter_SayHello_Handler(srv interface{}, ctx context.Context, dec func(in
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Greeter_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "galxy.services.react.v1.Greeter",
+	ServiceName: "galxy.template.v1.Greeter",
 	HandlerType: (*GreeterServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -131,5 +131,5 @@ var Greeter_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "react.proto",
+	Metadata: "template.proto",
 }
