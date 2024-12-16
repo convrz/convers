@@ -19,7 +19,7 @@ package galxy.shared.v1;
 import "buf/validate/validate.proto";
 import "google/protobuf/wrappers.proto";
 
-option go_package = "github.com/makegalxy/galxy/proto/shared/v1;shared";
+option go_package = "github.com/makegalxy/galxy/api/shared/v1;shared";
 
 message HelloRequest {
   string name = 1 [(buf.validate.field).string.min_len = 1];;

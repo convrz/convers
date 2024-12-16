@@ -14,13 +14,13 @@
 
 syntax = "proto3";
 
-package galxy.media.v1;
+package galxy.services.media.v1;
 
 import "buf/validate/validate.proto";
 import "google/api/annotations.proto";
 import "google/protobuf/wrappers.proto";
 
-option go_package = "github.com/makegalxy/galxy/proto/media/v1;media";
+option go_package = "github.com/makegalxy/galxy/api/services/media/v1;media";
 
 service Greeter {
   rpc SayHello(HelloRequest) returns (HelloReply) {

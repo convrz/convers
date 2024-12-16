@@ -14,13 +14,13 @@
 
 syntax = "proto3";
 
-package galxy.react.v1;
+package galxy.services.react.v1;
 
 import "buf/validate/validate.proto";
 import "google/api/annotations.proto";
 import "google/protobuf/wrappers.proto";
 
-option go_package = "github.com/makegalxy/galxy/proto/react/v1;react";
+option go_package = "github.com/makegalxy/galxy/api/services/react/v1;react";
 
 service Greeter {
   rpc SayHello(HelloRequest) returns (HelloReply) {
