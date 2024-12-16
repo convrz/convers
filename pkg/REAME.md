@@ -1,0 +1,1 @@
+pkg/ is a collection of utility packages used by Galxy without being specific to Galxy itself. A package belongs here only if it could possibly be moved out into its own repository in the future. 
