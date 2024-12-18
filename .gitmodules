@@ -7,9 +7,3 @@
 [submodule "third_party/protovalidate"]
 	path = third_party/protovalidate
 	url = https://github.com/bufbuild/protovalidate.git
-[submodule "ux/mobile/android"]
-	path = ux/mobile/android
-	url = https://github.com/makegalxy/android
-[submodule "ux/mobile/ios"]
-	path = ux/mobile/ios
-	url = https://github.com/makegalxy/ios

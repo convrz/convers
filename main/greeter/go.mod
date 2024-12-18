@@ -1,15 +1,15 @@
-module github.com/makegalxy/galxy/main/greeter
+module github.com/convrz/convers/main/greeter
 
 go 1.23.3
 
 replace (
-	github.com/makegalxy/galxy/api => ./../../api
-	github.com/makegalxy/galxy/core => ./../../core
+	github.com/convrz/convers/api => ./../../api
+	github.com/convrz/convers/core => ./../../core
 )
 
 require (
-	github.com/makegalxy/galxy/api v0.0.0-00010101000000-000000000000
-	github.com/makegalxy/galxy/core v0.0.0-20241215153253-12c2143a5f64
+	github.com/convrz/convers/api v0.0.0-00010101000000-000000000000
+	github.com/convrz/convers/core v0.0.0-20241215153253-12c2143a5f64
 	google.golang.org/grpc v1.69.0
 )
 

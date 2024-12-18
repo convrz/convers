@@ -1,4 +1,4 @@
-module github.com/makegalxy/galxy/build/tools
+module github.com/convrz/convers/build/tools
 
 go 1.23.3
 

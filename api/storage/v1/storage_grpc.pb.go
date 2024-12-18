@@ -1,4 +1,4 @@
-// Copyright 2024 The Galxy Authors.
+// Copyright 2024 The Convērs Authors.
 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -33,7 +33,7 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	Greeter_SayHello_FullMethodName = "/galxy.storage.v1.Greeter/SayHello"
+	Greeter_SayHello_FullMethodName = "/convers.storage.v1.Greeter/SayHello"
 )
 
 // GreeterClient is the client API for Greeter service.
@@ -122,7 +122,7 @@ func _Greeter_SayHello_Handler(srv interface{}, ctx context.Context, dec func(in
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Greeter_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "galxy.storage.v1.Greeter",
+	ServiceName: "convers.storage.v1.Greeter",
 	HandlerType: (*GreeterServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

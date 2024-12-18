@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Galxy Authors.
+Copyright 2024 The Convērs Authors.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@ package handlers
 import (
 	"context"
 
-	"github.com/makegalxy/galxy/api/services/greeter/v1"
+	"github.com/convrz/convers/api/services/greeter/v1"
 )
 
 // Greeter is the module for Greeter.

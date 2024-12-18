@@ -1,4 +1,4 @@
-// Copyright 2024 The Galxy Authors.
+// Copyright 2024 The Convērs Authors.
 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,13 +14,13 @@
 
 syntax = "proto3";
 
-package galxy.container.v1;
+package convers.container.v1;
 
 import "buf/validate/validate.proto";
 import "google/api/annotations.proto";
 import "google/protobuf/wrappers.proto";
 
-option go_package = "github.com/makegalxy/galxy/api/container/v1;container";
+option go_package = "github.com/convrz/convers/api/container/v1;container";
 
 service Greeter {
   rpc SayHello(HelloRequest) returns (HelloReply) {

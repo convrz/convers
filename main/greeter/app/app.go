@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Galxy Authors.
+Copyright 2024 The Convērs Authors.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -21,9 +21,9 @@ import (
 	"log"
 	"net"
 
-	"github.com/makegalxy/galxy/api/services/greeter/v1"
-	"github.com/makegalxy/galxy/core/runtime"
-	"github.com/makegalxy/galxy/main/greeter/internal/handlers"
+	"github.com/convrz/convers/api/services/greeter/v1"
+	"github.com/convrz/convers/core/runtime"
+	"github.com/convrz/convers/main/greeter/internal/handlers"
 	"google.golang.org/grpc"
 )
 

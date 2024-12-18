@@ -1,12 +1,12 @@
-module github.com/makegalxy/galxy/main/gateway
+module github.com/convrz/convers/main/gateway
 
 go 1.23.3
 
-replace github.com/makegalxy/galxy/api => ./../../api
+replace github.com/convrz/convers/api => ./../../api
 
 require (
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.24.0
-	github.com/makegalxy/galxy/api v0.0.0
+	github.com/convrz/convers/api v0.0.0
 	google.golang.org/grpc v1.69.0
 )
 

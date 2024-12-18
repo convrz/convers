@@ -1,3 +1,3 @@
-module github.com/makegalxy/galxy/main/media
+module github.com/convrz/convers/main/media
 
 go 1.23.3

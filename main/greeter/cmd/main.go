@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Galxy Authors.
+Copyright 2024 The Convērs Authors.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@ limitations under the License.
 package main
 
 import (
-	"github.com/makegalxy/galxy/main/greeter/app"
+	"github.com/convrz/convers/main/greeter/app"
 	"google.golang.org/grpc/grpclog"
 )
 

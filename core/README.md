@@ -1,1 +1,1 @@
-This repository contains the core library for Galxy.
+This repository contains the core library for Convers.
