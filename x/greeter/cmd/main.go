@@ -17,12 +17,13 @@ limitations under the License.
 package main
 
 import (
-	"github.com/convrz/convers/main/gateway/app"
+	"github.com/convrz/convers/x/greeter/app"
 	"google.golang.org/grpc/grpclog"
 )
 
 func main() {
-	if err := app.Run(); err != nil {
+	server := app.NewGreeter()
+	if err := server.Run(); err != nil {
 		grpclog.Fatal(err)
 	}
 }

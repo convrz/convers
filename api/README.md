@@ -1,1 +1,1 @@
-Proto Repository
+This directory contains the GRPC API definitions for Convērs.

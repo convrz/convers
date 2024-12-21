@@ -23,7 +23,7 @@ import (
 
 	"github.com/convrz/convers/api/services/greeter/v1"
 	"github.com/convrz/convers/core/runtime"
-	"github.com/convrz/convers/main/greeter/internal/handlers"
+	"github.com/convrz/convers/x/greeter/internal/handlers"
 	"google.golang.org/grpc"
 )
 
