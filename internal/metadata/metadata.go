@@ -17,15 +17,16 @@ limitations under the License.
 package metadata
 
 import (
-	"github.com/convrz/convers/api/base/v1"
-	"google.golang.org/protobuf/types/known/timestamppb"
 	"time"
+
+	"github.com/convrz/convers/api/base/v1"
+	"github.com/convrz/convers/pkg/protobuf"
 )
 
 const CodeName = "CVZ"
 
 func NewDefault() base.Metadata {
 	return base.Metadata{
-		CreatedAt: timestamppb.New(time.Now().UTC()),
+		CreatedAt: protobuf.ToTime(time.Now().UTC()),
 	}
 }

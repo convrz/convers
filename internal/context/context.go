@@ -18,9 +18,10 @@ package context
 
 import (
 	"context"
-	"github.com/convrz/convers/api/base/v1"
-	"google.golang.org/protobuf/proto"
 	"time"
+
+	"github.com/convrz/convers/api/base/v1"
+	"github.com/convrz/convers/pkg/protobuf/proto"
 )
 
 const contextKey = 0
