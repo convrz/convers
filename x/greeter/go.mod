@@ -1,4 +1,4 @@
-module github.com/convrz/convers/main/greeter
+module github.com/convrz/convers/x/greeter
 
 go 1.23.3
 

@@ -1,4 +1,4 @@
-module github.com/convrz/convers/main/gateway
+module github.com/convrz/convers/x/gateway
 
 go 1.23.3
 

@@ -7,15 +7,15 @@
 [submodule "third_party/protovalidate"]
 	path = third_party/protovalidate
 	url = https://github.com/bufbuild/protovalidate.git
-[submodule "ux/mobile/ios"]
-	path = ux/mobile/ios
-	url = https://github.com/convrz/ios.git
-[submodule "ux/mobile/android"]
-	path = ux/mobile/android
+[submodule "platforms/android"]
+	path = platforms/android
 	url = https://github.com/convrz/android.git
-[submodule "ux/web"]
-	path = ux/web
+[submodule "platforms/ios"]
+	path = platforms/ios
+	url = https://github.com/convrz/ios.git
+[submodule "platforms/web"]
+	path = platforms/web
 	url = https://github.com/convrz/web.git
-[submodule "ux/docs"]
-	path = ux/docs
+[submodule "platforms/docs"]
+	path = platforms/docs
 	url = https://github.com/convrz/docs.git

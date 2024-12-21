@@ -32,11 +32,14 @@ cd $GOPATH/src/github.com/convrz/convers
 ```
 
 ## Submodules
-### External Repository
-- ```ux/mobile/ios``` located: ```https://github.com/convrz/ios.git``` 
-- ```ux/mobile/android``` located: ```https://github.com/convrz/android.git``` 
+### 📂 External Repository
+- ```ux/mobile/ios``` located: https://github.com/convrz/ios.git
+- ```ux/mobile/android``` located: https://github.com/convrz/android.git
 
-### Protobuf Third Party
+### 📂 Protobuf Third Party
 - ```googleapis``` at https://github.com/googleapis/googleapis.git standard rule for REST API
 - ```grpc-gateway``` at https://github.com/grpc-ecosystem/grpc-gateway.git plugin protocol buffer to generate reverse proxy
 - ```protovalidate``` at https://github.com/bufbuild/protovalidate.git library to validate structure.
+
+#
+Made in 🇻🇳 🚀
