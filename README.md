@@ -15,6 +15,13 @@ Start your conversation threads securely across distributed systems.
 
 ### 🛠️ Local development
 Run command bellow to clone all project's source code
+
+```
+git clone --recurse-submodules -j8 https://github.com/convrz/convers.git $GOPATH/src/github.com/convrz/convers
+```
+
+
+##### With SSH Key
 ```
 git clone --recurse-submodules -j8 git@github.com:convrz/convers.git $GOPATH/src/github.com/convrz/convers
 ```
