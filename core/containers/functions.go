@@ -23,7 +23,7 @@ import (
 	"go.uber.org/fx"
 )
 
-func _main(lc fx.Lifecycle, app IApp) {
+func _main(lc fx.Lifecycle, app App) {
 	lc.Append(fx.Hook{
 		OnStart: func(_ context.Context) error {
 			go func() {
@@ -66,6 +66,7 @@ func InjectLifeCycle[T any](constructor func() T, onStart func(T) error, onStop 
 
 func Build(constructor interface{}) IContainer {
 	engine = fx.Options(engine, fx.Provide(constructor))
+
 	return &container{
 		engine: fx.New(engine, fx.Invoke(_main)),
 	}
