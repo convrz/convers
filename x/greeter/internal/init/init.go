@@ -14,18 +14,13 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package main
+package init
 
 import (
-	"log"
-
 	"github.com/convrz/convers/core/containers"
-	"github.com/convrz/convers/x/greeter/app"
-
-	_ "github.com/convrz/convers/x/greeter/internal/init"
+	"github.com/convrz/convers/x/greeter/internal/handlers"
 )
 
-func main() {
-	container := containers.Build(app.New)
-	log.Fatal(container.Start())
-}
+var (
+	_ = containers.Inject(handlers.New)
+)

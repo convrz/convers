@@ -27,8 +27,8 @@ type Greeter struct {
 	greeter.UnimplementedGreeterServer
 }
 
-// NewGreeter creates a new Greeter module.
-func NewGreeter() greeter.GreeterServer {
+// New creates a new Greeter module.
+func New() greeter.GreeterServer {
 	return &Greeter{}
 }
 

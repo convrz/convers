@@ -24,29 +24,24 @@ import (
 	"github.com/convrz/convers/api/services/greeter/v1"
 	"github.com/convrz/convers/core/containers"
 	"github.com/convrz/convers/core/runtime"
-	"github.com/convrz/convers/x/greeter/internal/handlers"
 	"google.golang.org/grpc"
 )
 
-var _ = containers.Inject(func() containers.IApp {
-	return NewGreeter()
-})
-
-type _Greeter struct {
+type Greeter struct {
 	grpcServer *grpc.Server
 	service    greeter.GreeterServer
 }
 
-// NewGreeter creates a new Greeter module.
-func NewGreeter() *_Greeter {
-	return &_Greeter{
+// New creates a new Greeter module.
+func New(service greeter.GreeterServer) containers.App {
+	return &Greeter{
 		grpcServer: grpc.NewServer(),
-		service:    handlers.NewGreeter(),
+		service:    service,
 	}
 }
 
 // Run implements IGreeter.
-func (g *_Greeter) Run() error {
+func (g *Greeter) Run() error {
 
 	runtime.Run()
 
