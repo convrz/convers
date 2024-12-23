@@ -15,3 +15,22 @@ limitations under the License.
 */
 
 package repos
+
+import "fmt"
+
+type IDB interface {
+}
+
+func OnStart(db IDB) error {
+	fmt.Println("OnStart...")
+	return nil
+}
+
+func OnStop(db IDB) error {
+	fmt.Println("OnStop...")
+	return nil
+}
+
+func New() IDB {
+	return nil
+}

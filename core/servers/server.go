@@ -14,20 +14,24 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package init
+package servers
 
-import (
-	"github.com/convrz/convers/core/containers"
-	"github.com/convrz/convers/core/servers"
+import "google.golang.org/grpc"
 
-	"github.com/convrz/convers/x/greeter/internal/handlers"
-	"github.com/convrz/convers/x/greeter/internal/repos"
-)
+type ServiceRegistrar interface {
+	grpc.ServiceRegistrar
+}
 
-var (
-	_ = containers.Inject(handlers.New)
+type Server struct {
+	*grpc.Server
+}
 
-	_ = containers.Inject(servers.NewDefault)
+func New(opts ...grpc.ServerOption) *Server {
+	return &Server{
+		Server: grpc.NewServer(opts...),
+	}
+}
 
-	_ = containers.InjectLifeCycle(repos.New, repos.OnStart, repos.OnStop)
-)
+func NewDefault() *Server {
+	return New()
+}

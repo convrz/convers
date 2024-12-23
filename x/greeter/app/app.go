@@ -23,27 +23,24 @@ import (
 
 	"github.com/convrz/convers/api/services/greeter/v1"
 	"github.com/convrz/convers/core/containers"
-	"github.com/convrz/convers/core/runtime"
-	"google.golang.org/grpc"
+	"github.com/convrz/convers/core/servers"
 )
 
 type Greeter struct {
-	grpcServer *grpc.Server
-	service    greeter.GreeterServer
+	*servers.Server
+	service greeter.GreeterServer
 }
 
 // New creates a new Greeter module.
-func New(service greeter.GreeterServer) containers.App {
+func New(server *servers.Server, service greeter.GreeterServer) containers.App {
 	return &Greeter{
-		grpcServer: grpc.NewServer(),
-		service:    service,
+		Server:  server,
+		service: service,
 	}
 }
 
 // Run implements IGreeter.
 func (g *Greeter) Run() error {
-
-	runtime.Run()
 
 	listener, err := net.Listen("tcp", fmt.Sprintf("localhost:%d", 8000))
 	if err != nil {
@@ -51,7 +48,7 @@ func (g *Greeter) Run() error {
 	}
 
 	// Start gRPC server here
-	greeter.RegisterGreeterServer(g.grpcServer, g.service)
+	greeter.RegisterGreeterServer(g, g.service)
 	log.Printf("gRPC server listening on %s \n", listener.Addr().String())
-	return g.grpcServer.Serve(listener)
+	return g.Serve(listener)
 }

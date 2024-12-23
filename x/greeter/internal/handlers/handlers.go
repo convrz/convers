@@ -20,16 +20,20 @@ import (
 	"context"
 
 	"github.com/convrz/convers/api/services/greeter/v1"
+	"github.com/convrz/convers/x/greeter/internal/repos"
 )
 
 // Greeter is the module for Greeter.
 type Greeter struct {
 	greeter.UnimplementedGreeterServer
+	repos repos.IDB
 }
 
 // New creates a new Greeter module.
-func New() greeter.GreeterServer {
-	return &Greeter{}
+func New(db repos.IDB) greeter.GreeterServer {
+	return &Greeter{
+		repos: db,
+	}
 }
 
 // SayHello implements GreeterServer.
