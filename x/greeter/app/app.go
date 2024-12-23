@@ -22,10 +22,15 @@ import (
 	"net"
 
 	"github.com/convrz/convers/api/services/greeter/v1"
+	"github.com/convrz/convers/core/containers"
 	"github.com/convrz/convers/core/runtime"
 	"github.com/convrz/convers/x/greeter/internal/handlers"
 	"google.golang.org/grpc"
 )
+
+var _ = containers.Inject(func() containers.IApp {
+	return NewGreeter()
+})
 
 type _Greeter struct {
 	grpcServer *grpc.Server
