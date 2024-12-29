@@ -14,41 +14,32 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package app
+package handlers
 
 import (
-	"fmt"
-	"log"
-	"net"
-
+	"context"
 	"github.com/convrz/convers/api/services/greeter/v1"
-	"github.com/convrz/convers/core/containers"
-	"github.com/convrz/convers/core/servers"
+
+	"github.com/convrz/convers/x/greeter/v1/internal/repos"
 )
 
+// Greeter is the module for Greeter.
 type Greeter struct {
-	*servers.Server
-	service greeter.GreeterServer
+	greeter.UnimplementedGreeterServer
+	repos repos.IDB
 }
 
 // New creates a new Greeter module.
-func New(server *servers.Server, service greeter.GreeterServer) containers.App {
+func New(db repos.IDB) greeter.GreeterServer {
 	return &Greeter{
-		Server:  server,
-		service: service,
+		repos: db,
 	}
 }
 
-// Run implements IGreeter.
-func (g *Greeter) Run() error {
-
-	listener, err := net.Listen("tcp", fmt.Sprintf("localhost:%d", 8000))
-	if err != nil {
-		return err
-	}
-
-	// Start gRPC server here
-	greeter.RegisterGreeterServer(g, g.service)
-	log.Printf("gRPC server listening on %s \n", listener.Addr().String())
-	return g.Serve(listener)
+// SayHello implements GreeterServer.
+func (g *Greeter) SayHello(_ context.Context, msg *greeter.HelloRequest) (*greeter.HelloReply, error) {
+	name := msg.GetName()
+	return &greeter.HelloReply{
+		Message: "Reply " + name,
+	}, nil
 }

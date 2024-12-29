@@ -15,17 +15,3 @@ limitations under the License.
 */
 
 package main
-
-import (
-	"log"
-
-	"github.com/convrz/convers/core/containers"
-	"github.com/convrz/convers/x/greeter/app"
-
-	_ "github.com/convrz/convers/x/greeter/internal/init"
-)
-
-func main() {
-	container := containers.Build(app.New)
-	log.Fatal(container.Start())
-}

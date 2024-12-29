@@ -14,15 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package main
+package db
 
-import (
-	"github.com/convrz/convers/x/gateway/app"
-	"google.golang.org/grpc/grpclog"
-)
-
-func main() {
-	if err := app.Run(); err != nil {
-		grpclog.Fatal(err)
-	}
+type IDatabase interface {
 }

@@ -15,3 +15,17 @@ limitations under the License.
 */
 
 package runtime
+
+import "github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
+
+type ServerMuxOption func(*runtime.ServeMux)
+
+func NewServeMux(opts ...runtime.ServeMuxOption) *ServeMux {
+	return &ServeMux{
+		ServeMux: runtime.NewServeMux(opts...),
+	}
+}
+
+type ServeMux struct {
+	*runtime.ServeMux
+}

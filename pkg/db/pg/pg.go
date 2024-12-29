@@ -14,32 +14,16 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package handlers
+package pg
 
 import (
 	"context"
-
-	"github.com/convrz/convers/api/services/greeter/v1"
-	"github.com/convrz/convers/x/greeter/internal/repos"
+	"github.com/jackc/pgx/v5"
+	"github.com/jackc/pgx/v5/pgconn"
 )
 
-// Greeter is the module for Greeter.
-type Greeter struct {
-	greeter.UnimplementedGreeterServer
-	repos repos.IDB
-}
-
-// New creates a new Greeter module.
-func New(db repos.IDB) greeter.GreeterServer {
-	return &Greeter{
-		repos: db,
-	}
-}
-
-// SayHello implements GreeterServer.
-func (g *Greeter) SayHello(_ context.Context, msg *greeter.HelloRequest) (*greeter.HelloReply, error) {
-	name := msg.GetName()
-	return &greeter.HelloReply{
-		Message: "Reply " + name,
-	}, nil
+type DBTX interface {
+	Exec(context.Context, string, ...interface{}) (pgconn.CommandTag, error)
+	Query(context.Context, string, ...interface{}) (pgx.Rows, error)
+	QueryRow(context.Context, string, ...interface{}) pgx.Row
 }

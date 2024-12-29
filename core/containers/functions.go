@@ -23,7 +23,7 @@ import (
 	"go.uber.org/fx"
 )
 
-func _main(lc fx.Lifecycle, app App) {
+func _main(lc fx.Lifecycle, app IApp) {
 	lc.Append(fx.Hook{
 		OnStart: func(_ context.Context) error {
 			go func() {

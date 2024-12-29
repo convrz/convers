@@ -14,4 +14,23 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package media
+package init
+
+import (
+	"github.com/convrz/convers/core/containers"
+	"github.com/convrz/convers/core/servers"
+
+	"github.com/convrz/convers/x/greeter/v1/internal/handlers"
+	"github.com/convrz/convers/x/greeter/v1/internal/repos"
+)
+
+var (
+	// domain layer
+	_ = containers.Inject(handlers.New)
+
+	// presenter layer
+	_ = containers.Inject(servers.NewDefault())
+
+	// data layer
+	_ = containers.InjectLifeCycle(repos.New, repos.OnStart, repos.OnStop)
+)

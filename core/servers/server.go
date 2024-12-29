@@ -16,15 +16,10 @@ limitations under the License.
 
 package servers
 
-import "google.golang.org/grpc"
-
-type ServiceRegistrar interface {
-	grpc.ServiceRegistrar
-}
-
-type Server struct {
-	*grpc.Server
-}
+import (
+	"github.com/convrz/convers/core/containers"
+	"google.golang.org/grpc"
+)
 
 func New(opts ...grpc.ServerOption) *Server {
 	return &Server{
@@ -34,4 +29,14 @@ func New(opts ...grpc.ServerOption) *Server {
 
 func NewDefault() *Server {
 	return New()
+}
+
+var _ containers.IApp = (*Server)(nil)
+
+type Server struct {
+	*grpc.Server
+}
+
+func (s *Server) Run() error {
+	panic("unimplemented")
 }

@@ -14,20 +14,4 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package init
-
-import (
-	"github.com/convrz/convers/core/containers"
-	"github.com/convrz/convers/core/servers"
-
-	"github.com/convrz/convers/x/greeter/internal/handlers"
-	"github.com/convrz/convers/x/greeter/internal/repos"
-)
-
-var (
-	_ = containers.Inject(handlers.New)
-
-	_ = containers.Inject(servers.NewDefault)
-
-	_ = containers.InjectLifeCycle(repos.New, repos.OnStart, repos.OnStop)
-)
+package main

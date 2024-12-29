@@ -14,4 +14,18 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package react
+package main
+
+import (
+	"log"
+
+	"github.com/convrz/convers/core/containers"
+	"github.com/convrz/convers/x/greeter/v1/app"
+
+	_ "github.com/convrz/convers/x/greeter/v1/internal/init"
+)
+
+func main() {
+	container := containers.Build(app.New)
+	log.Fatal(container.Start())
+}

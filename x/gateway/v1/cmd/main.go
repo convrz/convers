@@ -14,28 +14,15 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package containers
+package main
 
 import (
-	"go.uber.org/fx"
+	"github.com/convrz/convers/x/gateway/v1/app"
+	"google.golang.org/grpc/grpclog"
 )
 
-var engine = fx.Provide()
-
-type IApp interface {
-	Run() error
-}
-
-type IContainer interface {
-	Start() error
-}
-
-type container struct {
-	engine *fx.App
-}
-
-// Start implements IContainer.
-func (c *container) Start() error {
-	c.engine.Run()
-	return c.engine.Err()
+func main() {
+	if err := app.Run(); err != nil {
+		grpclog.Fatal(err)
+	}
 }
