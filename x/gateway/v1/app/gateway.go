@@ -18,32 +18,38 @@ package app
 
 import (
 	"context"
-	"log"
-	"net/http"
-
-	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
+	gw "github.com/convrz/convers/api/services/greeter/v1" // Update
+	"github.com/convrz/convers/core/servers"
+	"github.com/convrz/convers/core/services"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
-
-	gw "github.com/convrz/convers/api/services/greeter/v1" // Update
+	"log"
 )
 
-func Run() error {
+func New() services.IService {
+	return &App{
+		server: servers.New(":9000"),
+	}
+}
+
+type App struct {
+	server servers.IServer
+}
+
+func (app *App) Run() error {
 	ctx := context.Background()
 	ctx, cancel := context.WithCancel(ctx)
 	defer cancel()
 
 	// Register gRPC server endpoint
 	// Note: Make sure the gRPC server is running properly and accessible
-	mux := runtime.NewServeMux()
 	opts := []grpc.DialOption{grpc.WithTransportCredentials(insecure.NewCredentials())}
-	err := gw.RegisterGreeterHandlerFromEndpoint(ctx, mux, "localhost:8000", opts)
-	if err != nil {
+	if err := app.server.Register(ctx, gw.RegisterGreeterHandlerFromEndpoint, ":8000", opts...); err != nil {
 		return err
 	}
 
 	log.Printf("HTTP server listening on %s \n", ":9000")
 
 	// Start HTTP server (and proxy calls to gRPC server endpoint)
-	return http.ListenAndServe(":9000", mux)
+	return app.server.Start()
 }

@@ -17,12 +17,12 @@ limitations under the License.
 package main
 
 import (
+	"github.com/convrz/convers/core/containers"
 	"github.com/convrz/convers/x/gateway/v1/app"
 	"google.golang.org/grpc/grpclog"
 )
 
 func main() {
-	if err := app.Run(); err != nil {
-		grpclog.Fatal(err)
-	}
+	container := containers.Build(app.New)
+	grpclog.Fatal(container.Start())
 }

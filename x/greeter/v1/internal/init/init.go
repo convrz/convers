@@ -18,7 +18,7 @@ package init
 
 import (
 	"github.com/convrz/convers/core/containers"
-	"github.com/convrz/convers/core/servers"
+	"github.com/convrz/convers/core/services"
 
 	"github.com/convrz/convers/x/greeter/v1/internal/handlers"
 	"github.com/convrz/convers/x/greeter/v1/internal/repos"
@@ -29,7 +29,7 @@ var (
 	_ = containers.Inject(handlers.New)
 
 	// presenter layer
-	_ = containers.Inject(servers.NewDefault())
+	_ = containers.Inject(services.NewDefault)
 
 	// data layer
 	_ = containers.InjectLifeCycle(repos.New, repos.OnStart, repos.OnStop)

@@ -22,10 +22,6 @@ import (
 
 var engine = fx.Provide()
 
-type IApp interface {
-	Run() error
-}
-
 type IContainer interface {
 	Start() error
 }

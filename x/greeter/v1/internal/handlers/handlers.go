@@ -19,6 +19,7 @@ package handlers
 import (
 	"context"
 	"github.com/convrz/convers/api/services/greeter/v1"
+	"time"
 
 	"github.com/convrz/convers/x/greeter/v1/internal/repos"
 )
@@ -39,7 +40,8 @@ func New(db repos.IDB) greeter.GreeterServer {
 // SayHello implements GreeterServer.
 func (g *Greeter) SayHello(_ context.Context, msg *greeter.HelloRequest) (*greeter.HelloReply, error) {
 	name := msg.GetName()
+	t := time.Now().String()
 	return &greeter.HelloReply{
-		Message: "Reply " + name,
+		Message: "Reply " + name + " at " + t,
 	}, nil
 }

@@ -22,20 +22,19 @@ import (
 	"log"
 	"net"
 
-	"github.com/convrz/convers/core/containers"
-	"github.com/convrz/convers/core/servers"
+	"github.com/convrz/convers/core/services"
 )
 
 type Greeter struct {
-	*servers.Server
-	service greeter.GreeterServer
+	*services.Service
+	srv greeter.GreeterServer
 }
 
 // New creates a new Greeter module.
-func New(server *servers.Server, service greeter.GreeterServer) containers.IApp {
+func New(service *services.Service, server greeter.GreeterServer) services.IService {
 	return &Greeter{
-		Server:  server,
-		service: service,
+		Service: service,
+		srv:     server,
 	}
 }
 
@@ -46,8 +45,8 @@ func (g *Greeter) Run() error {
 		return err
 	}
 
-	// Start gRPC server here
-	greeter.RegisterGreeterServer(g, g.service)
-	log.Printf("gRPC server listening on %s \n", listener.Addr().String())
+	// Start gRPC srv here
+	greeter.RegisterGreeterServer(g, g.srv)
+	log.Printf("gRPC srv listening on %s \n", listener.Addr().String())
 	return g.Serve(listener)
 }
