@@ -19,14 +19,14 @@ package app
 import (
 	"context"
 	gw "github.com/convrz/convers/api/services/greeter/v1" // Update
+	"github.com/convrz/convers/core/apps"
 	"github.com/convrz/convers/core/servers"
-	"github.com/convrz/convers/core/services"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 	"log"
 )
 
-func New() services.IService {
+func New() apps.App {
 	return &App{
 		server: servers.New(":9000"),
 	}

@@ -18,17 +18,17 @@ package containers
 
 import (
 	"context"
-	"github.com/convrz/convers/core/services"
+	"github.com/convrz/convers/core/apps"
 	"log"
 
 	"go.uber.org/fx"
 )
 
-func _main(lc fx.Lifecycle, service services.IService) {
+func _main(lc fx.Lifecycle, app apps.App) {
 	lc.Append(fx.Hook{
 		OnStart: func(_ context.Context) error {
 			go func() {
-				log.Fatal(service.Run())
+				log.Fatal(app.Run())
 			}()
 			return nil
 		},

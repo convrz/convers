@@ -14,32 +14,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package services
+package apps
 
-import (
-	"google.golang.org/grpc"
-)
-
-var _ IService = (*Service)(nil)
-
-type IService interface {
+type App interface {
 	Run() error
-}
-
-func New(opts ...grpc.ServerOption) *Service {
-	return &Service{
-		Server: grpc.NewServer(opts...),
-	}
-}
-
-func NewDefault() *Service {
-	return New()
-}
-
-type Service struct {
-	*grpc.Server
-}
-
-func (s *Service) Run() error {
-	panic("unimplemented")
 }
