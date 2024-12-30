@@ -8,7 +8,7 @@ require (
 	github.com/convrz/convers/api v0.0.0-00010101000000-000000000000
 	github.com/google/go-cmp v0.6.0
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.24.0
-	github.com/jackc/pgx/v5 v5.7.1
+	github.com/jackc/pgx/v5 v5.7.2
 	go.uber.org/fx v1.23.0
 	google.golang.org/grpc v1.69.0
 	google.golang.org/protobuf v1.35.2
