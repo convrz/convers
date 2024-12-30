@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM golang:1.23.3
+FROM golang:1.23.3-alpine
 
 ENV GO111MODULE=on \
     CGO_ENABLED=0 \
