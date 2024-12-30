@@ -7,6 +7,7 @@ replace github.com/convrz/convers/api => ./api
 require (
 	github.com/convrz/convers/api v0.0.0-00010101000000-000000000000
 	github.com/google/go-cmp v0.6.0
+	github.com/grpc-ecosystem/grpc-gateway/v2 v2.24.0
 	github.com/jackc/pgx/v5 v5.7.1
 	go.uber.org/fx v1.23.0
 	google.golang.org/grpc v1.69.0
@@ -24,5 +25,6 @@ require (
 	golang.org/x/net v0.30.0 // indirect
 	golang.org/x/sys v0.28.0 // indirect
 	golang.org/x/text v0.21.0 // indirect
+	google.golang.org/genproto/googleapis/api v0.0.0-20241209162323-e6fa225c2576 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20241206012308-a4fef0638583 // indirect
 )
