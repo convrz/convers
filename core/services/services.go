@@ -20,26 +20,26 @@ import (
 	"google.golang.org/grpc"
 )
 
-var _ IService = (*Service)(nil)
+var _ IServiceRegistrar = (*ServiceRegistrar)(nil)
 
-type IService interface {
+type IServiceRegistrar interface {
 	Run() error
 }
 
-func New(opts ...grpc.ServerOption) *Service {
-	return &Service{
+func New(opts ...grpc.ServerOption) *ServiceRegistrar {
+	return &ServiceRegistrar{
 		Server: grpc.NewServer(opts...),
 	}
 }
 
-func NewDefault() *Service {
+func NewDefault() *ServiceRegistrar {
 	return New()
 }
 
-type Service struct {
+type ServiceRegistrar struct {
 	*grpc.Server
 }
 
-func (s *Service) Run() error {
+func (s *ServiceRegistrar) Run() error {
 	panic("unimplemented")
 }

@@ -23,10 +23,10 @@ import (
 	"net/http"
 )
 
-func New(addr string) IServer {
+func New(addr string, opts ...runtime.ServeMuxOption) IServer {
 	return &Server{
 		addr: addr,
-		mux:  runtime.NewServeMux(),
+		mux:  runtime.NewServeMux(opts...),
 	}
 }
 

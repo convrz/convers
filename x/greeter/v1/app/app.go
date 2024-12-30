@@ -28,15 +28,15 @@ import (
 )
 
 type Greeter struct {
-	*services.Service
+	*services.ServiceRegistrar
 	srv greeter.GreeterServer
 }
 
 // New creates a new Greeter module.
-func New(service *services.Service, server controllers.IGreeter) apps.App {
+func New(service *services.ServiceRegistrar, server controllers.IGreeter) apps.App {
 	return &Greeter{
-		Service: service,
-		srv:     server,
+		ServiceRegistrar: service,
+		srv:              server,
 	}
 }
 
@@ -48,7 +48,7 @@ func (g *Greeter) Run() error {
 	}
 
 	// Start gRPC srv here
-	greeter.RegisterGreeterServer(g, g.srv)
+	greeter.RegisterGreeterServer(g.ServiceRegistrar, g.srv)
 	log.Printf("gRPC srv listening on %s \n", listener.Addr().String())
 	return g.Serve(listener)
 }
