@@ -1,0 +1,24 @@
+# For details on buf.yaml configuration, visit https://buf.build/docs/configuration/v2/buf-yaml
+version: v2
+modules:
+  - path: types/v1
+    ####################
+  - path: biz/greeter/v1
+  - path: biz/shared/v1
+    ####################
+  - path: media/v1
+  - path: greeter/v1
+  - path: react/v1
+  - path: shared/v1
+deps:
+  - buf.build/bufbuild/protovalidate
+  - buf.build/googleapis/googleapis
+  - buf.build/grpc-ecosystem/grpc-gateway
+lint:
+  use:
+    - STANDARD
+  except:
+    - PACKAGE_DIRECTORY_MATCH
+breaking:
+  use:
+    - FILE

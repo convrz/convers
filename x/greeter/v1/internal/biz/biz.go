@@ -14,24 +14,36 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package init
+package biz
 
 import (
-	"github.com/convrz/convers/core/containers"
-	"github.com/convrz/convers/core/services"
-	"github.com/convrz/convers/x/greeter/v1/internal/biz"
-	"github.com/convrz/convers/x/greeter/v1/internal/controllers"
+	"context"
+	"github.com/convrz/convers/api/biz/greeter/v1"
 	"github.com/convrz/convers/x/greeter/v1/internal/repos"
+	"time"
 )
 
-var (
-	// delivery layer
-	_ = containers.Inject(services.NewDefault)
-	_ = containers.Inject(controllers.New)
+type IGreeter interface {
+	greeter.GreeterServer
+}
 
-	// domain layer
-	_ = containers.Inject(biz.New)
+// New creates a new Greeter module.
+func New(db repos.IDB) IGreeter {
+	return &Greeter{
+		repos: db,
+	}
+}
 
-	// repo layer
-	_ = containers.InjectLifeCycle(repos.New, repos.OnStart, repos.OnStop)
-)
+type Greeter struct {
+	greeter.UnimplementedGreeterServer
+	repos repos.IDB
+}
+
+func (g *Greeter) SayHello(ctx context.Context, msg *greeter.HelloRequest) (*greeter.HelloReply, error) {
+	name := msg.GetName()
+	t := time.Now().String()
+
+	return &greeter.HelloReply{
+		Message: "Reply " + name + " at " + t,
+	}, nil
+}

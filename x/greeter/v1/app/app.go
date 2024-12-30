@@ -18,8 +18,9 @@ package app
 
 import (
 	"fmt"
-	"github.com/convrz/convers/api/services/greeter/v1"
+	"github.com/convrz/convers/api/greeter/v1"
 	"github.com/convrz/convers/core/apps"
+	"github.com/convrz/convers/x/greeter/v1/internal/controllers"
 	"log"
 	"net"
 
@@ -32,7 +33,7 @@ type Greeter struct {
 }
 
 // New creates a new Greeter module.
-func New(service *services.Service, server greeter.GreeterServer) apps.App {
+func New(service *services.Service, server controllers.IGreeter) apps.App {
 	return &Greeter{
 		Service: service,
 		srv:     server,

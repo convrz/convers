@@ -19,7 +19,7 @@ package metadata
 import (
 	"time"
 
-	"github.com/convrz/convers/api/base/v1"
+	"github.com/convrz/convers/api/types/v1"
 	"github.com/convrz/convers/pkg/protobuf"
 )
 

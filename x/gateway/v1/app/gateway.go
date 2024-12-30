@@ -18,7 +18,7 @@ package app
 
 import (
 	"context"
-	gw "github.com/convrz/convers/api/services/greeter/v1" // Update
+	gw "github.com/convrz/convers/api/greeter/v1" // Update
 	"github.com/convrz/convers/core/apps"
 	"github.com/convrz/convers/core/servers"
 	"google.golang.org/grpc"

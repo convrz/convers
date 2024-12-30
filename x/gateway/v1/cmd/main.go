@@ -19,10 +19,10 @@ package main
 import (
 	"github.com/convrz/convers/core/containers"
 	"github.com/convrz/convers/x/gateway/v1/app"
-	"google.golang.org/grpc/grpclog"
+	"log"
 )
 
 func main() {
 	container := containers.Build(app.New)
-	grpclog.Fatal(container.Start())
+	log.Fatal(container.Start())
 }
