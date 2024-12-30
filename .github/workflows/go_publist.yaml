@@ -26,7 +26,5 @@ jobs:
 
       - name: Build and Push Docker Image
         run: |
-          docker build ./build/cvz/go -t ghcr.io/convrz/convers/cvz.go:latest
-          docker push ghcr.io/convrz/convers/cvz.go:latest
           docker build ./build/cvz/go -t ghcr.io/convrz/convers/cvz.go:1.23.3-alpine
           docker push ghcr.io/convrz/convers/cvz.go:1.23.3-alpine
