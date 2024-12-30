@@ -14,19 +14,16 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package metadata
+package pg
 
 import (
-	"time"
-
-	"github.com/convrz/convers/api/types/v1"
-	"github.com/convrz/convers/pkg/protobuf"
+	"context"
+	"github.com/jackc/pgx/v5"
+	"github.com/jackc/pgx/v5/pgconn"
 )
 
-const CodeName = "CVZ"
-
-func NewDefault() base.Metadata {
-	return base.Metadata{
-		CreatedAt: protobuf.ToTime(time.Now().UTC()),
-	}
+type DBTX interface {
+	Exec(context.Context, string, ...interface{}) (pgconn.CommandTag, error)
+	Query(context.Context, string, ...interface{}) (pgx.Rows, error)
+	QueryRow(context.Context, string, ...interface{}) pgx.Row
 }

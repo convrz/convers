@@ -14,19 +14,15 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package metadata
+package main
 
 import (
-	"time"
-
-	"github.com/convrz/convers/api/types/v1"
-	"github.com/convrz/convers/pkg/protobuf"
+	"github.com/convrz/convers/core/containers"
+	"github.com/convrz/convers/x/gateway/v1/app"
+	"log"
 )
 
-const CodeName = "CVZ"
-
-func NewDefault() base.Metadata {
-	return base.Metadata{
-		CreatedAt: protobuf.ToTime(time.Now().UTC()),
-	}
+func main() {
+	container := containers.Build(app.New)
+	log.Fatal(container.Start())
 }

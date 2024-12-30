@@ -14,19 +14,23 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package metadata
+package repos
 
-import (
-	"time"
+import "fmt"
 
-	"github.com/convrz/convers/api/types/v1"
-	"github.com/convrz/convers/pkg/protobuf"
-)
+type IDB interface {
+}
 
-const CodeName = "CVZ"
+func OnStart(db IDB) error {
+	fmt.Println("OnStart...")
+	return nil
+}
 
-func NewDefault() base.Metadata {
-	return base.Metadata{
-		CreatedAt: protobuf.ToTime(time.Now().UTC()),
-	}
+func OnStop(db IDB) error {
+	fmt.Println("OnStop...")
+	return nil
+}
+
+func New() IDB {
+	return nil
 }

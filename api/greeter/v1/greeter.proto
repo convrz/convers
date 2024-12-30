@@ -14,18 +14,18 @@
 
 syntax = "proto3";
 
-package convers.template.v1;
+package convers.greeter.v1;
 
 import "protoc-gen-openapiv2/options/annotations.proto";
 import "buf/validate/validate.proto";
 import "google/api/annotations.proto";
 import "google/protobuf/wrappers.proto";
 
-option go_package = "github.com/convrz/convers/api/template/v1;template";
+option go_package = "github.com/convrz/convers/api/greeter/v1;greeter";
 
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
   info: {
-    title: "Template Service";
+    title: "Greeter Service";
     version: "1.0";
   };
   schemes: HTTPS;

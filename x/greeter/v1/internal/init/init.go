@@ -14,19 +14,24 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package metadata
+package init
 
 import (
-	"time"
-
-	"github.com/convrz/convers/api/types/v1"
-	"github.com/convrz/convers/pkg/protobuf"
+	"github.com/convrz/convers/core/containers"
+	"github.com/convrz/convers/core/services"
+	"github.com/convrz/convers/x/greeter/v1/internal/biz"
+	"github.com/convrz/convers/x/greeter/v1/internal/controllers"
+	"github.com/convrz/convers/x/greeter/v1/internal/repos"
 )
 
-const CodeName = "CVZ"
+var (
+	// delivery layer
+	_ = containers.Inject(services.NewDefault)
+	_ = containers.Inject(controllers.New)
 
-func NewDefault() base.Metadata {
-	return base.Metadata{
-		CreatedAt: protobuf.ToTime(time.Now().UTC()),
-	}
-}
+	// domain layer
+	_ = containers.Inject(biz.New)
+
+	// repo layer
+	_ = containers.InjectLifeCycle(repos.New, repos.OnStart, repos.OnStop)
+)

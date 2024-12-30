@@ -14,19 +14,24 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package metadata
+package containers
 
 import (
-	"time"
-
-	"github.com/convrz/convers/api/types/v1"
-	"github.com/convrz/convers/pkg/protobuf"
+	"go.uber.org/fx"
 )
 
-const CodeName = "CVZ"
+var engine = fx.Provide()
 
-func NewDefault() base.Metadata {
-	return base.Metadata{
-		CreatedAt: protobuf.ToTime(time.Now().UTC()),
-	}
+type IContainer interface {
+	Start() error
+}
+
+type container struct {
+	engine *fx.App
+}
+
+// Start implements IContainer.
+func (c *container) Start() error {
+	c.engine.Run()
+	return c.engine.Err()
 }

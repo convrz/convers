@@ -14,19 +14,36 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package metadata
+package biz
 
 import (
+	"context"
+	"github.com/convrz/convers/api/biz/greeter/v1"
+	"github.com/convrz/convers/x/greeter/v1/internal/repos"
 	"time"
-
-	"github.com/convrz/convers/api/types/v1"
-	"github.com/convrz/convers/pkg/protobuf"
 )
 
-const CodeName = "CVZ"
+type IGreeter interface {
+	greeter.GreeterServer
+}
 
-func NewDefault() base.Metadata {
-	return base.Metadata{
-		CreatedAt: protobuf.ToTime(time.Now().UTC()),
+// New creates a new Greeter module.
+func New(db repos.IDB) IGreeter {
+	return &Greeter{
+		repos: db,
 	}
+}
+
+type Greeter struct {
+	greeter.UnimplementedGreeterServer
+	repos repos.IDB
+}
+
+func (g *Greeter) SayHello(ctx context.Context, msg *greeter.HelloRequest) (*greeter.HelloReply, error) {
+	name := msg.GetName()
+	t := time.Now().String()
+
+	return &greeter.HelloReply{
+		Message: "Reply " + name + " at " + t,
+	}, nil
 }

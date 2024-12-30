@@ -18,14 +18,15 @@ package context
 
 import (
 	"context"
-	"github.com/convrz/convers/api/base/v1"
-	"google.golang.org/protobuf/proto"
 	"time"
+
+	"github.com/convrz/convers/api/types/v1"
+	"github.com/convrz/convers/pkg/protobuf/proto"
 )
 
 const contextKey = 0
 
-func New(ctxBase context.Context, msg *base.Context, deadline time.Time) (context.Context, context.CancelFunc) {
+func New(ctxBase context.Context, msg *types.Context, deadline time.Time) (context.Context, context.CancelFunc) {
 	if msg == nil {
 		return context.WithDeadline(ctxBase, deadline)
 	}
@@ -37,13 +38,13 @@ func New(ctxBase context.Context, msg *base.Context, deadline time.Time) (contex
 	return context.WithDeadline(ctx, deadline)
 }
 
-func ValueOf(ctx context.Context) (*base.Context, bool) {
+func ValueOf(ctx context.Context) (*types.Context, bool) {
 	msgBin, ok := ctx.Value(contextKey).([]byte)
 	if !ok {
 		return nil, false
 	}
 
-	var msg base.Context
+	var msg types.Context
 	if err := proto.Unmarshal(msgBin, &msg); err != nil {
 		return nil, false
 	}

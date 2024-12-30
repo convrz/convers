@@ -15,3 +15,27 @@ limitations under the License.
 */
 
 package copier
+
+import (
+	"encoding/json"
+	"github.com/convrz/convers/pkg/protobuf/proto"
+	google "google.golang.org/protobuf/proto"
+)
+
+func CopyMsg(src, dst google.Message) error {
+	bytes, err := proto.Marshal(src)
+	if err != nil {
+		return err
+	}
+
+	return proto.Unmarshal(bytes, dst)
+}
+
+func Copy(src, dst interface{}) error {
+	bytes, err := json.Marshal(src)
+	if err != nil {
+		return err
+	}
+
+	return json.Unmarshal(bytes, dst)
+}

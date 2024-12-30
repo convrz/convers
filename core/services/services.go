@@ -14,19 +14,32 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package metadata
+package services
 
 import (
-	"time"
-
-	"github.com/convrz/convers/api/types/v1"
-	"github.com/convrz/convers/pkg/protobuf"
+	"google.golang.org/grpc"
 )
 
-const CodeName = "CVZ"
+var _ IServiceRegistrar = (*ServiceRegistrar)(nil)
 
-func NewDefault() base.Metadata {
-	return base.Metadata{
-		CreatedAt: protobuf.ToTime(time.Now().UTC()),
+type IServiceRegistrar interface {
+	Run() error
+}
+
+func New(opts ...grpc.ServerOption) *ServiceRegistrar {
+	return &ServiceRegistrar{
+		Server: grpc.NewServer(opts...),
 	}
+}
+
+func NewDefault() *ServiceRegistrar {
+	return New()
+}
+
+type ServiceRegistrar struct {
+	*grpc.Server
+}
+
+func (s *ServiceRegistrar) Run() error {
+	panic("unimplemented")
 }

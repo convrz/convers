@@ -14,19 +14,4 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package metadata
-
-import (
-	"time"
-
-	"github.com/convrz/convers/api/types/v1"
-	"github.com/convrz/convers/pkg/protobuf"
-)
-
-const CodeName = "CVZ"
-
-func NewDefault() base.Metadata {
-	return base.Metadata{
-		CreatedAt: protobuf.ToTime(time.Now().UTC()),
-	}
-}
+package namespace
