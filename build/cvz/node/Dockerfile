@@ -22,7 +22,7 @@ LABEL org.opencontainers.image.title="Convērs Node Runtime base on Node.js 20 B
       org.opencontainers.image.source="https://github.com/convrz/convers" \
       org.opencontainers.image.authors="Convērs Team"
 
-RUN apt-get update && apt-get install -y ca-certificates && rm -rf /var/lib/apt/lists/*
+RUN apk --no-cache add ca-certificates
 
 WORKDIR /usr/src/app
 
