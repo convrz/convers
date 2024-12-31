@@ -22,9 +22,8 @@ LABEL org.opencontainers.image.title="Convērs Edge base on Alpine Edge base Ima
       org.opencontainers.image.licenses="Apache-2.0" \
       org.opencontainers.image.url="https://convers.io.vn" \
       org.opencontainers.image.source="https://github.com/convrz/convers" \
-      org.opencontainers.image.authors="Convērs Team" \
+      org.opencontainers.image.authors="Convērs Team"
 
-# Set up basic information
 RUN apk --no-cache add ca-certificates
 
 # Default command

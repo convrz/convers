@@ -20,7 +20,7 @@ LABEL org.opencontainers.image.title="Convērs Node Runtime base on Node.js 20 B
       org.opencontainers.image.licenses="MIT" \
       org.opencontainers.image.url="https://convers.io.vn" \
       org.opencontainers.image.source="https://github.com/convrz/convers" \
-      org.opencontainers.image.authors="Convērs Team" \
+      org.opencontainers.image.authors="Convērs Team"
 
 RUN apt-get update && apt-get install -y ca-certificates && rm -rf /var/lib/apt/lists/*
 

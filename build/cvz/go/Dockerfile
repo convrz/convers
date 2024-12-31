@@ -20,7 +20,7 @@ LABEL org.opencontainers.image.title="Convērs Go compiler base on Go 1.23.3 Alp
       org.opencontainers.image.licenses="Apache-2.0" \
       org.opencontainers.image.url="https://convers.io.vn" \
       org.opencontainers.image.source="https://github.com/convrz/convers" \
-      org.opencontainers.image.authors="Convērs Team" \
+      org.opencontainers.image.authors="Convērs Team"
 
 ENV GO111MODULE=on \
     CGO_ENABLED=0 \
