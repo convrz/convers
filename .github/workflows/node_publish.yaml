@@ -6,7 +6,7 @@ on:
       - docker/node
 
 jobs:
-  publish-cvz-go:
+  publish-cvz-node:
     runs-on: ubuntu-latest
     permissions:
       packages: write

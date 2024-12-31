@@ -6,7 +6,7 @@ on:
       - docker/alpine
 
 jobs:
-  publish-cvz-go:
+  publish-cvz-alpine:
     runs-on: ubuntu-latest
     permissions:
       packages: write

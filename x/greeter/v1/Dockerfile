@@ -35,7 +35,7 @@ RUN rm -r *
 RUN go clean -modcache
 
 # Stage run
-FROM alpine:edge AS runner
+FROM ghcr.io/convrz/convers/cvz.alpine:edge AS runner
 WORKDIR /app
 
 COPY --from=builder /bin/greeter /bin/greeter
