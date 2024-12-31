@@ -12,18 +12,20 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM node:20-alpine
+# Use Alpine edge version as the base image
+FROM alpine:edge
 
-LABEL org.opencontainers.image.title="Convērs Node Runtime base on Node.js 20 Base Image" \
-      org.opencontainers.image.description="Node.js 20 LTS, a JavaScript runtime built on Chrome's V8 JavaScript engine." \
-      org.opencontainers.image.version="20" \
-      org.opencontainers.image.licenses="MIT" \
+# Add OCI metadata
+LABEL org.opencontainers.image.title="Convērs Edge base on Alpine Edge base Image" \
+      org.opencontainers.image.description="Edge version of Alpine Linux, lightweight and fast for containerized applications." \
+      org.opencontainers.image.version="edge" \
+      org.opencontainers.image.licenses="Apache-2.0" \
       org.opencontainers.image.url="https://convers.io.vn" \
       org.opencontainers.image.source="https://github.com/convrz/convers" \
       org.opencontainers.image.authors="Convērs Team" \
 
-RUN apt-get update && apt-get install -y ca-certificates && rm -rf /var/lib/apt/lists/*
+# Set up basic information
+RUN apk --no-cache add ca-certificates
 
-WORKDIR /usr/src/app
-
-CMD ["node", "--version"]
+# Default command
+CMD ["sh"]

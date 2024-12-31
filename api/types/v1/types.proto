@@ -29,33 +29,33 @@ message Metadata {
 }
 
 message Context {
-  // Dùng để theo dõi từng request qua các microservices.
+  // Tracks each request across microservices.
   google.protobuf.StringValue trace_id = 1 [(buf.validate.field).string.min_len = 1];
 
-  // Định danh duy nhất cho mỗi request. Hữu ích để debug và logging.
+  // Unique identifier for each request. Useful for debugging and logging.
   google.protobuf.StringValue request_id = 2 [(buf.validate.field).string.min_len = 1];
 
-  // Định danh người dùng thực hiện yêu cầu.
+  // Identifies the user making the request.
   google.protobuf.StringValue user_id = 3 [(buf.validate.field).string.min_len = 1];
 
-  // Truyền token hoặc thông tin xác thực qua context
+  // Passes tokens or authentication information through the context.
   google.protobuf.StringValue authorization = 4;
 
-  // Truyền thông tin ngôn ngữ cho hệ thống đa ngôn ngữ
+  // Passes language information for multilingual systems.
   google.protobuf.StringValue locale = 5 [(buf.validate.field).string.min_len = 1];
 
-  // Dùng để liên kết nhiều request liên quan trong một workflow.
+  // Links multiple related requests in a workflow.
   google.protobuf.StringValue correlation_id = 6 [(buf.validate.field).string.min_len = 1];
 
-  // Xác định dịch vụ hiện tại đang xử lý yêu cầu
+  // Identifies the current service processing the request.
   google.protobuf.StringValue service_name = 7 [(buf.validate.field).string.min_len = 1];
 
-  // Theo dõi số lần retry để ngăn việc lặp vô hạn.
+  // Tracks the number of retries to prevent infinite loops.
   google.protobuf.UInt32Value retry_count = 8;
 
-  // Định danh từng phần nhỏ trong request (tracing).
+  // Identifies individual parts within a request (tracing).
   google.protobuf.StringValue span_id = 9;
 
-  // Xác định IP của client gửi request.
-  google.protobuf.StringValue ip = 10[(buf.validate.field).string.min_len = 1];
+  // Identifies the IP address of the client sending the request.
+  google.protobuf.StringValue ip = 10 [(buf.validate.field).string.min_len = 1];
 }

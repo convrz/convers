@@ -14,10 +14,20 @@
 
 FROM golang:1.23.3-alpine
 
+LABEL org.opencontainers.image.title="Convērs Go compiler base on Go 1.23.3 Alpine Base Image" \
+      org.opencontainers.image.description="Go 1.23.3 with a lightweight and fast Alpine Linux environment." \
+      org.opencontainers.image.version="1.23.3" \
+      org.opencontainers.image.licenses="Apache-2.0" \
+      org.opencontainers.image.url="https://convers.io.vn" \
+      org.opencontainers.image.source="https://github.com/convrz/convers" \
+      org.opencontainers.image.authors="Convērs Team" \
+
 ENV GO111MODULE=on \
     CGO_ENABLED=0 \
     GOOS=linux \
     GOARCH=amd64
+
+RUN apk add --no-cache git ca-certificates
 
 WORKDIR /home
 
