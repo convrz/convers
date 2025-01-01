@@ -33,10 +33,10 @@ var (
 	_ = anypb.Any{}
 )
 
-// Validate checks the field values on ServiceInfo with the rules defined in
-// the proto definition for this message. If any rules are violated, an error
-// is returned.
-func (m *ServiceInfo) Validate() error {
+// Validate checks the field values on RegisterServiceRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *RegisterServiceRequest) Validate() error {
 	if m == nil {
 		return nil
 	}
@@ -50,9 +50,9 @@ func (m *ServiceInfo) Validate() error {
 	return nil
 }
 
-// ServiceInfoValidationError is the validation error returned by
-// ServiceInfo.Validate if the designated constraints aren't met.
-type ServiceInfoValidationError struct {
+// RegisterServiceRequestValidationError is the validation error returned by
+// RegisterServiceRequest.Validate if the designated constraints aren't met.
+type RegisterServiceRequestValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -60,22 +60,24 @@ type ServiceInfoValidationError struct {
 }
 
 // Field function returns field value.
-func (e ServiceInfoValidationError) Field() string { return e.field }
+func (e RegisterServiceRequestValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e ServiceInfoValidationError) Reason() string { return e.reason }
+func (e RegisterServiceRequestValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e ServiceInfoValidationError) Cause() error { return e.cause }
+func (e RegisterServiceRequestValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e ServiceInfoValidationError) Key() bool { return e.key }
+func (e RegisterServiceRequestValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e ServiceInfoValidationError) ErrorName() string { return "ServiceInfoValidationError" }
+func (e RegisterServiceRequestValidationError) ErrorName() string {
+	return "RegisterServiceRequestValidationError"
+}
 
 // Error satisfies the builtin error interface
-func (e ServiceInfoValidationError) Error() string {
+func (e RegisterServiceRequestValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -87,14 +89,14 @@ func (e ServiceInfoValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sServiceInfo.%s: %s%s",
+		"invalid %sRegisterServiceRequest.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = ServiceInfoValidationError{}
+var _ error = RegisterServiceRequestValidationError{}
 
 var _ interface {
 	Field() string
@@ -102,12 +104,83 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = ServiceInfoValidationError{}
+} = RegisterServiceRequestValidationError{}
 
-// Validate checks the field values on ServiceRequest with the rules defined in
-// the proto definition for this message. If any rules are violated, an error
-// is returned.
-func (m *ServiceRequest) Validate() error {
+// Validate checks the field values on HeartbeatRequest with the rules defined
+// in the proto definition for this message. If any rules are violated, an
+// error is returned.
+func (m *HeartbeatRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for Name
+
+	// no validation rules for Address
+
+	// no validation rules for Port
+
+	return nil
+}
+
+// HeartbeatRequestValidationError is the validation error returned by
+// HeartbeatRequest.Validate if the designated constraints aren't met.
+type HeartbeatRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e HeartbeatRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e HeartbeatRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e HeartbeatRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e HeartbeatRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e HeartbeatRequestValidationError) ErrorName() string { return "HeartbeatRequestValidationError" }
+
+// Error satisfies the builtin error interface
+func (e HeartbeatRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sHeartbeatRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = HeartbeatRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = HeartbeatRequestValidationError{}
+
+// Validate checks the field values on DiscoverServiceRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *DiscoverServiceRequest) Validate() error {
 	if m == nil {
 		return nil
 	}
@@ -117,9 +190,9 @@ func (m *ServiceRequest) Validate() error {
 	return nil
 }
 
-// ServiceRequestValidationError is the validation error returned by
-// ServiceRequest.Validate if the designated constraints aren't met.
-type ServiceRequestValidationError struct {
+// DiscoverServiceRequestValidationError is the validation error returned by
+// DiscoverServiceRequest.Validate if the designated constraints aren't met.
+type DiscoverServiceRequestValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -127,22 +200,24 @@ type ServiceRequestValidationError struct {
 }
 
 // Field function returns field value.
-func (e ServiceRequestValidationError) Field() string { return e.field }
+func (e DiscoverServiceRequestValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e ServiceRequestValidationError) Reason() string { return e.reason }
+func (e DiscoverServiceRequestValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e ServiceRequestValidationError) Cause() error { return e.cause }
+func (e DiscoverServiceRequestValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e ServiceRequestValidationError) Key() bool { return e.key }
+func (e DiscoverServiceRequestValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e ServiceRequestValidationError) ErrorName() string { return "ServiceRequestValidationError" }
+func (e DiscoverServiceRequestValidationError) ErrorName() string {
+	return "DiscoverServiceRequestValidationError"
+}
 
 // Error satisfies the builtin error interface
-func (e ServiceRequestValidationError) Error() string {
+func (e DiscoverServiceRequestValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -154,14 +229,14 @@ func (e ServiceRequestValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sServiceRequest.%s: %s%s",
+		"invalid %sDiscoverServiceRequest.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = ServiceRequestValidationError{}
+var _ error = DiscoverServiceRequestValidationError{}
 
 var _ interface {
 	Field() string
@@ -169,12 +244,12 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = ServiceRequestValidationError{}
+} = DiscoverServiceRequestValidationError{}
 
-// Validate checks the field values on ServiceResponse with the rules defined
-// in the proto definition for this message. If any rules are violated, an
-// error is returned.
-func (m *ServiceResponse) Validate() error {
+// Validate checks the field values on DiscoverServiceResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *DiscoverServiceResponse) Validate() error {
 	if m == nil {
 		return nil
 	}
@@ -184,7 +259,7 @@ func (m *ServiceResponse) Validate() error {
 
 		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
 			if err := v.Validate(); err != nil {
-				return ServiceResponseValidationError{
+				return DiscoverServiceResponseValidationError{
 					field:  fmt.Sprintf("Services[%v]", idx),
 					reason: "embedded message failed validation",
 					cause:  err,
@@ -197,9 +272,9 @@ func (m *ServiceResponse) Validate() error {
 	return nil
 }
 
-// ServiceResponseValidationError is the validation error returned by
-// ServiceResponse.Validate if the designated constraints aren't met.
-type ServiceResponseValidationError struct {
+// DiscoverServiceResponseValidationError is the validation error returned by
+// DiscoverServiceResponse.Validate if the designated constraints aren't met.
+type DiscoverServiceResponseValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -207,22 +282,24 @@ type ServiceResponseValidationError struct {
 }
 
 // Field function returns field value.
-func (e ServiceResponseValidationError) Field() string { return e.field }
+func (e DiscoverServiceResponseValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e ServiceResponseValidationError) Reason() string { return e.reason }
+func (e DiscoverServiceResponseValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e ServiceResponseValidationError) Cause() error { return e.cause }
+func (e DiscoverServiceResponseValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e ServiceResponseValidationError) Key() bool { return e.key }
+func (e DiscoverServiceResponseValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e ServiceResponseValidationError) ErrorName() string { return "ServiceResponseValidationError" }
+func (e DiscoverServiceResponseValidationError) ErrorName() string {
+	return "DiscoverServiceResponseValidationError"
+}
 
 // Error satisfies the builtin error interface
-func (e ServiceResponseValidationError) Error() string {
+func (e DiscoverServiceResponseValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -234,14 +311,14 @@ func (e ServiceResponseValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sServiceResponse.%s: %s%s",
+		"invalid %sDiscoverServiceResponse.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = ServiceResponseValidationError{}
+var _ error = DiscoverServiceResponseValidationError{}
 
 var _ interface {
 	Field() string
@@ -249,12 +326,12 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = ServiceResponseValidationError{}
+} = DiscoverServiceResponseValidationError{}
 
-// Validate checks the field values on RegisterResponse with the rules defined
-// in the proto definition for this message. If any rules are violated, an
-// error is returned.
-func (m *RegisterResponse) Validate() error {
+// Validate checks the field values on RegisterServiceResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *RegisterServiceResponse) Validate() error {
 	if m == nil {
 		return nil
 	}
@@ -264,9 +341,9 @@ func (m *RegisterResponse) Validate() error {
 	return nil
 }
 
-// RegisterResponseValidationError is the validation error returned by
-// RegisterResponse.Validate if the designated constraints aren't met.
-type RegisterResponseValidationError struct {
+// RegisterServiceResponseValidationError is the validation error returned by
+// RegisterServiceResponse.Validate if the designated constraints aren't met.
+type RegisterServiceResponseValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -274,22 +351,24 @@ type RegisterResponseValidationError struct {
 }
 
 // Field function returns field value.
-func (e RegisterResponseValidationError) Field() string { return e.field }
+func (e RegisterServiceResponseValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e RegisterResponseValidationError) Reason() string { return e.reason }
+func (e RegisterServiceResponseValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e RegisterResponseValidationError) Cause() error { return e.cause }
+func (e RegisterServiceResponseValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e RegisterResponseValidationError) Key() bool { return e.key }
+func (e RegisterServiceResponseValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e RegisterResponseValidationError) ErrorName() string { return "RegisterResponseValidationError" }
+func (e RegisterServiceResponseValidationError) ErrorName() string {
+	return "RegisterServiceResponseValidationError"
+}
 
 // Error satisfies the builtin error interface
-func (e RegisterResponseValidationError) Error() string {
+func (e RegisterServiceResponseValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -301,14 +380,14 @@ func (e RegisterResponseValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sRegisterResponse.%s: %s%s",
+		"invalid %sRegisterServiceResponse.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = RegisterResponseValidationError{}
+var _ error = RegisterServiceResponseValidationError{}
 
 var _ interface {
 	Field() string
@@ -316,7 +395,7 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = RegisterResponseValidationError{}
+} = RegisterServiceResponseValidationError{}
 
 // Validate checks the field values on HeartbeatResponse with the rules defined
 // in the proto definition for this message. If any rules are violated, an

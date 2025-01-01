@@ -7,34 +7,40 @@ option go_package = "github.com/convrz/convers/api/core/srx/v1;srx";
 // Define the service registry
 service SrxService {
   // Register a new service
-  rpc RegisterService(ServiceInfo) returns (RegisterResponse);
+  rpc RegisterService(RegisterServiceRequest) returns (RegisterServiceResponse);
 
   // Discover a service by name
-  rpc DiscoverService(ServiceRequest) returns (ServiceResponse);
+  rpc DiscoverService(DiscoverServiceRequest) returns (DiscoverServiceResponse);
 
   // Health check to maintain service status
-  rpc Heartbeat(ServiceInfo) returns (HeartbeatResponse);
+  rpc Heartbeat(HeartbeatRequest) returns (HeartbeatResponse);
 }
 
 // Detailed service information
-message ServiceInfo {
+message RegisterServiceRequest {
+  string name = 1;       // Service name
+  string address = 2;    // IP address or hostname
+  int32 port = 3;        // Service port
+}
+
+message HeartbeatRequest {
   string name = 1;       // Service name
   string address = 2;    // IP address or hostname
   int32 port = 3;        // Service port
 }
 
 // Request to find a service
-message ServiceRequest {
+message DiscoverServiceRequest {
   string name = 1;  // Name of the service to discover
 }
 
 // Response from the discovery process
-message ServiceResponse {
-  repeated ServiceInfo services = 1;  // List of service instances
+message DiscoverServiceResponse {
+  repeated RegisterServiceRequest services = 1;  // List of service instances
 }
 
 // Service registration response
-message RegisterResponse {
+message RegisterServiceResponse {
   string message = 1;  // Result message
 }
 

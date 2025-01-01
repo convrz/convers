@@ -14,19 +14,4 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package metadata
-
-import (
-	"time"
-
-	"github.com/convrz/convers/api/types/v1"
-	"github.com/convrz/convers/pkg/pb"
-)
-
-const CodeName = "CVZ"
-
-func NewDefault() types.Metadata {
-	return types.Metadata{
-		CreatedAt: pb.ToTime(time.Now().UTC()),
-	}
-}
+package etcd

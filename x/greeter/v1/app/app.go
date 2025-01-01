@@ -18,18 +18,19 @@ package app
 
 import (
 	"fmt"
+	"log"
+	"net"
+
 	"github.com/convrz/convers/api/x/greeter/v1"
 	"github.com/convrz/convers/core/apps"
 	"github.com/convrz/convers/x/greeter/v1/internal/controllers"
-	"log"
-	"net"
 
 	"github.com/convrz/convers/core/services"
 )
 
 type Greeter struct {
 	*services.ServiceRegistrar
-	srv greeter.GreeterServer
+	srv greeter.GreeterServiceServer
 }
 
 // New creates a new Greeter module.
@@ -48,7 +49,7 @@ func (g *Greeter) Run() error {
 	}
 
 	// Start gRPC srv here
-	greeter.RegisterGreeterServer(g.ServiceRegistrar, g.srv)
+	greeter.RegisterGreeterServiceServer(g.ServiceRegistrar, g.srv)
 	log.Printf("gRPC srv listening on %s \n", listener.Addr().String())
 	return g.Serve(listener)
 }

@@ -18,6 +18,7 @@ package controllers
 
 import (
 	"context"
+
 	greeterBiz "github.com/convrz/convers/api/biz/greeter/v1"
 	"github.com/convrz/convers/api/x/greeter/v1"
 	"github.com/convrz/convers/pkg/copier"
@@ -26,14 +27,14 @@ import (
 )
 
 type IGreeter interface {
-	greeter.GreeterServer
+	greeter.GreeterServiceServer
 }
 
 // Greeter is the module for Greeter.
 type Greeter struct {
-	greeter.UnimplementedGreeterServer
+	greeter.UnimplementedGreeterServiceServer
 	repos repos.IDB
-	biz   greeterBiz.GreeterServer
+	biz   greeterBiz.GreeterServiceServer
 }
 
 // New creates a new Greeter module.
@@ -44,8 +45,8 @@ func New(biz biz.IGreeter) IGreeter {
 }
 
 // SayHello implements GreeterServer.
-func (g *Greeter) SayHello(ctx context.Context, msg *greeter.HelloRequest) (*greeter.HelloReply, error) {
-	var SayHelloReq greeterBiz.HelloRequest
+func (g *Greeter) SayHello(ctx context.Context, msg *greeter.SayHelloRequest) (*greeter.SayHelloResponse, error) {
+	var SayHelloReq greeterBiz.SayHelloRequest
 	if err := copier.CopyMsg(msg, &SayHelloReq); err != nil {
 		return nil, err
 	}
@@ -55,7 +56,7 @@ func (g *Greeter) SayHello(ctx context.Context, msg *greeter.HelloRequest) (*gre
 		return nil, err
 	}
 
-	var resp greeter.HelloReply
+	var resp greeter.SayHelloResponse
 	if err := copier.CopyMsg(sayHelloResp, &resp); err != nil {
 		return nil, err
 	}

@@ -32,11 +32,11 @@ var _ = utilities.NewDoubleArray
 var _ = metadata.Join
 
 var (
-	filter_Greeter_SayHello_0 = &utilities.DoubleArray{Encoding: map[string]int{"name": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
+	filter_GreeterService_SayHello_0 = &utilities.DoubleArray{Encoding: map[string]int{"name": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
 )
 
-func request_Greeter_SayHello_0(ctx context.Context, marshaler runtime.Marshaler, client GreeterClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq HelloRequest
+func request_GreeterService_SayHello_0(ctx context.Context, marshaler runtime.Marshaler, client GreeterServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq SayHelloRequest
 	var metadata runtime.ServerMetadata
 
 	var (
@@ -59,7 +59,7 @@ func request_Greeter_SayHello_0(ctx context.Context, marshaler runtime.Marshaler
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Greeter_SayHello_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_GreeterService_SayHello_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -68,8 +68,8 @@ func request_Greeter_SayHello_0(ctx context.Context, marshaler runtime.Marshaler
 
 }
 
-func local_request_Greeter_SayHello_0(ctx context.Context, marshaler runtime.Marshaler, server GreeterServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq HelloRequest
+func local_request_GreeterService_SayHello_0(ctx context.Context, marshaler runtime.Marshaler, server GreeterServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq SayHelloRequest
 	var metadata runtime.ServerMetadata
 
 	var (
@@ -92,7 +92,7 @@ func local_request_Greeter_SayHello_0(ctx context.Context, marshaler runtime.Mar
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Greeter_SayHello_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_GreeterService_SayHello_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -102,11 +102,11 @@ func local_request_Greeter_SayHello_0(ctx context.Context, marshaler runtime.Mar
 }
 
 var (
-	filter_Greeter_SayHello_1 = &utilities.DoubleArray{Encoding: map[string]int{"strVal": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
+	filter_GreeterService_SayHello_1 = &utilities.DoubleArray{Encoding: map[string]int{"str_val": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
 )
 
-func request_Greeter_SayHello_1(ctx context.Context, marshaler runtime.Marshaler, client GreeterClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq HelloRequest
+func request_GreeterService_SayHello_1(ctx context.Context, marshaler runtime.Marshaler, client GreeterServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq SayHelloRequest
 	var metadata runtime.ServerMetadata
 
 	var (
@@ -116,20 +116,20 @@ func request_Greeter_SayHello_1(ctx context.Context, marshaler runtime.Marshaler
 		_   = err
 	)
 
-	val, ok = pathParams["strVal"]
+	val, ok = pathParams["str_val"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "strVal")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "str_val")
 	}
 
 	protoReq.StrVal, err = runtime.StringValue(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "strVal", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "str_val", err)
 	}
 
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Greeter_SayHello_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_GreeterService_SayHello_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -138,8 +138,8 @@ func request_Greeter_SayHello_1(ctx context.Context, marshaler runtime.Marshaler
 
 }
 
-func local_request_Greeter_SayHello_1(ctx context.Context, marshaler runtime.Marshaler, server GreeterServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq HelloRequest
+func local_request_GreeterService_SayHello_1(ctx context.Context, marshaler runtime.Marshaler, server GreeterServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq SayHelloRequest
 	var metadata runtime.ServerMetadata
 
 	var (
@@ -149,20 +149,20 @@ func local_request_Greeter_SayHello_1(ctx context.Context, marshaler runtime.Mar
 		_   = err
 	)
 
-	val, ok = pathParams["strVal"]
+	val, ok = pathParams["str_val"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "strVal")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "str_val")
 	}
 
 	protoReq.StrVal, err = runtime.StringValue(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "strVal", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "str_val", err)
 	}
 
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Greeter_SayHello_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_GreeterService_SayHello_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -172,11 +172,11 @@ func local_request_Greeter_SayHello_1(ctx context.Context, marshaler runtime.Mar
 }
 
 var (
-	filter_Greeter_SayHello_2 = &utilities.DoubleArray{Encoding: map[string]int{"floatVal": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
+	filter_GreeterService_SayHello_2 = &utilities.DoubleArray{Encoding: map[string]int{"float_val": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
 )
 
-func request_Greeter_SayHello_2(ctx context.Context, marshaler runtime.Marshaler, client GreeterClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq HelloRequest
+func request_GreeterService_SayHello_2(ctx context.Context, marshaler runtime.Marshaler, client GreeterServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq SayHelloRequest
 	var metadata runtime.ServerMetadata
 
 	var (
@@ -186,20 +186,20 @@ func request_Greeter_SayHello_2(ctx context.Context, marshaler runtime.Marshaler
 		_   = err
 	)
 
-	val, ok = pathParams["floatVal"]
+	val, ok = pathParams["float_val"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "floatVal")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "float_val")
 	}
 
 	protoReq.FloatVal, err = runtime.FloatValue(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "floatVal", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "float_val", err)
 	}
 
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Greeter_SayHello_2); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_GreeterService_SayHello_2); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -208,8 +208,8 @@ func request_Greeter_SayHello_2(ctx context.Context, marshaler runtime.Marshaler
 
 }
 
-func local_request_Greeter_SayHello_2(ctx context.Context, marshaler runtime.Marshaler, server GreeterServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq HelloRequest
+func local_request_GreeterService_SayHello_2(ctx context.Context, marshaler runtime.Marshaler, server GreeterServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq SayHelloRequest
 	var metadata runtime.ServerMetadata
 
 	var (
@@ -219,20 +219,20 @@ func local_request_Greeter_SayHello_2(ctx context.Context, marshaler runtime.Mar
 		_   = err
 	)
 
-	val, ok = pathParams["floatVal"]
+	val, ok = pathParams["float_val"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "floatVal")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "float_val")
 	}
 
 	protoReq.FloatVal, err = runtime.FloatValue(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "floatVal", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "float_val", err)
 	}
 
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Greeter_SayHello_2); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_GreeterService_SayHello_2); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -242,11 +242,11 @@ func local_request_Greeter_SayHello_2(ctx context.Context, marshaler runtime.Mar
 }
 
 var (
-	filter_Greeter_SayHello_3 = &utilities.DoubleArray{Encoding: map[string]int{"doubleVal": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
+	filter_GreeterService_SayHello_3 = &utilities.DoubleArray{Encoding: map[string]int{"double_val": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
 )
 
-func request_Greeter_SayHello_3(ctx context.Context, marshaler runtime.Marshaler, client GreeterClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq HelloRequest
+func request_GreeterService_SayHello_3(ctx context.Context, marshaler runtime.Marshaler, client GreeterServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq SayHelloRequest
 	var metadata runtime.ServerMetadata
 
 	var (
@@ -256,20 +256,20 @@ func request_Greeter_SayHello_3(ctx context.Context, marshaler runtime.Marshaler
 		_   = err
 	)
 
-	val, ok = pathParams["doubleVal"]
+	val, ok = pathParams["double_val"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "doubleVal")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "double_val")
 	}
 
 	protoReq.DoubleVal, err = runtime.DoubleValue(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "doubleVal", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "double_val", err)
 	}
 
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Greeter_SayHello_3); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_GreeterService_SayHello_3); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -278,8 +278,8 @@ func request_Greeter_SayHello_3(ctx context.Context, marshaler runtime.Marshaler
 
 }
 
-func local_request_Greeter_SayHello_3(ctx context.Context, marshaler runtime.Marshaler, server GreeterServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq HelloRequest
+func local_request_GreeterService_SayHello_3(ctx context.Context, marshaler runtime.Marshaler, server GreeterServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq SayHelloRequest
 	var metadata runtime.ServerMetadata
 
 	var (
@@ -289,20 +289,20 @@ func local_request_Greeter_SayHello_3(ctx context.Context, marshaler runtime.Mar
 		_   = err
 	)
 
-	val, ok = pathParams["doubleVal"]
+	val, ok = pathParams["double_val"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "doubleVal")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "double_val")
 	}
 
 	protoReq.DoubleVal, err = runtime.DoubleValue(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "doubleVal", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "double_val", err)
 	}
 
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Greeter_SayHello_3); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_GreeterService_SayHello_3); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -312,11 +312,11 @@ func local_request_Greeter_SayHello_3(ctx context.Context, marshaler runtime.Mar
 }
 
 var (
-	filter_Greeter_SayHello_4 = &utilities.DoubleArray{Encoding: map[string]int{"boolVal": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
+	filter_GreeterService_SayHello_4 = &utilities.DoubleArray{Encoding: map[string]int{"bool_val": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
 )
 
-func request_Greeter_SayHello_4(ctx context.Context, marshaler runtime.Marshaler, client GreeterClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq HelloRequest
+func request_GreeterService_SayHello_4(ctx context.Context, marshaler runtime.Marshaler, client GreeterServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq SayHelloRequest
 	var metadata runtime.ServerMetadata
 
 	var (
@@ -326,20 +326,20 @@ func request_Greeter_SayHello_4(ctx context.Context, marshaler runtime.Marshaler
 		_   = err
 	)
 
-	val, ok = pathParams["boolVal"]
+	val, ok = pathParams["bool_val"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "boolVal")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "bool_val")
 	}
 
 	protoReq.BoolVal, err = runtime.BoolValue(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "boolVal", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "bool_val", err)
 	}
 
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Greeter_SayHello_4); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_GreeterService_SayHello_4); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -348,8 +348,8 @@ func request_Greeter_SayHello_4(ctx context.Context, marshaler runtime.Marshaler
 
 }
 
-func local_request_Greeter_SayHello_4(ctx context.Context, marshaler runtime.Marshaler, server GreeterServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq HelloRequest
+func local_request_GreeterService_SayHello_4(ctx context.Context, marshaler runtime.Marshaler, server GreeterServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq SayHelloRequest
 	var metadata runtime.ServerMetadata
 
 	var (
@@ -359,20 +359,20 @@ func local_request_Greeter_SayHello_4(ctx context.Context, marshaler runtime.Mar
 		_   = err
 	)
 
-	val, ok = pathParams["boolVal"]
+	val, ok = pathParams["bool_val"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "boolVal")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "bool_val")
 	}
 
 	protoReq.BoolVal, err = runtime.BoolValue(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "boolVal", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "bool_val", err)
 	}
 
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Greeter_SayHello_4); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_GreeterService_SayHello_4); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -382,11 +382,11 @@ func local_request_Greeter_SayHello_4(ctx context.Context, marshaler runtime.Mar
 }
 
 var (
-	filter_Greeter_SayHello_5 = &utilities.DoubleArray{Encoding: map[string]int{"bytesVal": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
+	filter_GreeterService_SayHello_5 = &utilities.DoubleArray{Encoding: map[string]int{"bytes_val": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
 )
 
-func request_Greeter_SayHello_5(ctx context.Context, marshaler runtime.Marshaler, client GreeterClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq HelloRequest
+func request_GreeterService_SayHello_5(ctx context.Context, marshaler runtime.Marshaler, client GreeterServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq SayHelloRequest
 	var metadata runtime.ServerMetadata
 
 	var (
@@ -396,20 +396,20 @@ func request_Greeter_SayHello_5(ctx context.Context, marshaler runtime.Marshaler
 		_   = err
 	)
 
-	val, ok = pathParams["bytesVal"]
+	val, ok = pathParams["bytes_val"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "bytesVal")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "bytes_val")
 	}
 
 	protoReq.BytesVal, err = runtime.BytesValue(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "bytesVal", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "bytes_val", err)
 	}
 
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Greeter_SayHello_5); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_GreeterService_SayHello_5); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -418,8 +418,8 @@ func request_Greeter_SayHello_5(ctx context.Context, marshaler runtime.Marshaler
 
 }
 
-func local_request_Greeter_SayHello_5(ctx context.Context, marshaler runtime.Marshaler, server GreeterServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq HelloRequest
+func local_request_GreeterService_SayHello_5(ctx context.Context, marshaler runtime.Marshaler, server GreeterServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq SayHelloRequest
 	var metadata runtime.ServerMetadata
 
 	var (
@@ -429,20 +429,20 @@ func local_request_Greeter_SayHello_5(ctx context.Context, marshaler runtime.Mar
 		_   = err
 	)
 
-	val, ok = pathParams["bytesVal"]
+	val, ok = pathParams["bytes_val"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "bytesVal")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "bytes_val")
 	}
 
 	protoReq.BytesVal, err = runtime.BytesValue(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "bytesVal", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "bytes_val", err)
 	}
 
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Greeter_SayHello_5); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_GreeterService_SayHello_5); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -452,11 +452,11 @@ func local_request_Greeter_SayHello_5(ctx context.Context, marshaler runtime.Mar
 }
 
 var (
-	filter_Greeter_SayHello_6 = &utilities.DoubleArray{Encoding: map[string]int{"int32Val": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
+	filter_GreeterService_SayHello_6 = &utilities.DoubleArray{Encoding: map[string]int{"int32_val": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
 )
 
-func request_Greeter_SayHello_6(ctx context.Context, marshaler runtime.Marshaler, client GreeterClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq HelloRequest
+func request_GreeterService_SayHello_6(ctx context.Context, marshaler runtime.Marshaler, client GreeterServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq SayHelloRequest
 	var metadata runtime.ServerMetadata
 
 	var (
@@ -466,20 +466,20 @@ func request_Greeter_SayHello_6(ctx context.Context, marshaler runtime.Marshaler
 		_   = err
 	)
 
-	val, ok = pathParams["int32Val"]
+	val, ok = pathParams["int32_val"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "int32Val")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "int32_val")
 	}
 
 	protoReq.Int32Val, err = runtime.Int32Value(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "int32Val", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "int32_val", err)
 	}
 
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Greeter_SayHello_6); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_GreeterService_SayHello_6); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -488,8 +488,8 @@ func request_Greeter_SayHello_6(ctx context.Context, marshaler runtime.Marshaler
 
 }
 
-func local_request_Greeter_SayHello_6(ctx context.Context, marshaler runtime.Marshaler, server GreeterServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq HelloRequest
+func local_request_GreeterService_SayHello_6(ctx context.Context, marshaler runtime.Marshaler, server GreeterServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq SayHelloRequest
 	var metadata runtime.ServerMetadata
 
 	var (
@@ -499,20 +499,20 @@ func local_request_Greeter_SayHello_6(ctx context.Context, marshaler runtime.Mar
 		_   = err
 	)
 
-	val, ok = pathParams["int32Val"]
+	val, ok = pathParams["int32_val"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "int32Val")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "int32_val")
 	}
 
 	protoReq.Int32Val, err = runtime.Int32Value(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "int32Val", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "int32_val", err)
 	}
 
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Greeter_SayHello_6); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_GreeterService_SayHello_6); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -522,11 +522,11 @@ func local_request_Greeter_SayHello_6(ctx context.Context, marshaler runtime.Mar
 }
 
 var (
-	filter_Greeter_SayHello_7 = &utilities.DoubleArray{Encoding: map[string]int{"uint32Val": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
+	filter_GreeterService_SayHello_7 = &utilities.DoubleArray{Encoding: map[string]int{"uint32_val": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
 )
 
-func request_Greeter_SayHello_7(ctx context.Context, marshaler runtime.Marshaler, client GreeterClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq HelloRequest
+func request_GreeterService_SayHello_7(ctx context.Context, marshaler runtime.Marshaler, client GreeterServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq SayHelloRequest
 	var metadata runtime.ServerMetadata
 
 	var (
@@ -536,20 +536,20 @@ func request_Greeter_SayHello_7(ctx context.Context, marshaler runtime.Marshaler
 		_   = err
 	)
 
-	val, ok = pathParams["uint32Val"]
+	val, ok = pathParams["uint32_val"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "uint32Val")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "uint32_val")
 	}
 
 	protoReq.Uint32Val, err = runtime.UInt32Value(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "uint32Val", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "uint32_val", err)
 	}
 
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Greeter_SayHello_7); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_GreeterService_SayHello_7); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -558,8 +558,8 @@ func request_Greeter_SayHello_7(ctx context.Context, marshaler runtime.Marshaler
 
 }
 
-func local_request_Greeter_SayHello_7(ctx context.Context, marshaler runtime.Marshaler, server GreeterServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq HelloRequest
+func local_request_GreeterService_SayHello_7(ctx context.Context, marshaler runtime.Marshaler, server GreeterServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq SayHelloRequest
 	var metadata runtime.ServerMetadata
 
 	var (
@@ -569,20 +569,20 @@ func local_request_Greeter_SayHello_7(ctx context.Context, marshaler runtime.Mar
 		_   = err
 	)
 
-	val, ok = pathParams["uint32Val"]
+	val, ok = pathParams["uint32_val"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "uint32Val")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "uint32_val")
 	}
 
 	protoReq.Uint32Val, err = runtime.UInt32Value(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "uint32Val", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "uint32_val", err)
 	}
 
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Greeter_SayHello_7); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_GreeterService_SayHello_7); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -592,11 +592,11 @@ func local_request_Greeter_SayHello_7(ctx context.Context, marshaler runtime.Mar
 }
 
 var (
-	filter_Greeter_SayHello_8 = &utilities.DoubleArray{Encoding: map[string]int{"int64Val": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
+	filter_GreeterService_SayHello_8 = &utilities.DoubleArray{Encoding: map[string]int{"int64_val": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
 )
 
-func request_Greeter_SayHello_8(ctx context.Context, marshaler runtime.Marshaler, client GreeterClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq HelloRequest
+func request_GreeterService_SayHello_8(ctx context.Context, marshaler runtime.Marshaler, client GreeterServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq SayHelloRequest
 	var metadata runtime.ServerMetadata
 
 	var (
@@ -606,20 +606,20 @@ func request_Greeter_SayHello_8(ctx context.Context, marshaler runtime.Marshaler
 		_   = err
 	)
 
-	val, ok = pathParams["int64Val"]
+	val, ok = pathParams["int64_val"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "int64Val")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "int64_val")
 	}
 
 	protoReq.Int64Val, err = runtime.Int64Value(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "int64Val", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "int64_val", err)
 	}
 
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Greeter_SayHello_8); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_GreeterService_SayHello_8); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -628,8 +628,8 @@ func request_Greeter_SayHello_8(ctx context.Context, marshaler runtime.Marshaler
 
 }
 
-func local_request_Greeter_SayHello_8(ctx context.Context, marshaler runtime.Marshaler, server GreeterServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq HelloRequest
+func local_request_GreeterService_SayHello_8(ctx context.Context, marshaler runtime.Marshaler, server GreeterServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq SayHelloRequest
 	var metadata runtime.ServerMetadata
 
 	var (
@@ -639,20 +639,20 @@ func local_request_Greeter_SayHello_8(ctx context.Context, marshaler runtime.Mar
 		_   = err
 	)
 
-	val, ok = pathParams["int64Val"]
+	val, ok = pathParams["int64_val"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "int64Val")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "int64_val")
 	}
 
 	protoReq.Int64Val, err = runtime.Int64Value(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "int64Val", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "int64_val", err)
 	}
 
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Greeter_SayHello_8); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_GreeterService_SayHello_8); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -662,11 +662,11 @@ func local_request_Greeter_SayHello_8(ctx context.Context, marshaler runtime.Mar
 }
 
 var (
-	filter_Greeter_SayHello_9 = &utilities.DoubleArray{Encoding: map[string]int{"uint64Val": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
+	filter_GreeterService_SayHello_9 = &utilities.DoubleArray{Encoding: map[string]int{"uint64_val": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
 )
 
-func request_Greeter_SayHello_9(ctx context.Context, marshaler runtime.Marshaler, client GreeterClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq HelloRequest
+func request_GreeterService_SayHello_9(ctx context.Context, marshaler runtime.Marshaler, client GreeterServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq SayHelloRequest
 	var metadata runtime.ServerMetadata
 
 	var (
@@ -676,20 +676,20 @@ func request_Greeter_SayHello_9(ctx context.Context, marshaler runtime.Marshaler
 		_   = err
 	)
 
-	val, ok = pathParams["uint64Val"]
+	val, ok = pathParams["uint64_val"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "uint64Val")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "uint64_val")
 	}
 
 	protoReq.Uint64Val, err = runtime.UInt64Value(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "uint64Val", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "uint64_val", err)
 	}
 
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Greeter_SayHello_9); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_GreeterService_SayHello_9); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -698,8 +698,8 @@ func request_Greeter_SayHello_9(ctx context.Context, marshaler runtime.Marshaler
 
 }
 
-func local_request_Greeter_SayHello_9(ctx context.Context, marshaler runtime.Marshaler, server GreeterServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq HelloRequest
+func local_request_GreeterService_SayHello_9(ctx context.Context, marshaler runtime.Marshaler, server GreeterServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq SayHelloRequest
 	var metadata runtime.ServerMetadata
 
 	var (
@@ -709,20 +709,20 @@ func local_request_Greeter_SayHello_9(ctx context.Context, marshaler runtime.Mar
 		_   = err
 	)
 
-	val, ok = pathParams["uint64Val"]
+	val, ok = pathParams["uint64_val"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "uint64Val")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "uint64_val")
 	}
 
 	protoReq.Uint64Val, err = runtime.UInt64Value(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "uint64Val", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "uint64_val", err)
 	}
 
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Greeter_SayHello_9); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_GreeterService_SayHello_9); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -731,14 +731,14 @@ func local_request_Greeter_SayHello_9(ctx context.Context, marshaler runtime.Mar
 
 }
 
-// RegisterGreeterHandlerServer registers the http handlers for service Greeter to "mux".
-// UnaryRPC     :call GreeterServer directly.
+// RegisterGreeterServiceHandlerServer registers the http handlers for service GreeterService to "mux".
+// UnaryRPC     :call GreeterServiceServer directly.
 // StreamingRPC :currently unsupported pending https://github.com/grpc/grpc-go/issues/906.
-// Note that using this registration option will cause many gRPC library features to stop working. Consider using RegisterGreeterHandlerFromEndpoint instead.
+// Note that using this registration option will cause many gRPC library features to stop working. Consider using RegisterGreeterServiceHandlerFromEndpoint instead.
 // GRPC interceptors will not work for this type of registration. To use interceptors, you must use the "runtime.WithMiddlewares" option in the "runtime.NewServeMux" call.
-func RegisterGreeterHandlerServer(ctx context.Context, mux *runtime.ServeMux, server GreeterServer) error {
+func RegisterGreeterServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux, server GreeterServiceServer) error {
 
-	mux.Handle("GET", pattern_Greeter_SayHello_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_GreeterService_SayHello_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
@@ -746,12 +746,12 @@ func RegisterGreeterHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.greeter.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/{name}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.greeter.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/{name}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Greeter_SayHello_0(annotatedContext, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_GreeterService_SayHello_0(annotatedContext, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
@@ -759,11 +759,11 @@ func RegisterGreeterHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 			return
 		}
 
-		forward_Greeter_SayHello_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_GreeterService_SayHello_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Greeter_SayHello_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_GreeterService_SayHello_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
@@ -771,12 +771,12 @@ func RegisterGreeterHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.greeter.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/strval/{strVal}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.greeter.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/strval/{str_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Greeter_SayHello_1(annotatedContext, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_GreeterService_SayHello_1(annotatedContext, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
@@ -784,11 +784,11 @@ func RegisterGreeterHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 			return
 		}
 
-		forward_Greeter_SayHello_1(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_GreeterService_SayHello_1(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Greeter_SayHello_2, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_GreeterService_SayHello_2, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
@@ -796,12 +796,12 @@ func RegisterGreeterHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.greeter.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/floatval/{floatVal}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.greeter.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/floatval/{float_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Greeter_SayHello_2(annotatedContext, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_GreeterService_SayHello_2(annotatedContext, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
@@ -809,11 +809,11 @@ func RegisterGreeterHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 			return
 		}
 
-		forward_Greeter_SayHello_2(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_GreeterService_SayHello_2(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Greeter_SayHello_3, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_GreeterService_SayHello_3, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
@@ -821,12 +821,12 @@ func RegisterGreeterHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.greeter.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/doubleval/{doubleVal}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.greeter.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/doubleval/{double_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Greeter_SayHello_3(annotatedContext, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_GreeterService_SayHello_3(annotatedContext, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
@@ -834,11 +834,11 @@ func RegisterGreeterHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 			return
 		}
 
-		forward_Greeter_SayHello_3(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_GreeterService_SayHello_3(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Greeter_SayHello_4, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_GreeterService_SayHello_4, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
@@ -846,12 +846,12 @@ func RegisterGreeterHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.greeter.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/boolval/{boolVal}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.greeter.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/boolval/{bool_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Greeter_SayHello_4(annotatedContext, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_GreeterService_SayHello_4(annotatedContext, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
@@ -859,11 +859,11 @@ func RegisterGreeterHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 			return
 		}
 
-		forward_Greeter_SayHello_4(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_GreeterService_SayHello_4(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Greeter_SayHello_5, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_GreeterService_SayHello_5, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
@@ -871,12 +871,12 @@ func RegisterGreeterHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.greeter.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/bytesval/{bytesVal}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.greeter.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/bytesval/{bytes_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Greeter_SayHello_5(annotatedContext, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_GreeterService_SayHello_5(annotatedContext, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
@@ -884,11 +884,11 @@ func RegisterGreeterHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 			return
 		}
 
-		forward_Greeter_SayHello_5(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_GreeterService_SayHello_5(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Greeter_SayHello_6, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_GreeterService_SayHello_6, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
@@ -896,12 +896,12 @@ func RegisterGreeterHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.greeter.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/int32val/{int32Val}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.greeter.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/int32val/{int32_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Greeter_SayHello_6(annotatedContext, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_GreeterService_SayHello_6(annotatedContext, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
@@ -909,11 +909,11 @@ func RegisterGreeterHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 			return
 		}
 
-		forward_Greeter_SayHello_6(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_GreeterService_SayHello_6(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Greeter_SayHello_7, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_GreeterService_SayHello_7, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
@@ -921,12 +921,12 @@ func RegisterGreeterHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.greeter.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/uint32val/{uint32Val}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.greeter.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/uint32val/{uint32_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Greeter_SayHello_7(annotatedContext, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_GreeterService_SayHello_7(annotatedContext, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
@@ -934,11 +934,11 @@ func RegisterGreeterHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 			return
 		}
 
-		forward_Greeter_SayHello_7(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_GreeterService_SayHello_7(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Greeter_SayHello_8, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_GreeterService_SayHello_8, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
@@ -946,12 +946,12 @@ func RegisterGreeterHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.greeter.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/int64val/{int64Val}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.greeter.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/int64val/{int64_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Greeter_SayHello_8(annotatedContext, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_GreeterService_SayHello_8(annotatedContext, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
@@ -959,11 +959,11 @@ func RegisterGreeterHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 			return
 		}
 
-		forward_Greeter_SayHello_8(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_GreeterService_SayHello_8(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Greeter_SayHello_9, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_GreeterService_SayHello_9, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
@@ -971,12 +971,12 @@ func RegisterGreeterHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.greeter.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/uint64val/{uint64Val}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.greeter.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/uint64val/{uint64_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Greeter_SayHello_9(annotatedContext, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_GreeterService_SayHello_9(annotatedContext, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
@@ -984,16 +984,16 @@ func RegisterGreeterHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 			return
 		}
 
-		forward_Greeter_SayHello_9(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_GreeterService_SayHello_9(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
 	return nil
 }
 
-// RegisterGreeterHandlerFromEndpoint is same as RegisterGreeterHandler but
+// RegisterGreeterServiceHandlerFromEndpoint is same as RegisterGreeterServiceHandler but
 // automatically dials to "endpoint" and closes the connection when "ctx" gets done.
-func RegisterGreeterHandlerFromEndpoint(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) (err error) {
+func RegisterGreeterServiceHandlerFromEndpoint(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) (err error) {
 	conn, err := grpc.NewClient(endpoint, opts...)
 	if err != nil {
 		return err
@@ -1013,239 +1013,239 @@ func RegisterGreeterHandlerFromEndpoint(ctx context.Context, mux *runtime.ServeM
 		}()
 	}()
 
-	return RegisterGreeterHandler(ctx, mux, conn)
+	return RegisterGreeterServiceHandler(ctx, mux, conn)
 }
 
-// RegisterGreeterHandler registers the http handlers for service Greeter to "mux".
+// RegisterGreeterServiceHandler registers the http handlers for service GreeterService to "mux".
 // The handlers forward requests to the grpc endpoint over "conn".
-func RegisterGreeterHandler(ctx context.Context, mux *runtime.ServeMux, conn *grpc.ClientConn) error {
-	return RegisterGreeterHandlerClient(ctx, mux, NewGreeterClient(conn))
+func RegisterGreeterServiceHandler(ctx context.Context, mux *runtime.ServeMux, conn *grpc.ClientConn) error {
+	return RegisterGreeterServiceHandlerClient(ctx, mux, NewGreeterServiceClient(conn))
 }
 
-// RegisterGreeterHandlerClient registers the http handlers for service Greeter
-// to "mux". The handlers forward requests to the grpc endpoint over the given implementation of "GreeterClient".
-// Note: the gRPC framework executes interceptors within the gRPC handler. If the passed in "GreeterClient"
+// RegisterGreeterServiceHandlerClient registers the http handlers for service GreeterService
+// to "mux". The handlers forward requests to the grpc endpoint over the given implementation of "GreeterServiceClient".
+// Note: the gRPC framework executes interceptors within the gRPC handler. If the passed in "GreeterServiceClient"
 // doesn't go through the normal gRPC flow (creating a gRPC client etc.) then it will be up to the passed in
-// "GreeterClient" to call the correct interceptors. This client ignores the HTTP middlewares.
-func RegisterGreeterHandlerClient(ctx context.Context, mux *runtime.ServeMux, client GreeterClient) error {
+// "GreeterServiceClient" to call the correct interceptors. This client ignores the HTTP middlewares.
+func RegisterGreeterServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux, client GreeterServiceClient) error {
 
-	mux.Handle("GET", pattern_Greeter_SayHello_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_GreeterService_SayHello_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.greeter.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/{name}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.greeter.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/{name}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Greeter_SayHello_0(annotatedContext, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_GreeterService_SayHello_0(annotatedContext, inboundMarshaler, client, req, pathParams)
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Greeter_SayHello_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_GreeterService_SayHello_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Greeter_SayHello_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_GreeterService_SayHello_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.greeter.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/strval/{strVal}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.greeter.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/strval/{str_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Greeter_SayHello_1(annotatedContext, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_GreeterService_SayHello_1(annotatedContext, inboundMarshaler, client, req, pathParams)
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Greeter_SayHello_1(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_GreeterService_SayHello_1(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Greeter_SayHello_2, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_GreeterService_SayHello_2, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.greeter.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/floatval/{floatVal}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.greeter.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/floatval/{float_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Greeter_SayHello_2(annotatedContext, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_GreeterService_SayHello_2(annotatedContext, inboundMarshaler, client, req, pathParams)
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Greeter_SayHello_2(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_GreeterService_SayHello_2(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Greeter_SayHello_3, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_GreeterService_SayHello_3, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.greeter.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/doubleval/{doubleVal}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.greeter.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/doubleval/{double_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Greeter_SayHello_3(annotatedContext, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_GreeterService_SayHello_3(annotatedContext, inboundMarshaler, client, req, pathParams)
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Greeter_SayHello_3(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_GreeterService_SayHello_3(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Greeter_SayHello_4, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_GreeterService_SayHello_4, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.greeter.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/boolval/{boolVal}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.greeter.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/boolval/{bool_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Greeter_SayHello_4(annotatedContext, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_GreeterService_SayHello_4(annotatedContext, inboundMarshaler, client, req, pathParams)
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Greeter_SayHello_4(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_GreeterService_SayHello_4(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Greeter_SayHello_5, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_GreeterService_SayHello_5, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.greeter.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/bytesval/{bytesVal}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.greeter.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/bytesval/{bytes_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Greeter_SayHello_5(annotatedContext, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_GreeterService_SayHello_5(annotatedContext, inboundMarshaler, client, req, pathParams)
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Greeter_SayHello_5(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_GreeterService_SayHello_5(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Greeter_SayHello_6, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_GreeterService_SayHello_6, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.greeter.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/int32val/{int32Val}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.greeter.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/int32val/{int32_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Greeter_SayHello_6(annotatedContext, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_GreeterService_SayHello_6(annotatedContext, inboundMarshaler, client, req, pathParams)
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Greeter_SayHello_6(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_GreeterService_SayHello_6(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Greeter_SayHello_7, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_GreeterService_SayHello_7, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.greeter.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/uint32val/{uint32Val}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.greeter.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/uint32val/{uint32_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Greeter_SayHello_7(annotatedContext, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_GreeterService_SayHello_7(annotatedContext, inboundMarshaler, client, req, pathParams)
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Greeter_SayHello_7(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_GreeterService_SayHello_7(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Greeter_SayHello_8, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_GreeterService_SayHello_8, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.greeter.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/int64val/{int64Val}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.greeter.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/int64val/{int64_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Greeter_SayHello_8(annotatedContext, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_GreeterService_SayHello_8(annotatedContext, inboundMarshaler, client, req, pathParams)
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Greeter_SayHello_8(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_GreeterService_SayHello_8(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Greeter_SayHello_9, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_GreeterService_SayHello_9, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.greeter.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/uint64val/{uint64Val}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.greeter.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/uint64val/{uint64_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Greeter_SayHello_9(annotatedContext, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_GreeterService_SayHello_9(annotatedContext, inboundMarshaler, client, req, pathParams)
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Greeter_SayHello_9(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_GreeterService_SayHello_9(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
@@ -1253,45 +1253,45 @@ func RegisterGreeterHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 }
 
 var (
-	pattern_Greeter_SayHello_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"say", "name"}, ""))
+	pattern_GreeterService_SayHello_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"say", "name"}, ""))
 
-	pattern_Greeter_SayHello_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"say", "strval", "strVal"}, ""))
+	pattern_GreeterService_SayHello_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"say", "strval", "str_val"}, ""))
 
-	pattern_Greeter_SayHello_2 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"say", "floatval", "floatVal"}, ""))
+	pattern_GreeterService_SayHello_2 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"say", "floatval", "float_val"}, ""))
 
-	pattern_Greeter_SayHello_3 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"say", "doubleval", "doubleVal"}, ""))
+	pattern_GreeterService_SayHello_3 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"say", "doubleval", "double_val"}, ""))
 
-	pattern_Greeter_SayHello_4 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"say", "boolval", "boolVal"}, ""))
+	pattern_GreeterService_SayHello_4 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"say", "boolval", "bool_val"}, ""))
 
-	pattern_Greeter_SayHello_5 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"say", "bytesval", "bytesVal"}, ""))
+	pattern_GreeterService_SayHello_5 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"say", "bytesval", "bytes_val"}, ""))
 
-	pattern_Greeter_SayHello_6 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"say", "int32val", "int32Val"}, ""))
+	pattern_GreeterService_SayHello_6 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"say", "int32val", "int32_val"}, ""))
 
-	pattern_Greeter_SayHello_7 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"say", "uint32val", "uint32Val"}, ""))
+	pattern_GreeterService_SayHello_7 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"say", "uint32val", "uint32_val"}, ""))
 
-	pattern_Greeter_SayHello_8 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"say", "int64val", "int64Val"}, ""))
+	pattern_GreeterService_SayHello_8 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"say", "int64val", "int64_val"}, ""))
 
-	pattern_Greeter_SayHello_9 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"say", "uint64val", "uint64Val"}, ""))
+	pattern_GreeterService_SayHello_9 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"say", "uint64val", "uint64_val"}, ""))
 )
 
 var (
-	forward_Greeter_SayHello_0 = runtime.ForwardResponseMessage
+	forward_GreeterService_SayHello_0 = runtime.ForwardResponseMessage
 
-	forward_Greeter_SayHello_1 = runtime.ForwardResponseMessage
+	forward_GreeterService_SayHello_1 = runtime.ForwardResponseMessage
 
-	forward_Greeter_SayHello_2 = runtime.ForwardResponseMessage
+	forward_GreeterService_SayHello_2 = runtime.ForwardResponseMessage
 
-	forward_Greeter_SayHello_3 = runtime.ForwardResponseMessage
+	forward_GreeterService_SayHello_3 = runtime.ForwardResponseMessage
 
-	forward_Greeter_SayHello_4 = runtime.ForwardResponseMessage
+	forward_GreeterService_SayHello_4 = runtime.ForwardResponseMessage
 
-	forward_Greeter_SayHello_5 = runtime.ForwardResponseMessage
+	forward_GreeterService_SayHello_5 = runtime.ForwardResponseMessage
 
-	forward_Greeter_SayHello_6 = runtime.ForwardResponseMessage
+	forward_GreeterService_SayHello_6 = runtime.ForwardResponseMessage
 
-	forward_Greeter_SayHello_7 = runtime.ForwardResponseMessage
+	forward_GreeterService_SayHello_7 = runtime.ForwardResponseMessage
 
-	forward_Greeter_SayHello_8 = runtime.ForwardResponseMessage
+	forward_GreeterService_SayHello_8 = runtime.ForwardResponseMessage
 
-	forward_Greeter_SayHello_9 = runtime.ForwardResponseMessage
+	forward_GreeterService_SayHello_9 = runtime.ForwardResponseMessage
 )

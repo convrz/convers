@@ -6,7 +6,7 @@
   },
   "tags": [
     {
-      "name": "Greeter"
+      "name": "GreeterService"
     }
   ],
   "schemes": [
@@ -22,12 +22,12 @@
   "paths": {
     "/say/boolval/{boolVal}": {
       "get": {
-        "operationId": "Greeter_SayHello5",
+        "operationId": "GreeterService_SayHello5",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/v1HelloReply"
+              "$ref": "#/definitions/v1SayHelloResponse"
             }
           },
           "default": {
@@ -107,18 +107,18 @@
           }
         ],
         "tags": [
-          "Greeter"
+          "GreeterService"
         ]
       }
     },
     "/say/bytesval/{bytesVal}": {
       "get": {
-        "operationId": "Greeter_SayHello6",
+        "operationId": "GreeterService_SayHello6",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/v1HelloReply"
+              "$ref": "#/definitions/v1SayHelloResponse"
             }
           },
           "default": {
@@ -198,18 +198,18 @@
           }
         ],
         "tags": [
-          "Greeter"
+          "GreeterService"
         ]
       }
     },
     "/say/doubleval/{doubleVal}": {
       "get": {
-        "operationId": "Greeter_SayHello4",
+        "operationId": "GreeterService_SayHello4",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/v1HelloReply"
+              "$ref": "#/definitions/v1SayHelloResponse"
             }
           },
           "default": {
@@ -289,18 +289,18 @@
           }
         ],
         "tags": [
-          "Greeter"
+          "GreeterService"
         ]
       }
     },
     "/say/floatval/{floatVal}": {
       "get": {
-        "operationId": "Greeter_SayHello3",
+        "operationId": "GreeterService_SayHello3",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/v1HelloReply"
+              "$ref": "#/definitions/v1SayHelloResponse"
             }
           },
           "default": {
@@ -380,18 +380,18 @@
           }
         ],
         "tags": [
-          "Greeter"
+          "GreeterService"
         ]
       }
     },
     "/say/int32val/{int32Val}": {
       "get": {
-        "operationId": "Greeter_SayHello7",
+        "operationId": "GreeterService_SayHello7",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/v1HelloReply"
+              "$ref": "#/definitions/v1SayHelloResponse"
             }
           },
           "default": {
@@ -471,18 +471,18 @@
           }
         ],
         "tags": [
-          "Greeter"
+          "GreeterService"
         ]
       }
     },
     "/say/int64val/{int64Val}": {
       "get": {
-        "operationId": "Greeter_SayHello9",
+        "operationId": "GreeterService_SayHello9",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/v1HelloReply"
+              "$ref": "#/definitions/v1SayHelloResponse"
             }
           },
           "default": {
@@ -562,18 +562,18 @@
           }
         ],
         "tags": [
-          "Greeter"
+          "GreeterService"
         ]
       }
     },
     "/say/strval/{strVal}": {
       "get": {
-        "operationId": "Greeter_SayHello2",
+        "operationId": "GreeterService_SayHello2",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/v1HelloReply"
+              "$ref": "#/definitions/v1SayHelloResponse"
             }
           },
           "default": {
@@ -653,18 +653,18 @@
           }
         ],
         "tags": [
-          "Greeter"
+          "GreeterService"
         ]
       }
     },
     "/say/uint32val/{uint32Val}": {
       "get": {
-        "operationId": "Greeter_SayHello8",
+        "operationId": "GreeterService_SayHello8",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/v1HelloReply"
+              "$ref": "#/definitions/v1SayHelloResponse"
             }
           },
           "default": {
@@ -744,18 +744,18 @@
           }
         ],
         "tags": [
-          "Greeter"
+          "GreeterService"
         ]
       }
     },
     "/say/uint64val/{uint64Val}": {
       "get": {
-        "operationId": "Greeter_SayHello10",
+        "operationId": "GreeterService_SayHello10",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/v1HelloReply"
+              "$ref": "#/definitions/v1SayHelloResponse"
             }
           },
           "default": {
@@ -835,18 +835,18 @@
           }
         ],
         "tags": [
-          "Greeter"
+          "GreeterService"
         ]
       }
     },
     "/say/{name}": {
       "get": {
-        "operationId": "Greeter_SayHello",
+        "operationId": "GreeterService_SayHello",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/v1HelloReply"
+              "$ref": "#/definitions/v1SayHelloResponse"
             }
           },
           "default": {
@@ -926,7 +926,7 @@
           }
         ],
         "tags": [
-          "Greeter"
+          "GreeterService"
         ]
       }
     }
@@ -960,7 +960,7 @@
         }
       }
     },
-    "v1HelloReply": {
+    "v1SayHelloResponse": {
       "type": "object",
       "properties": {
         "message": {

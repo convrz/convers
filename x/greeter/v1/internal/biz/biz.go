@@ -18,13 +18,14 @@ package biz
 
 import (
 	"context"
+	"time"
+
 	"github.com/convrz/convers/api/biz/greeter/v1"
 	"github.com/convrz/convers/x/greeter/v1/internal/repos"
-	"time"
 )
 
 type IGreeter interface {
-	greeter.GreeterServer
+	greeter.GreeterServiceServer
 }
 
 // New creates a new Greeter module.
@@ -35,15 +36,15 @@ func New(db repos.IDB) IGreeter {
 }
 
 type Greeter struct {
-	greeter.UnimplementedGreeterServer
+	greeter.UnimplementedGreeterServiceServer
 	repos repos.IDB
 }
 
-func (g *Greeter) SayHello(ctx context.Context, msg *greeter.HelloRequest) (*greeter.HelloReply, error) {
+func (g *Greeter) SayHello(ctx context.Context, msg *greeter.SayHelloRequest) (*greeter.SayHelloResponse, error) {
 	name := msg.GetName()
 	t := time.Now().String()
 
-	return &greeter.HelloReply{
+	return &greeter.SayHelloResponse{
 		Message: "Reply " + name + " at " + t,
 	}, nil
 }

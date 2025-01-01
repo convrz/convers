@@ -43,16 +43,16 @@ type HelloRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Name      string                  `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	StrVal    *wrapperspb.StringValue `protobuf:"bytes,2,opt,name=strVal,proto3" json:"strVal,omitempty"`
-	FloatVal  *wrapperspb.FloatValue  `protobuf:"bytes,3,opt,name=floatVal,proto3" json:"floatVal,omitempty"`
-	DoubleVal *wrapperspb.DoubleValue `protobuf:"bytes,4,opt,name=doubleVal,proto3" json:"doubleVal,omitempty"`
-	BoolVal   *wrapperspb.BoolValue   `protobuf:"bytes,5,opt,name=boolVal,proto3" json:"boolVal,omitempty"`
-	BytesVal  *wrapperspb.BytesValue  `protobuf:"bytes,6,opt,name=bytesVal,proto3" json:"bytesVal,omitempty"`
-	Int32Val  *wrapperspb.Int32Value  `protobuf:"bytes,7,opt,name=int32Val,proto3" json:"int32Val,omitempty"`
-	Uint32Val *wrapperspb.UInt32Value `protobuf:"bytes,8,opt,name=uint32Val,proto3" json:"uint32Val,omitempty"`
-	Int64Val  *wrapperspb.Int64Value  `protobuf:"bytes,9,opt,name=int64Val,proto3" json:"int64Val,omitempty"`
-	Uint64Val *wrapperspb.UInt64Value `protobuf:"bytes,10,opt,name=uint64Val,proto3" json:"uint64Val,omitempty"`
+	Name      string                  `pb:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	StrVal    *wrapperspb.StringValue `pb:"bytes,2,opt,name=strVal,proto3" json:"strVal,omitempty"`
+	FloatVal  *wrapperspb.FloatValue  `pb:"bytes,3,opt,name=floatVal,proto3" json:"floatVal,omitempty"`
+	DoubleVal *wrapperspb.DoubleValue `pb:"bytes,4,opt,name=doubleVal,proto3" json:"doubleVal,omitempty"`
+	BoolVal   *wrapperspb.BoolValue   `pb:"bytes,5,opt,name=boolVal,proto3" json:"boolVal,omitempty"`
+	BytesVal  *wrapperspb.BytesValue  `pb:"bytes,6,opt,name=bytesVal,proto3" json:"bytesVal,omitempty"`
+	Int32Val  *wrapperspb.Int32Value  `pb:"bytes,7,opt,name=int32Val,proto3" json:"int32Val,omitempty"`
+	Uint32Val *wrapperspb.UInt32Value `pb:"bytes,8,opt,name=uint32Val,proto3" json:"uint32Val,omitempty"`
+	Int64Val  *wrapperspb.Int64Value  `pb:"bytes,9,opt,name=int64Val,proto3" json:"int64Val,omitempty"`
+	Uint64Val *wrapperspb.UInt64Value `pb:"bytes,10,opt,name=uint64Val,proto3" json:"uint64Val,omitempty"`
 }
 
 func (x *HelloRequest) Reset() {
@@ -160,7 +160,7 @@ type HelloReply struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Message string `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
+	Message string `pb:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
 }
 
 func (x *HelloReply) Reset() {
@@ -304,26 +304,26 @@ var file_template_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_template_proto_goTypes = []any{
 	(*HelloRequest)(nil),           // 0: convers.template.v1.HelloRequest
 	(*HelloReply)(nil),             // 1: convers.template.v1.HelloReply
-	(*wrapperspb.StringValue)(nil), // 2: google.protobuf.StringValue
-	(*wrapperspb.FloatValue)(nil),  // 3: google.protobuf.FloatValue
-	(*wrapperspb.DoubleValue)(nil), // 4: google.protobuf.DoubleValue
-	(*wrapperspb.BoolValue)(nil),   // 5: google.protobuf.BoolValue
-	(*wrapperspb.BytesValue)(nil),  // 6: google.protobuf.BytesValue
-	(*wrapperspb.Int32Value)(nil),  // 7: google.protobuf.Int32Value
-	(*wrapperspb.UInt32Value)(nil), // 8: google.protobuf.UInt32Value
-	(*wrapperspb.Int64Value)(nil),  // 9: google.protobuf.Int64Value
-	(*wrapperspb.UInt64Value)(nil), // 10: google.protobuf.UInt64Value
+	(*wrapperspb.StringValue)(nil), // 2: google.pb.StringValue
+	(*wrapperspb.FloatValue)(nil),  // 3: google.pb.FloatValue
+	(*wrapperspb.DoubleValue)(nil), // 4: google.pb.DoubleValue
+	(*wrapperspb.BoolValue)(nil),   // 5: google.pb.BoolValue
+	(*wrapperspb.BytesValue)(nil),  // 6: google.pb.BytesValue
+	(*wrapperspb.Int32Value)(nil),  // 7: google.pb.Int32Value
+	(*wrapperspb.UInt32Value)(nil), // 8: google.pb.UInt32Value
+	(*wrapperspb.Int64Value)(nil),  // 9: google.pb.Int64Value
+	(*wrapperspb.UInt64Value)(nil), // 10: google.pb.UInt64Value
 }
 var file_template_proto_depIdxs = []int32{
-	2,  // 0: convers.template.v1.HelloRequest.strVal:type_name -> google.protobuf.StringValue
-	3,  // 1: convers.template.v1.HelloRequest.floatVal:type_name -> google.protobuf.FloatValue
-	4,  // 2: convers.template.v1.HelloRequest.doubleVal:type_name -> google.protobuf.DoubleValue
-	5,  // 3: convers.template.v1.HelloRequest.boolVal:type_name -> google.protobuf.BoolValue
-	6,  // 4: convers.template.v1.HelloRequest.bytesVal:type_name -> google.protobuf.BytesValue
-	7,  // 5: convers.template.v1.HelloRequest.int32Val:type_name -> google.protobuf.Int32Value
-	8,  // 6: convers.template.v1.HelloRequest.uint32Val:type_name -> google.protobuf.UInt32Value
-	9,  // 7: convers.template.v1.HelloRequest.int64Val:type_name -> google.protobuf.Int64Value
-	10, // 8: convers.template.v1.HelloRequest.uint64Val:type_name -> google.protobuf.UInt64Value
+	2,  // 0: convers.template.v1.HelloRequest.strVal:type_name -> google.pb.StringValue
+	3,  // 1: convers.template.v1.HelloRequest.floatVal:type_name -> google.pb.FloatValue
+	4,  // 2: convers.template.v1.HelloRequest.doubleVal:type_name -> google.pb.DoubleValue
+	5,  // 3: convers.template.v1.HelloRequest.boolVal:type_name -> google.pb.BoolValue
+	6,  // 4: convers.template.v1.HelloRequest.bytesVal:type_name -> google.pb.BytesValue
+	7,  // 5: convers.template.v1.HelloRequest.int32Val:type_name -> google.pb.Int32Value
+	8,  // 6: convers.template.v1.HelloRequest.uint32Val:type_name -> google.pb.UInt32Value
+	9,  // 7: convers.template.v1.HelloRequest.int64Val:type_name -> google.pb.Int64Value
+	10, // 8: convers.template.v1.HelloRequest.uint64Val:type_name -> google.pb.UInt64Value
 	0,  // 9: convers.template.v1.Greeter.SayHello:input_type -> convers.template.v1.HelloRequest
 	1,  // 10: convers.template.v1.Greeter.SayHello:output_type -> convers.template.v1.HelloReply
 	10, // [10:11] is the sub-list for method output_type

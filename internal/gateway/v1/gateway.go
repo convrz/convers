@@ -18,12 +18,13 @@ package gateway
 
 import (
 	"context"
+	"log"
+
 	gw "github.com/convrz/convers/api/x/greeter/v1"
 	"github.com/convrz/convers/core/apps"
 	"github.com/convrz/convers/core/servers"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
-	"log"
 )
 
 func New() apps.App {
@@ -44,7 +45,7 @@ func (app *App) Run() error {
 	// Register gRPC server endpoint
 	// Note: Make sure the gRPC server is running properly and accessible
 	opts := []grpc.DialOption{grpc.WithTransportCredentials(insecure.NewCredentials())}
-	if err := app.server.Register(ctx, gw.RegisterGreeterHandlerFromEndpoint, ":8000", opts...); err != nil {
+	if err := app.server.Register(ctx, gw.RegisterGreeterServiceHandlerFromEndpoint, ":8000", opts...); err != nil {
 		return err
 	}
 

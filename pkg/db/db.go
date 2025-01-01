@@ -18,10 +18,9 @@ package db
 
 import "context"
 
-type IDatabase[T any] interface {
+type IRepository[T any] interface {
 	List(ctx context.Context) ([]T, error)
 	Get(ctx context.Context, id string) (T, error)
-	Latest(ctx context.Context) (T, error)
 	Update(ctx context.Context, args T) error
 	Create(ctx context.Context, args T) (string, error)
 	Delete(ctx context.Context, id string) error

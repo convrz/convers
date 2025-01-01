@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package protobuf
+package pb
 
 import (
 	"github.com/google/go-cmp/cmp"
@@ -24,12 +24,12 @@ import (
 	"google.golang.org/protobuf/proto"
 )
 
-// ToTime creates protobuf Timestamp from time.Time.
+// ToTime creates pb Timestamp from time.Time.
 func ToTime(from time.Time) *timestamppb.Timestamp {
 	return timestamppb.New(from)
 }
 
-// FromTime creates time.Time from protobuf Timestamp.
+// FromTime creates time.Time from pb Timestamp.
 func FromTime(from *timestamppb.Timestamp) time.Time {
 	return from.AsTime()
 }

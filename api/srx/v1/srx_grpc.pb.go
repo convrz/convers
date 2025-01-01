@@ -31,11 +31,11 @@ const (
 // Define the service registry
 type SrxServiceClient interface {
 	// Register a new service
-	RegisterService(ctx context.Context, in *ServiceInfo, opts ...grpc.CallOption) (*RegisterResponse, error)
+	RegisterService(ctx context.Context, in *RegisterServiceRequest, opts ...grpc.CallOption) (*RegisterServiceResponse, error)
 	// Discover a service by name
-	DiscoverService(ctx context.Context, in *ServiceRequest, opts ...grpc.CallOption) (*ServiceResponse, error)
+	DiscoverService(ctx context.Context, in *DiscoverServiceRequest, opts ...grpc.CallOption) (*DiscoverServiceResponse, error)
 	// Health check to maintain service status
-	Heartbeat(ctx context.Context, in *ServiceInfo, opts ...grpc.CallOption) (*HeartbeatResponse, error)
+	Heartbeat(ctx context.Context, in *HeartbeatRequest, opts ...grpc.CallOption) (*HeartbeatResponse, error)
 }
 
 type srxServiceClient struct {
@@ -46,9 +46,9 @@ func NewSrxServiceClient(cc grpc.ClientConnInterface) SrxServiceClient {
 	return &srxServiceClient{cc}
 }
 
-func (c *srxServiceClient) RegisterService(ctx context.Context, in *ServiceInfo, opts ...grpc.CallOption) (*RegisterResponse, error) {
+func (c *srxServiceClient) RegisterService(ctx context.Context, in *RegisterServiceRequest, opts ...grpc.CallOption) (*RegisterServiceResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RegisterResponse)
+	out := new(RegisterServiceResponse)
 	err := c.cc.Invoke(ctx, SrxService_RegisterService_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -56,9 +56,9 @@ func (c *srxServiceClient) RegisterService(ctx context.Context, in *ServiceInfo,
 	return out, nil
 }
 
-func (c *srxServiceClient) DiscoverService(ctx context.Context, in *ServiceRequest, opts ...grpc.CallOption) (*ServiceResponse, error) {
+func (c *srxServiceClient) DiscoverService(ctx context.Context, in *DiscoverServiceRequest, opts ...grpc.CallOption) (*DiscoverServiceResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ServiceResponse)
+	out := new(DiscoverServiceResponse)
 	err := c.cc.Invoke(ctx, SrxService_DiscoverService_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -66,7 +66,7 @@ func (c *srxServiceClient) DiscoverService(ctx context.Context, in *ServiceReque
 	return out, nil
 }
 
-func (c *srxServiceClient) Heartbeat(ctx context.Context, in *ServiceInfo, opts ...grpc.CallOption) (*HeartbeatResponse, error) {
+func (c *srxServiceClient) Heartbeat(ctx context.Context, in *HeartbeatRequest, opts ...grpc.CallOption) (*HeartbeatResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HeartbeatResponse)
 	err := c.cc.Invoke(ctx, SrxService_Heartbeat_FullMethodName, in, out, cOpts...)
@@ -83,11 +83,11 @@ func (c *srxServiceClient) Heartbeat(ctx context.Context, in *ServiceInfo, opts 
 // Define the service registry
 type SrxServiceServer interface {
 	// Register a new service
-	RegisterService(context.Context, *ServiceInfo) (*RegisterResponse, error)
+	RegisterService(context.Context, *RegisterServiceRequest) (*RegisterServiceResponse, error)
 	// Discover a service by name
-	DiscoverService(context.Context, *ServiceRequest) (*ServiceResponse, error)
+	DiscoverService(context.Context, *DiscoverServiceRequest) (*DiscoverServiceResponse, error)
 	// Health check to maintain service status
-	Heartbeat(context.Context, *ServiceInfo) (*HeartbeatResponse, error)
+	Heartbeat(context.Context, *HeartbeatRequest) (*HeartbeatResponse, error)
 	mustEmbedUnimplementedSrxServiceServer()
 }
 
@@ -98,13 +98,13 @@ type SrxServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedSrxServiceServer struct{}
 
-func (UnimplementedSrxServiceServer) RegisterService(context.Context, *ServiceInfo) (*RegisterResponse, error) {
+func (UnimplementedSrxServiceServer) RegisterService(context.Context, *RegisterServiceRequest) (*RegisterServiceResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RegisterService not implemented")
 }
-func (UnimplementedSrxServiceServer) DiscoverService(context.Context, *ServiceRequest) (*ServiceResponse, error) {
+func (UnimplementedSrxServiceServer) DiscoverService(context.Context, *DiscoverServiceRequest) (*DiscoverServiceResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DiscoverService not implemented")
 }
-func (UnimplementedSrxServiceServer) Heartbeat(context.Context, *ServiceInfo) (*HeartbeatResponse, error) {
+func (UnimplementedSrxServiceServer) Heartbeat(context.Context, *HeartbeatRequest) (*HeartbeatResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Heartbeat not implemented")
 }
 func (UnimplementedSrxServiceServer) mustEmbedUnimplementedSrxServiceServer() {}
@@ -129,7 +129,7 @@ func RegisterSrxServiceServer(s grpc.ServiceRegistrar, srv SrxServiceServer) {
 }
 
 func _SrxService_RegisterService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ServiceInfo)
+	in := new(RegisterServiceRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -141,13 +141,13 @@ func _SrxService_RegisterService_Handler(srv interface{}, ctx context.Context, d
 		FullMethod: SrxService_RegisterService_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SrxServiceServer).RegisterService(ctx, req.(*ServiceInfo))
+		return srv.(SrxServiceServer).RegisterService(ctx, req.(*RegisterServiceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _SrxService_DiscoverService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ServiceRequest)
+	in := new(DiscoverServiceRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -159,13 +159,13 @@ func _SrxService_DiscoverService_Handler(srv interface{}, ctx context.Context, d
 		FullMethod: SrxService_DiscoverService_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SrxServiceServer).DiscoverService(ctx, req.(*ServiceRequest))
+		return srv.(SrxServiceServer).DiscoverService(ctx, req.(*DiscoverServiceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _SrxService_Heartbeat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ServiceInfo)
+	in := new(HeartbeatRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -177,7 +177,7 @@ func _SrxService_Heartbeat_Handler(srv interface{}, ctx context.Context, dec fun
 		FullMethod: SrxService_Heartbeat_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SrxServiceServer).Heartbeat(ctx, req.(*ServiceInfo))
+		return srv.(SrxServiceServer).Heartbeat(ctx, req.(*HeartbeatRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
