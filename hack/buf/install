@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Copyright 2024 The Convērs Authors.
 
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,11 +14,4 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-test:
-	@echo "Running tests..."
-
-build.greeter:
-	docker buildx build -f ./x/greeter/v1/Dockerfile -t cvz.x.greeter.v1:latest .
-
-build.gateway:
-	docker buildx build -f ./cmd/gateway/v1/Dockerfile -t cvz.gateway.v1:latest .
+go install github.com/bufbuild/buf/cmd/buf@v1.48.0

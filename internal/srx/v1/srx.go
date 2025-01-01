@@ -14,4 +14,17 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package namespace
+package srx
+
+import "github.com/convrz/convers/core/apps"
+
+func New() apps.App {
+	return &App{}
+}
+
+type App struct{}
+
+func (a *App) Run() error {
+	//TODO implement me
+	panic("implement me")
+}

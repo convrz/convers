@@ -38,7 +38,7 @@ func New(ctxBase context.Context, msg *types.Context, deadline time.Time) (conte
 	return context.WithDeadline(ctx, deadline)
 }
 
-func ValueOf(ctx context.Context) (*types.Context, bool) {
+func Value(ctx context.Context) (*types.Context, bool) {
 	msgBin, ok := ctx.Value(contextKey).([]byte)
 	if !ok {
 		return nil, false

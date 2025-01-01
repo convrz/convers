@@ -3,13 +3,15 @@ version: v2
 modules:
   - path: types/v1
     ####################
+  - path: srx/v1
+    ####################
   - path: biz/greeter/v1
   - path: biz/shared/v1
     ####################
-  - path: media/v1
-  - path: greeter/v1
-  - path: react/v1
-  - path: shared/v1
+  - path: x/media/v1
+  - path: x/greeter/v1
+  - path: x/react/v1
+  - path: x/shared/v1
 deps:
   - buf.build/bufbuild/protovalidate
   - buf.build/googleapis/googleapis

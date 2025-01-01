@@ -17,15 +17,17 @@ FROM ghcr.io/convrz/convers/cvz.go:1.23.3-alpine AS builder
 # Move to working directory (/app).
 WORKDIR /src
 
-COPY . ./
+COPY go.mod go.sum ./
+COPY ./api ./
+
 RUN go mod download
 
-WORKDIR /src/x/greeter/v1
+COPY . .
 
 # Set necessary environment variables needed for our image and build the API server.
 ENV CGO_ENABLED=0 GOOS=linux GOARCH=amd64
 # Build the application
-RUN go build -ldflags="-s -w" -o /bin/main ./cmd
+RUN go build -ldflags="-s -w" -o /bin/main ./cmd/explorer/v1
 
 # Remove all source code files
 RUN rm -r *

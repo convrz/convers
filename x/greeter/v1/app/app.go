@@ -18,7 +18,7 @@ package app
 
 import (
 	"fmt"
-	"github.com/convrz/convers/api/greeter/v1"
+	"github.com/convrz/convers/api/x/greeter/v1"
 	"github.com/convrz/convers/core/apps"
 	"github.com/convrz/convers/x/greeter/v1/internal/controllers"
 	"log"

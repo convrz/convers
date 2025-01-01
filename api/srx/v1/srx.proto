@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package convers.srx.v1;
+
+option go_package = "github.com/convrz/convers/api/core/srx/v1;srx";
+
+// Define the service registry
+service SrxService {
+  // Register a new service
+  rpc RegisterService(ServiceInfo) returns (RegisterResponse);
+
+  // Discover a service by name
+  rpc DiscoverService(ServiceRequest) returns (ServiceResponse);
+
+  // Health check to maintain service status
+  rpc Heartbeat(ServiceInfo) returns (HeartbeatResponse);
+}
+
+// Detailed service information
+message ServiceInfo {
+  string name = 1;       // Service name
+  string address = 2;    // IP address or hostname
+  int32 port = 3;        // Service port
+}
+
+// Request to find a service
+message ServiceRequest {
+  string name = 1;  // Name of the service to discover
+}
+
+// Response from the discovery process
+message ServiceResponse {
+  repeated ServiceInfo services = 1;  // List of service instances
+}
+
+// Service registration response
+message RegisterResponse {
+  string message = 1;  // Result message
+}
+
+// Heartbeat response
+message HeartbeatResponse {
+  bool success = 1;  // Heartbeat status
+}

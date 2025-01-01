@@ -14,15 +14,28 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package main
+package srx
 
 import (
-	"github.com/convrz/convers/core/containers"
-	"github.com/convrz/convers/x/gateway/v1/app"
-	"log"
+	"context"
+	"github.com/convrz/convers/api/srx/v1"
 )
 
-func main() {
-	container := containers.Build(app.New)
-	log.Fatal(container.Start())
+type SRX struct {
+	srx.UnimplementedSrxServiceServer
+}
+
+func (srx *SRX) RegisterService(ctx context.Context, info *srx.ServiceInfo) (*srx.RegisterResponse, error) {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (srx *SRX) DiscoverService(ctx context.Context, request *srx.ServiceRequest) (*srx.ServiceResponse, error) {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (srx *SRX) Heartbeat(ctx context.Context, info *srx.ServiceInfo) (*srx.HeartbeatResponse, error) {
+	//TODO implement me
+	panic("implement me")
 }

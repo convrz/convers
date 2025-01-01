@@ -14,11 +14,11 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package app
+package gateway
 
 import (
 	"context"
-	gw "github.com/convrz/convers/api/greeter/v1" // Update
+	gw "github.com/convrz/convers/api/x/greeter/v1"
 	"github.com/convrz/convers/core/apps"
 	"github.com/convrz/convers/core/servers"
 	"google.golang.org/grpc"
