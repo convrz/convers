@@ -18,7 +18,7 @@ package main
 
 import (
 	"github.com/convrz/convers/core/containers"
-	"github.com/convrz/convers/internal/gateway/v1"
+	"github.com/convrz/convers/internal/apps/gateway/v1"
 	"log"
 )
 

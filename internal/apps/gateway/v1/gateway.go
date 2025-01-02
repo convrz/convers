@@ -22,19 +22,19 @@ import (
 
 	gw "github.com/convrz/convers/api/x/greeter/v1"
 	"github.com/convrz/convers/core/apps"
-	"github.com/convrz/convers/core/servers"
+	"github.com/convrz/convers/core/proxy"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )
 
 func New() apps.App {
 	return &App{
-		server: servers.New(":9000"),
+		proxy: proxy.New(":9000"),
 	}
 }
 
 type App struct {
-	server servers.IServer
+	proxy proxy.IServer
 }
 
 func (app *App) Run() error {
@@ -45,12 +45,12 @@ func (app *App) Run() error {
 	// Register gRPC server endpoint
 	// Note: Make sure the gRPC server is running properly and accessible
 	opts := []grpc.DialOption{grpc.WithTransportCredentials(insecure.NewCredentials())}
-	if err := app.server.Register(ctx, gw.RegisterGreeterServiceHandlerFromEndpoint, ":8000", opts...); err != nil {
+	if err := app.proxy.Register(ctx, gw.RegisterGreeterServiceHandlerFromEndpoint, ":8000", opts...); err != nil {
 		return err
 	}
 
 	log.Printf("HTTP server listening on %s \n", ":9000")
 
 	// Start HTTP server (and proxy calls to gRPC server endpoint)
-	return app.server.Start()
+	return app.proxy.Start()
 }
