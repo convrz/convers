@@ -20,3 +20,6 @@ build.greeter:
 
 build.gateway:
 	docker buildx build -f ./cmd/gateway/v1/Dockerfile -t cvz.gateway.v1:latest .
+
+build.srx:
+	docker buildx build -f ./cmd/srx/v1/Dockerfile -t cvz.srx.v1:latest .
