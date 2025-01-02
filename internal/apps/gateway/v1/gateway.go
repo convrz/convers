@@ -34,7 +34,7 @@ func New() apps.App {
 }
 
 type App struct {
-	proxy proxy.IServer
+	proxy proxy.IProxy
 }
 
 func (app *App) Run() error {

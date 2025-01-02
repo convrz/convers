@@ -23,8 +23,8 @@ import (
 	"net/http"
 )
 
-func New(addr string, opts ...runtime.ServeMuxOption) IServer {
-	return &Server{
+func New(addr string, opts ...runtime.ServeMuxOption) IProxy {
+	return &Proxy{
 		addr: addr,
 		mux:  runtime.NewServeMux(opts...),
 	}
@@ -32,20 +32,20 @@ func New(addr string, opts ...runtime.ServeMuxOption) IServer {
 
 type RegisterHandler func(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) error
 
-type IServer interface {
+type IProxy interface {
 	Register(ctx context.Context, handler RegisterHandler, serviceHost string, opts ...grpc.DialOption) error
 	Start() error
 }
 
-type Server struct {
+type Proxy struct {
 	mux  *runtime.ServeMux
 	addr string
 }
 
-func (s *Server) Start() error {
-	return http.ListenAndServe(s.addr, s.mux)
+func (proxy *Proxy) Start() error {
+	return http.ListenAndServe(proxy.addr, proxy.mux)
 }
 
-func (s *Server) Register(ctx context.Context, handler RegisterHandler, serviceHost string, opts ...grpc.DialOption) error {
-	return handler(ctx, s.mux, serviceHost, opts)
+func (proxy *Proxy) Register(ctx context.Context, handler RegisterHandler, serviceHost string, opts ...grpc.DialOption) error {
+	return handler(ctx, proxy.mux, serviceHost, opts)
 }
