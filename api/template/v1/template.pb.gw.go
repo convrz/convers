@@ -102,7 +102,7 @@ func local_request_Greeter_SayHello_0(ctx context.Context, marshaler runtime.Mar
 }
 
 var (
-	filter_Greeter_SayHello_1 = &utilities.DoubleArray{Encoding: map[string]int{"strVal": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
+	filter_Greeter_SayHello_1 = &utilities.DoubleArray{Encoding: map[string]int{"str_val": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
 )
 
 func request_Greeter_SayHello_1(ctx context.Context, marshaler runtime.Marshaler, client GreeterClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
@@ -116,14 +116,14 @@ func request_Greeter_SayHello_1(ctx context.Context, marshaler runtime.Marshaler
 		_   = err
 	)
 
-	val, ok = pathParams["strVal"]
+	val, ok = pathParams["str_val"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "strVal")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "str_val")
 	}
 
 	protoReq.StrVal, err = runtime.StringValue(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "strVal", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "str_val", err)
 	}
 
 	if err := req.ParseForm(); err != nil {
@@ -149,14 +149,14 @@ func local_request_Greeter_SayHello_1(ctx context.Context, marshaler runtime.Mar
 		_   = err
 	)
 
-	val, ok = pathParams["strVal"]
+	val, ok = pathParams["str_val"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "strVal")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "str_val")
 	}
 
 	protoReq.StrVal, err = runtime.StringValue(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "strVal", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "str_val", err)
 	}
 
 	if err := req.ParseForm(); err != nil {
@@ -172,7 +172,7 @@ func local_request_Greeter_SayHello_1(ctx context.Context, marshaler runtime.Mar
 }
 
 var (
-	filter_Greeter_SayHello_2 = &utilities.DoubleArray{Encoding: map[string]int{"floatVal": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
+	filter_Greeter_SayHello_2 = &utilities.DoubleArray{Encoding: map[string]int{"float_val": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
 )
 
 func request_Greeter_SayHello_2(ctx context.Context, marshaler runtime.Marshaler, client GreeterClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
@@ -186,14 +186,14 @@ func request_Greeter_SayHello_2(ctx context.Context, marshaler runtime.Marshaler
 		_   = err
 	)
 
-	val, ok = pathParams["floatVal"]
+	val, ok = pathParams["float_val"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "floatVal")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "float_val")
 	}
 
 	protoReq.FloatVal, err = runtime.FloatValue(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "floatVal", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "float_val", err)
 	}
 
 	if err := req.ParseForm(); err != nil {
@@ -219,14 +219,14 @@ func local_request_Greeter_SayHello_2(ctx context.Context, marshaler runtime.Mar
 		_   = err
 	)
 
-	val, ok = pathParams["floatVal"]
+	val, ok = pathParams["float_val"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "floatVal")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "float_val")
 	}
 
 	protoReq.FloatVal, err = runtime.FloatValue(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "floatVal", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "float_val", err)
 	}
 
 	if err := req.ParseForm(); err != nil {
@@ -242,7 +242,7 @@ func local_request_Greeter_SayHello_2(ctx context.Context, marshaler runtime.Mar
 }
 
 var (
-	filter_Greeter_SayHello_3 = &utilities.DoubleArray{Encoding: map[string]int{"doubleVal": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
+	filter_Greeter_SayHello_3 = &utilities.DoubleArray{Encoding: map[string]int{"double_val": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
 )
 
 func request_Greeter_SayHello_3(ctx context.Context, marshaler runtime.Marshaler, client GreeterClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
@@ -256,14 +256,14 @@ func request_Greeter_SayHello_3(ctx context.Context, marshaler runtime.Marshaler
 		_   = err
 	)
 
-	val, ok = pathParams["doubleVal"]
+	val, ok = pathParams["double_val"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "doubleVal")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "double_val")
 	}
 
 	protoReq.DoubleVal, err = runtime.DoubleValue(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "doubleVal", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "double_val", err)
 	}
 
 	if err := req.ParseForm(); err != nil {
@@ -289,14 +289,14 @@ func local_request_Greeter_SayHello_3(ctx context.Context, marshaler runtime.Mar
 		_   = err
 	)
 
-	val, ok = pathParams["doubleVal"]
+	val, ok = pathParams["double_val"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "doubleVal")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "double_val")
 	}
 
 	protoReq.DoubleVal, err = runtime.DoubleValue(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "doubleVal", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "double_val", err)
 	}
 
 	if err := req.ParseForm(); err != nil {
@@ -312,7 +312,7 @@ func local_request_Greeter_SayHello_3(ctx context.Context, marshaler runtime.Mar
 }
 
 var (
-	filter_Greeter_SayHello_4 = &utilities.DoubleArray{Encoding: map[string]int{"boolVal": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
+	filter_Greeter_SayHello_4 = &utilities.DoubleArray{Encoding: map[string]int{"bool_val": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
 )
 
 func request_Greeter_SayHello_4(ctx context.Context, marshaler runtime.Marshaler, client GreeterClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
@@ -326,14 +326,14 @@ func request_Greeter_SayHello_4(ctx context.Context, marshaler runtime.Marshaler
 		_   = err
 	)
 
-	val, ok = pathParams["boolVal"]
+	val, ok = pathParams["bool_val"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "boolVal")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "bool_val")
 	}
 
 	protoReq.BoolVal, err = runtime.BoolValue(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "boolVal", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "bool_val", err)
 	}
 
 	if err := req.ParseForm(); err != nil {
@@ -359,14 +359,14 @@ func local_request_Greeter_SayHello_4(ctx context.Context, marshaler runtime.Mar
 		_   = err
 	)
 
-	val, ok = pathParams["boolVal"]
+	val, ok = pathParams["bool_val"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "boolVal")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "bool_val")
 	}
 
 	protoReq.BoolVal, err = runtime.BoolValue(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "boolVal", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "bool_val", err)
 	}
 
 	if err := req.ParseForm(); err != nil {
@@ -382,7 +382,7 @@ func local_request_Greeter_SayHello_4(ctx context.Context, marshaler runtime.Mar
 }
 
 var (
-	filter_Greeter_SayHello_5 = &utilities.DoubleArray{Encoding: map[string]int{"bytesVal": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
+	filter_Greeter_SayHello_5 = &utilities.DoubleArray{Encoding: map[string]int{"bytes_val": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
 )
 
 func request_Greeter_SayHello_5(ctx context.Context, marshaler runtime.Marshaler, client GreeterClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
@@ -396,14 +396,14 @@ func request_Greeter_SayHello_5(ctx context.Context, marshaler runtime.Marshaler
 		_   = err
 	)
 
-	val, ok = pathParams["bytesVal"]
+	val, ok = pathParams["bytes_val"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "bytesVal")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "bytes_val")
 	}
 
 	protoReq.BytesVal, err = runtime.BytesValue(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "bytesVal", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "bytes_val", err)
 	}
 
 	if err := req.ParseForm(); err != nil {
@@ -429,14 +429,14 @@ func local_request_Greeter_SayHello_5(ctx context.Context, marshaler runtime.Mar
 		_   = err
 	)
 
-	val, ok = pathParams["bytesVal"]
+	val, ok = pathParams["bytes_val"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "bytesVal")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "bytes_val")
 	}
 
 	protoReq.BytesVal, err = runtime.BytesValue(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "bytesVal", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "bytes_val", err)
 	}
 
 	if err := req.ParseForm(); err != nil {
@@ -452,7 +452,7 @@ func local_request_Greeter_SayHello_5(ctx context.Context, marshaler runtime.Mar
 }
 
 var (
-	filter_Greeter_SayHello_6 = &utilities.DoubleArray{Encoding: map[string]int{"int32Val": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
+	filter_Greeter_SayHello_6 = &utilities.DoubleArray{Encoding: map[string]int{"int32_val": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
 )
 
 func request_Greeter_SayHello_6(ctx context.Context, marshaler runtime.Marshaler, client GreeterClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
@@ -466,14 +466,14 @@ func request_Greeter_SayHello_6(ctx context.Context, marshaler runtime.Marshaler
 		_   = err
 	)
 
-	val, ok = pathParams["int32Val"]
+	val, ok = pathParams["int32_val"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "int32Val")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "int32_val")
 	}
 
 	protoReq.Int32Val, err = runtime.Int32Value(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "int32Val", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "int32_val", err)
 	}
 
 	if err := req.ParseForm(); err != nil {
@@ -499,14 +499,14 @@ func local_request_Greeter_SayHello_6(ctx context.Context, marshaler runtime.Mar
 		_   = err
 	)
 
-	val, ok = pathParams["int32Val"]
+	val, ok = pathParams["int32_val"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "int32Val")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "int32_val")
 	}
 
 	protoReq.Int32Val, err = runtime.Int32Value(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "int32Val", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "int32_val", err)
 	}
 
 	if err := req.ParseForm(); err != nil {
@@ -522,7 +522,7 @@ func local_request_Greeter_SayHello_6(ctx context.Context, marshaler runtime.Mar
 }
 
 var (
-	filter_Greeter_SayHello_7 = &utilities.DoubleArray{Encoding: map[string]int{"uint32Val": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
+	filter_Greeter_SayHello_7 = &utilities.DoubleArray{Encoding: map[string]int{"uint32_val": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
 )
 
 func request_Greeter_SayHello_7(ctx context.Context, marshaler runtime.Marshaler, client GreeterClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
@@ -536,14 +536,14 @@ func request_Greeter_SayHello_7(ctx context.Context, marshaler runtime.Marshaler
 		_   = err
 	)
 
-	val, ok = pathParams["uint32Val"]
+	val, ok = pathParams["uint32_val"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "uint32Val")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "uint32_val")
 	}
 
 	protoReq.Uint32Val, err = runtime.UInt32Value(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "uint32Val", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "uint32_val", err)
 	}
 
 	if err := req.ParseForm(); err != nil {
@@ -569,14 +569,14 @@ func local_request_Greeter_SayHello_7(ctx context.Context, marshaler runtime.Mar
 		_   = err
 	)
 
-	val, ok = pathParams["uint32Val"]
+	val, ok = pathParams["uint32_val"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "uint32Val")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "uint32_val")
 	}
 
 	protoReq.Uint32Val, err = runtime.UInt32Value(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "uint32Val", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "uint32_val", err)
 	}
 
 	if err := req.ParseForm(); err != nil {
@@ -592,7 +592,7 @@ func local_request_Greeter_SayHello_7(ctx context.Context, marshaler runtime.Mar
 }
 
 var (
-	filter_Greeter_SayHello_8 = &utilities.DoubleArray{Encoding: map[string]int{"int64Val": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
+	filter_Greeter_SayHello_8 = &utilities.DoubleArray{Encoding: map[string]int{"int64_val": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
 )
 
 func request_Greeter_SayHello_8(ctx context.Context, marshaler runtime.Marshaler, client GreeterClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
@@ -606,14 +606,14 @@ func request_Greeter_SayHello_8(ctx context.Context, marshaler runtime.Marshaler
 		_   = err
 	)
 
-	val, ok = pathParams["int64Val"]
+	val, ok = pathParams["int64_val"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "int64Val")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "int64_val")
 	}
 
 	protoReq.Int64Val, err = runtime.Int64Value(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "int64Val", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "int64_val", err)
 	}
 
 	if err := req.ParseForm(); err != nil {
@@ -639,14 +639,14 @@ func local_request_Greeter_SayHello_8(ctx context.Context, marshaler runtime.Mar
 		_   = err
 	)
 
-	val, ok = pathParams["int64Val"]
+	val, ok = pathParams["int64_val"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "int64Val")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "int64_val")
 	}
 
 	protoReq.Int64Val, err = runtime.Int64Value(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "int64Val", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "int64_val", err)
 	}
 
 	if err := req.ParseForm(); err != nil {
@@ -662,7 +662,7 @@ func local_request_Greeter_SayHello_8(ctx context.Context, marshaler runtime.Mar
 }
 
 var (
-	filter_Greeter_SayHello_9 = &utilities.DoubleArray{Encoding: map[string]int{"uint64Val": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
+	filter_Greeter_SayHello_9 = &utilities.DoubleArray{Encoding: map[string]int{"uint64_val": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
 )
 
 func request_Greeter_SayHello_9(ctx context.Context, marshaler runtime.Marshaler, client GreeterClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
@@ -676,14 +676,14 @@ func request_Greeter_SayHello_9(ctx context.Context, marshaler runtime.Marshaler
 		_   = err
 	)
 
-	val, ok = pathParams["uint64Val"]
+	val, ok = pathParams["uint64_val"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "uint64Val")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "uint64_val")
 	}
 
 	protoReq.Uint64Val, err = runtime.UInt64Value(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "uint64Val", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "uint64_val", err)
 	}
 
 	if err := req.ParseForm(); err != nil {
@@ -709,14 +709,14 @@ func local_request_Greeter_SayHello_9(ctx context.Context, marshaler runtime.Mar
 		_   = err
 	)
 
-	val, ok = pathParams["uint64Val"]
+	val, ok = pathParams["uint64_val"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "uint64Val")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "uint64_val")
 	}
 
 	protoReq.Uint64Val, err = runtime.UInt64Value(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "uint64Val", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "uint64_val", err)
 	}
 
 	if err := req.ParseForm(); err != nil {
@@ -771,7 +771,7 @@ func RegisterGreeterHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.template.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/strval/{strVal}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.template.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/strval/{str_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -796,7 +796,7 @@ func RegisterGreeterHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.template.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/floatval/{floatVal}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.template.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/floatval/{float_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -821,7 +821,7 @@ func RegisterGreeterHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.template.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/doubleval/{doubleVal}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.template.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/doubleval/{double_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -846,7 +846,7 @@ func RegisterGreeterHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.template.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/boolval/{boolVal}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.template.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/boolval/{bool_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -871,7 +871,7 @@ func RegisterGreeterHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.template.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/bytesval/{bytesVal}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.template.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/bytesval/{bytes_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -896,7 +896,7 @@ func RegisterGreeterHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.template.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/int32val/{int32Val}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.template.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/int32val/{int32_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -921,7 +921,7 @@ func RegisterGreeterHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.template.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/uint32val/{uint32Val}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.template.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/uint32val/{uint32_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -946,7 +946,7 @@ func RegisterGreeterHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.template.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/int64val/{int64Val}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.template.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/int64val/{int64_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -971,7 +971,7 @@ func RegisterGreeterHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.template.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/uint64val/{uint64Val}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.template.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/uint64val/{uint64_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1057,7 +1057,7 @@ func RegisterGreeterHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.template.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/strval/{strVal}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.template.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/strval/{str_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1079,7 +1079,7 @@ func RegisterGreeterHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.template.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/floatval/{floatVal}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.template.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/floatval/{float_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1101,7 +1101,7 @@ func RegisterGreeterHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.template.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/doubleval/{doubleVal}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.template.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/doubleval/{double_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1123,7 +1123,7 @@ func RegisterGreeterHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.template.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/boolval/{boolVal}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.template.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/boolval/{bool_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1145,7 +1145,7 @@ func RegisterGreeterHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.template.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/bytesval/{bytesVal}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.template.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/bytesval/{bytes_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1167,7 +1167,7 @@ func RegisterGreeterHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.template.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/int32val/{int32Val}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.template.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/int32val/{int32_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1189,7 +1189,7 @@ func RegisterGreeterHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.template.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/uint32val/{uint32Val}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.template.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/uint32val/{uint32_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1211,7 +1211,7 @@ func RegisterGreeterHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.template.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/int64val/{int64Val}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.template.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/int64val/{int64_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1233,7 +1233,7 @@ func RegisterGreeterHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.template.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/uint64val/{uint64Val}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.template.v1.Greeter/SayHello", runtime.WithHTTPPathPattern("/say/uint64val/{uint64_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1255,23 +1255,23 @@ func RegisterGreeterHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 var (
 	pattern_Greeter_SayHello_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"say", "name"}, ""))
 
-	pattern_Greeter_SayHello_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"say", "strval", "strVal"}, ""))
+	pattern_Greeter_SayHello_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"say", "strval", "str_val"}, ""))
 
-	pattern_Greeter_SayHello_2 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"say", "floatval", "floatVal"}, ""))
+	pattern_Greeter_SayHello_2 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"say", "floatval", "float_val"}, ""))
 
-	pattern_Greeter_SayHello_3 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"say", "doubleval", "doubleVal"}, ""))
+	pattern_Greeter_SayHello_3 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"say", "doubleval", "double_val"}, ""))
 
-	pattern_Greeter_SayHello_4 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"say", "boolval", "boolVal"}, ""))
+	pattern_Greeter_SayHello_4 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"say", "boolval", "bool_val"}, ""))
 
-	pattern_Greeter_SayHello_5 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"say", "bytesval", "bytesVal"}, ""))
+	pattern_Greeter_SayHello_5 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"say", "bytesval", "bytes_val"}, ""))
 
-	pattern_Greeter_SayHello_6 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"say", "int32val", "int32Val"}, ""))
+	pattern_Greeter_SayHello_6 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"say", "int32val", "int32_val"}, ""))
 
-	pattern_Greeter_SayHello_7 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"say", "uint32val", "uint32Val"}, ""))
+	pattern_Greeter_SayHello_7 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"say", "uint32val", "uint32_val"}, ""))
 
-	pattern_Greeter_SayHello_8 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"say", "int64val", "int64Val"}, ""))
+	pattern_Greeter_SayHello_8 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"say", "int64val", "int64_val"}, ""))
 
-	pattern_Greeter_SayHello_9 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"say", "uint64val", "uint64Val"}, ""))
+	pattern_Greeter_SayHello_9 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"say", "uint64val", "uint64_val"}, ""))
 )
 
 var (

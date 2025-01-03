@@ -14,24 +14,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package containers
+package cvzapp
 
-import (
-	"go.uber.org/fx"
-)
-
-var engine = fx.Provide()
-
-type IContainer interface {
-	Start() error
-}
-
-type container struct {
-	engine *fx.App
-}
-
-// Start implements IContainer.
-func (c *container) Start() error {
-	c.engine.Run()
-	return c.engine.Err()
+type App interface {
+	Run() error
 }

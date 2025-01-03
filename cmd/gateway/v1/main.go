@@ -17,12 +17,12 @@ limitations under the License.
 package main
 
 import (
-	"github.com/convrz/convers/core/containers"
+	"github.com/convrz/convers/core/cvzfactory"
 	"github.com/convrz/convers/internal/apps/gateway/v1"
 	"log"
 )
 
 func main() {
-	container := containers.Build(gateway.New)
+	container := cvzfactory.Build(gateway.New)
 	log.Fatal(container.Start())
 }

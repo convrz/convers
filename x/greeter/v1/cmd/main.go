@@ -19,13 +19,13 @@ package main
 import (
 	"log"
 
-	"github.com/convrz/convers/core/containers"
+	"github.com/convrz/convers/core/cvzfactory"
 	"github.com/convrz/convers/x/greeter/v1/app"
 
 	_ "github.com/convrz/convers/x/greeter/v1/internal/init"
 )
 
 func main() {
-	container := containers.Build(app.New)
+	container := cvzfactory.Build(app.New)
 	log.Fatal(container.Start())
 }

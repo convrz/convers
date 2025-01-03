@@ -17,8 +17,8 @@ limitations under the License.
 package init
 
 import (
-	"github.com/convrz/convers/core/containers"
-	"github.com/convrz/convers/core/services"
+	"github.com/convrz/convers/core/cvzfactory"
+	"github.com/convrz/convers/core/cvzservice"
 	"github.com/convrz/convers/x/greeter/v1/internal/biz"
 	"github.com/convrz/convers/x/greeter/v1/internal/controllers"
 	"github.com/convrz/convers/x/greeter/v1/internal/repos"
@@ -26,12 +26,13 @@ import (
 
 var (
 	// delivery layer
-	_ = containers.Inject(services.NewDefault)
-	_ = containers.Inject(controllers.New)
+	_ = cvzfactory.Inject(cvzservice.NewDefault)
+	
+	_ = cvzfactory.Inject(controllers.New)
 
 	// domain layer
-	_ = containers.Inject(biz.New)
+	_ = cvzfactory.Inject(biz.New)
 
 	// repo layer
-	_ = containers.InjectLifeCycle(repos.New, repos.OnStart, repos.OnStop)
+	_ = cvzfactory.InjectLifeCycle(repos.New, repos.OnStart, repos.OnStop)
 )

@@ -14,8 +14,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package apps
+package locale
 
-type App interface {
-	Run() error
-}
+var (
+	VIE = "vi"
+)

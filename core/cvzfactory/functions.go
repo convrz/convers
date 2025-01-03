@@ -14,17 +14,18 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package containers
+package cvzfactory
 
 import (
 	"context"
-	"github.com/convrz/convers/core/apps"
 	"log"
+
+	"github.com/convrz/convers/core/cvzapp"
 
 	"go.uber.org/fx"
 )
 
-func _main(lc fx.Lifecycle, app apps.App) {
+func _main(lc fx.Lifecycle, app cvzapp.App) {
 	lc.Append(fx.Hook{
 		OnStart: func(_ context.Context) error {
 			go func() {

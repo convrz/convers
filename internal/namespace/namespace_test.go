@@ -46,14 +46,14 @@ func TestNamespaceManager(t *testing.T) {
 		t.Fatalf("Expected error when adding duplicate name")
 	}
 
-	// List services in the backend
+	// List cvzservice in the backend
 	names, err := manager.List("prod.backend")
 	if err != nil {
 		t.Fatalf("List failed: %v", err)
 	}
 
 	if len(names) != 2 {
-		t.Errorf("Expected 2 services, got %d", len(names))
+		t.Errorf("Expected 2 cvzservice, got %d", len(names))
 	}
 
 	// Remove and check again

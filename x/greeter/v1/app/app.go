@@ -22,19 +22,19 @@ import (
 	"net"
 
 	"github.com/convrz/convers/api/x/greeter/v1"
-	"github.com/convrz/convers/core/apps"
+	"github.com/convrz/convers/core/cvzapp"
 	"github.com/convrz/convers/x/greeter/v1/internal/controllers"
 
-	"github.com/convrz/convers/core/services"
+	"github.com/convrz/convers/core/cvzservice"
 )
 
 type Greeter struct {
-	*services.ServiceRegistrar
+	*cvzservice.ServiceRegistrar
 	srv greeter.GreeterServiceServer
 }
 
 // New creates a new Greeter module.
-func New(service *services.ServiceRegistrar, server controllers.IGreeter) apps.App {
+func New(service *cvzservice.ServiceRegistrar, server controllers.IGreeter) cvzapp.App {
 	return &Greeter{
 		ServiceRegistrar: service,
 		srv:              server,

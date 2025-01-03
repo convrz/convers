@@ -21,20 +21,20 @@ import (
 	"log"
 
 	gw "github.com/convrz/convers/api/x/greeter/v1"
-	"github.com/convrz/convers/core/apps"
-	"github.com/convrz/convers/core/proxy"
+	"github.com/convrz/convers/core/cvzapp"
+	"github.com/convrz/convers/core/cvzproxy"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )
 
-func New() apps.App {
+func New() cvzapp.App {
 	return &App{
-		proxy: proxy.New(":9000"),
+		proxy: cvzproxy.New(":9000"),
 	}
 }
 
 type App struct {
-	proxy proxy.IProxy
+	proxy cvzproxy.IProxy
 }
 
 func (app *App) Run() error {
@@ -51,6 +51,6 @@ func (app *App) Run() error {
 
 	log.Printf("HTTP server listening on %s \n", ":9000")
 
-	// Start HTTP server (and proxy calls to gRPC server endpoint)
+	// Start HTTP server (and cvzproxy calls to gRPC server endpoint)
 	return app.proxy.Start()
 }
