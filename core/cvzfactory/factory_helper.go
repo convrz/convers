@@ -14,4 +14,37 @@
  * limitations under the License.
  */
 
-package api
+package cvzfactory
+
+import (
+	"context"
+	"log"
+
+	"github.com/convrz/convers/core/cvzapp"
+
+	"go.uber.org/fx"
+)
+
+func _main(lc fx.Lifecycle, app cvzapp.App) {
+	start := func() {
+		log.Fatal(app.Run())
+	}
+
+	lc.Append(fx.Hook{
+		OnStart: func(_ context.Context) error {
+			go start()
+			return nil
+		},
+		OnStop: func(_ context.Context) error {
+			return nil
+		},
+	})
+}
+
+func Build(constructor interface{}) cvzapp.App {
+	cvzapp.Provide(constructor)
+
+	return &container{
+		engine: fx.New(cvzapp.Option(), fx.Invoke(_main)),
+	}
+}

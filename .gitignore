@@ -20,7 +20,5 @@
 # env file
 .env
 
-.idea
-
 go.work
 go.work.sum

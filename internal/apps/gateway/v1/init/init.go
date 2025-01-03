@@ -14,4 +14,22 @@
  * limitations under the License.
  */
 
-package api
+package init
+
+import (
+	"context"
+	"fmt"
+	"github.com/convrz/convers/core/cvzhook"
+)
+
+func init() {
+	cvzhook.UseBefore(func(ctx context.Context) error {
+		fmt.Println("before start")
+		return nil
+	})
+
+	cvzhook.UseAfter(func(ctx context.Context) error {
+		fmt.Println("after stop")
+		return nil
+	})
+}

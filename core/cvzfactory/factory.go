@@ -14,4 +14,18 @@
  * limitations under the License.
  */
 
-package api
+package cvzfactory
+
+import (
+	"go.uber.org/fx"
+)
+
+type container struct {
+	engine *fx.App
+}
+
+// Run implements IContainer.
+func (c *container) Run() error {
+	c.engine.Run()
+	return c.engine.Err()
+}
