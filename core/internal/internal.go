@@ -14,37 +14,20 @@
  * limitations under the License.
  */
 
-package cvzservice
+package cvzinternal
 
-import (
-	"google.golang.org/grpc"
-)
+import "go.uber.org/fx"
 
-var _ IServiceRegistrar = (*ServiceRegistrar)(nil)
+var options = fx.Provide()
 
-type IServiceRegistrar interface {
-	AsServer() *grpc.Server
-	Run() error
+func Provide(constructors ...interface{}) {
+	options = fx.Options(options, fx.Provide(constructors...))
 }
 
-func New(opts ...grpc.ServerOption) *ServiceRegistrar {
-	return &ServiceRegistrar{
-		Server: grpc.NewServer(opts...),
-	}
+func Option() fx.Option {
+	return options
 }
 
-func NewDefault() *ServiceRegistrar {
-	return New()
-}
-
-type ServiceRegistrar struct {
-	*grpc.Server
-}
-
-func (s *ServiceRegistrar) AsServer() *grpc.Server {
-	return s.Server
-}
-
-func (s *ServiceRegistrar) Run() error {
-	panic("unimplemented")
+func Invoke(constructors ...interface{}) {
+	options = fx.Options(options, fx.Invoke(constructors...))
 }

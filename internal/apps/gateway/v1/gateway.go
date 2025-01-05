@@ -18,25 +18,23 @@ package gateway
 
 import (
 	"context"
-	"log"
-
-	gw "github.com/convrz/convers/api/x/greeter/v1"
 	"github.com/convrz/convers/core/cvzapp"
-	"github.com/convrz/convers/core/cvzproxy"
-	"google.golang.org/grpc"
-	"google.golang.org/grpc/credentials/insecure"
-
+	"github.com/convrz/convers/core/cvzruntime"
 	_ "github.com/convrz/convers/internal/apps/gateway/v1/init"
+	"github.com/convrz/convers/internal/apps/gateway/v1/registry"
+	"log"
 )
 
 func New() cvzapp.App {
 	return &App{
-		proxy: cvzproxy.New(":9000"),
+		mux:      cvzruntime.NewServeMux(),
+		registry: registry.New(),
 	}
 }
 
 type App struct {
-	proxy cvzproxy.IProxy
+	mux      cvzruntime.IServeMux
+	registry registry.IRegistry
 }
 
 func (app *App) Run() error {
@@ -46,13 +44,11 @@ func (app *App) Run() error {
 
 	// Register gRPC server endpoint
 	// Note: Make sure the gRPC server is running properly and accessible
-	opts := []grpc.DialOption{grpc.WithTransportCredentials(insecure.NewCredentials())}
-	if err := app.proxy.Register(ctx, gw.RegisterGreeterServiceHandlerFromEndpoint, ":8000", opts...); err != nil {
+	if err := app.registry.DiscoveryService(ctx, app.mux); err != nil {
 		return err
 	}
 
+	// Listen HTTP server (and mux calls to gRPC server endpoint)
 	log.Printf("HTTP server listening on %s \n", ":9000")
-
-	// Run HTTP server (and proxy calls to gRPC server endpoint)
-	return app.proxy.Run()
+	return app.mux.Listen(":9000")
 }

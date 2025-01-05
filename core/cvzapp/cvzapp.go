@@ -16,22 +16,6 @@
 
 package cvzapp
 
-import "go.uber.org/fx"
-
-var options = fx.Provide()
-
-func Provide(constructors ...interface{}) {
-	options = fx.Options(options, fx.Provide(constructors...))
-}
-
-func Option() fx.Option {
-	return options
-}
-
-func Invoke(constructors ...interface{}) {
-	options = fx.Options(options, fx.Invoke(constructors...))
-}
-
 type App interface {
 	Run() error
 }

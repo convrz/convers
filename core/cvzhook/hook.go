@@ -18,7 +18,7 @@ package cvzhook
 
 import (
 	"context"
-	"github.com/convrz/convers/core/cvzapp"
+	"github.com/convrz/convers/core/internal"
 	"go.uber.org/fx"
 )
 
@@ -38,13 +38,13 @@ func UseWithLifeCycle[T any](constructor func() T, onStart func(T) error, onStop
 		return ins
 	}
 
-	cvzapp.Provide(decorateConstructor)
+	cvzinternal.Provide(decorateConstructor)
 
 	return constructor
 }
 
 func Use[fn any](constructor fn) fn {
-	cvzapp.Provide(constructor)
+	cvzinternal.Provide(constructor)
 	return constructor
 }
 
@@ -55,7 +55,7 @@ func UseBefore(fn func(ctx context.Context) error) {
 		})
 	}
 
-	cvzapp.Invoke(function)
+	cvzinternal.Invoke(function)
 }
 
 func UseAfter(fn func(ctx context.Context) error) {
@@ -65,5 +65,5 @@ func UseAfter(fn func(ctx context.Context) error) {
 		})
 	}
 
-	cvzapp.Invoke(function)
+	cvzinternal.Invoke(function)
 }

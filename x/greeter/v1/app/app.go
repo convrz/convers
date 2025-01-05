@@ -48,8 +48,8 @@ func (g *Greeter) Run() error {
 		return err
 	}
 
-	// Run gRPC srv here
-	greeter.RegisterGreeterServiceServer(g.ServiceRegistrar, g.srv)
+	// Listen gRPC srv here
+	greeter.RegisterGreeterServiceServer(g.AsServer(), g.srv)
 	log.Printf("gRPC srv listening on %s \n", listener.Addr().String())
 	return g.Serve(listener)
 }

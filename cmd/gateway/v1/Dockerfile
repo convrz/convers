@@ -20,7 +20,7 @@ WORKDIR /src
 COPY go.mod go.sum ./
 COPY ./api ./
 
-RUN go mod download
+RUN go services download
 
 COPY . .
 

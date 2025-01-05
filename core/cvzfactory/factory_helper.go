@@ -18,6 +18,7 @@ package cvzfactory
 
 import (
 	"context"
+	"github.com/convrz/convers/core/internal"
 	"log"
 
 	"github.com/convrz/convers/core/cvzapp"
@@ -42,9 +43,9 @@ func _main(lc fx.Lifecycle, app cvzapp.App) {
 }
 
 func Build(constructor interface{}) cvzapp.App {
-	cvzapp.Provide(constructor)
+	cvzinternal.Provide(constructor)
 
 	return &container{
-		engine: fx.New(cvzapp.Option(), fx.Invoke(_main)),
+		engine: fx.New(cvzinternal.Option(), fx.Invoke(_main)),
 	}
 }
