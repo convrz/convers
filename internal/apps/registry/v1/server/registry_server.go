@@ -18,25 +18,26 @@ package server
 
 import (
 	"context"
-
-	"github.com/convrz/convers/api/srx/v1"
+	"github.com/convrz/convers/api/registry/v1"
 )
 
-type SRX struct {
-	srx.UnimplementedSrxServiceServer
+var _ registry.ServiceRegistryServiceServer = (*ServiceRegistryX)(nil)
+
+type ServiceRegistryX struct {
+	registry.UnimplementedServiceRegistryServiceServer
 }
 
-func (srx *SRX) RegisterService(ctx context.Context, info *srx.RegisterServiceRequest) (*srx.RegisterServiceResponse, error) {
+func (srx *ServiceRegistryX) RegisterService(ctx context.Context, info *registry.RegisterServiceRequest) (*registry.RegisterServiceResponse, error) {
 	//TODO implement me
 	panic("implement me")
 }
 
-func (srx *SRX) DiscoverService(ctx context.Context, request *srx.DiscoverServiceRequest) (*srx.DiscoverServiceResponse, error) {
+func (srx *ServiceRegistryX) DiscoverService(ctx context.Context, request *registry.DiscoverServiceRequest) (*registry.DiscoverServiceResponse, error) {
 	//TODO implement me
 	panic("implement me")
 }
 
-func (srx *SRX) Heartbeat(ctx context.Context, info *srx.HeartbeatRequest) (*srx.HeartbeatResponse, error) {
+func (srx *ServiceRegistryX) Heartbeat(ctx context.Context, info *registry.HeartbeatRequest) (*registry.HeartbeatResponse, error) {
 	//TODO implement me
 	panic("implement me")
 }

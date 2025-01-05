@@ -14,19 +14,17 @@
  * limitations under the License.
  */
 
-package metadata
+package registry
 
-import (
-	"time"
+import "github.com/convrz/convers/core/cvzapp"
 
-	"github.com/convrz/convers/api/types/v1"
-	"github.com/convrz/convers/pkg/pb"
-)
+func New() cvzapp.App {
+	return &App{}
+}
 
-const CodeName = "CVZ"
+type App struct{}
 
-func NewDefault() types.Metadata {
-	return types.Metadata{
-		CreatedAt: pb.ToTime(time.Now().UTC()),
-	}
+func (a *App) Run() error {
+	//TODO implement me
+	panic("implement me")
 }

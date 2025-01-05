@@ -3,7 +3,7 @@ version: v2
 modules:
   - path: types/v1
     ####################
-  - path: srx/v1
+  - path: registry/v1
     ####################
   - path: biz/greeter/v1
   - path: biz/shared/v1
