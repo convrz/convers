@@ -22,32 +22,6 @@ import (
 	"go.uber.org/fx"
 )
 
-func UseWithLifeCycle[T any](constructor func() T, onStart func(T) error, onStop func(T) error) func() T {
-	decorateConstructor := func(lc fx.Lifecycle) T {
-		ins := constructor()
-
-		lc.Append(fx.Hook{
-			OnStart: func(ctx context.Context) error {
-				return onStart(ins)
-			},
-			OnStop: func(ctx context.Context) error {
-				return onStop(ins)
-			},
-		})
-
-		return ins
-	}
-
-	cvzinternal.Provide(decorateConstructor)
-
-	return constructor
-}
-
-func Use[fn any](constructor fn) fn {
-	cvzinternal.Provide(constructor)
-	return constructor
-}
-
 func UseBefore(fn func(ctx context.Context) error) {
 	function := func(lc fx.Lifecycle) {
 		lc.Append(fx.Hook{

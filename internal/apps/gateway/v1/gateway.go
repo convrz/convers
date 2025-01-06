@@ -21,20 +21,31 @@ import (
 	"github.com/convrz/convers/core/cvzapp"
 	"github.com/convrz/convers/core/cvzruntime"
 	_ "github.com/convrz/convers/internal/apps/gateway/v1/init"
-	"github.com/convrz/convers/internal/apps/gateway/v1/registry"
+	"github.com/convrz/convers/internal/apps/gateway/v1/services/greeter"
+	"github.com/convrz/convers/internal/apps/gateway/v1/visitor"
 	"log"
 )
 
 func New() cvzapp.App {
 	return &App{
-		mux:      cvzruntime.NewServeMux(),
-		registry: registry.New(),
+		mux:     cvzruntime.NewServeMux(),
+		visitor: visitor.New(),
 	}
 }
 
 type App struct {
-	mux      cvzruntime.IServeMux
-	registry registry.IRegistry
+	mux     cvzruntime.IServeMux
+	visitor visitor.IVisitor
+}
+
+func (app *App) visit(ctx context.Context, services ...visitor.IService) error {
+	for _, service := range services {
+		if err := service.Accept(ctx, app.mux, app.visitor); err != nil {
+			return err
+		}
+	}
+
+	return nil
 }
 
 func (app *App) Run() error {
@@ -44,7 +55,10 @@ func (app *App) Run() error {
 
 	// Register gRPC server endpoint
 	// Note: Make sure the gRPC server is running properly and accessible
-	if err := app.registry.DiscoveryService(ctx, app.mux); err != nil {
+	services := []visitor.IService{
+		&greeter.Greeter{},
+	}
+	if err := app.visit(ctx, services...); err != nil {
 		return err
 	}
 

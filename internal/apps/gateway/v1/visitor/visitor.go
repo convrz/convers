@@ -14,22 +14,30 @@
  * limitations under the License.
  */
 
-package init
+package visitor
 
 import (
-	"github.com/convrz/convers/core/cvzapp"
-	"github.com/convrz/convers/x/greeter/v1/internal/biz"
-	"github.com/convrz/convers/x/greeter/v1/internal/controllers"
-	"github.com/convrz/convers/x/greeter/v1/internal/repos"
+	"context"
+	"github.com/convrz/convers/core/cvzruntime"
+	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials/insecure"
 )
 
-var (
-	// delivery layer
-	_ = cvzapp.Inject(controllers.New)
+func New() IVisitor {
+	return &Visitor{}
+}
 
-	// domain layer
-	_ = cvzapp.Inject(biz.New)
+var _ IVisitor = (*Visitor)(nil)
 
-	// repo layer
-	_ = cvzapp.InjectLifeCycle(repos.New, repos.OnStart, repos.OnStop)
-)
+type Visitor struct{}
+
+func (v *Visitor) VisitGreeterService(ctx context.Context, mux cvzruntime.IServeMux, service IService) error {
+	opts := []grpc.DialOption{grpc.WithTransportCredentials(insecure.NewCredentials())}
+
+	greeterAddr := ":8000"
+	if err := cvzruntime.RegisterService(ctx, mux, service, greeterAddr, opts); err != nil {
+		return err
+	}
+
+	return nil
+}

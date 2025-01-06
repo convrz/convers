@@ -14,36 +14,26 @@
  * limitations under the License.
  */
 
-package registry
+package greeter
 
 import (
 	"context"
+	greetergw "github.com/convrz/convers/api/x/greeter/v1"
 	"github.com/convrz/convers/core/cvzruntime"
-	"github.com/convrz/convers/internal/apps/gateway/v1/services"
+	"github.com/convrz/convers/internal/apps/gateway/v1/services/base"
+	"github.com/convrz/convers/internal/apps/gateway/v1/visitor"
+	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"google.golang.org/grpc"
-	"google.golang.org/grpc/credentials/insecure"
 )
 
-func New() *Registry {
-	return &Registry{}
+type Greeter struct {
+	base.Service
 }
 
-type IRegistry interface {
-	DiscoveryService(ctx context.Context, mux cvzruntime.IServeMux) error
+func (g *Greeter) Accept(ctx context.Context, mux cvzruntime.IServeMux, v visitor.IVisitor) error {
+	return v.VisitGreeterService(ctx, mux, g)
 }
 
-type Registry struct{}
-
-func (r *Registry) DiscoveryService(ctx context.Context, mux cvzruntime.IServeMux) error {
-	opts := []grpc.DialOption{grpc.WithTransportCredentials(insecure.NewCredentials())}
-
-	if err := cvzruntime.RegisterService(ctx, mux, ":8000", opts, new(services.Greeter)); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func getServiceAddress(name string) string {
-	return ":8000"
+func (g *Greeter) Register(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) error {
+	return greetergw.RegisterGreeterServiceHandlerFromEndpoint(ctx, mux, endpoint, opts)
 }

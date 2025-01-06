@@ -16,6 +16,38 @@
 
 package cvzapp
 
+import (
+	"context"
+	cvzinternal "github.com/convrz/convers/core/internal"
+	"go.uber.org/fx"
+)
+
 type App interface {
 	Run() error
+}
+
+func InjectLifeCycle[T any](constructor func() T, onStart func(T) error, onStop func(T) error) func() T {
+	decorateConstructor := func(lc fx.Lifecycle) T {
+		ins := constructor()
+
+		lc.Append(fx.Hook{
+			OnStart: func(ctx context.Context) error {
+				return onStart(ins)
+			},
+			OnStop: func(ctx context.Context) error {
+				return onStop(ins)
+			},
+		})
+
+		return ins
+	}
+
+	cvzinternal.Provide(decorateConstructor)
+
+	return constructor
+}
+
+func Inject[fn any](constructor fn) fn {
+	cvzinternal.Provide(constructor)
+	return constructor
 }

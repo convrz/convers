@@ -14,20 +14,17 @@
  * limitations under the License.
  */
 
-package services
+package cvzruntime
 
 import (
 	"context"
-	greetergw "github.com/convrz/convers/api/x/greeter/v1"
-	"github.com/convrz/convers/core/cvzruntime"
-	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"google.golang.org/grpc"
 )
 
-var _ cvzruntime.GrpcService = (*Greeter)(nil)
+func RegisterService(ctx context.Context, mux IServeMux, service GrpcService, endpoint string, opts []grpc.DialOption) error {
+	if err := service.Register(ctx, mux.AsRuntimeMux(), endpoint, opts); err != nil {
+		return err
+	}
 
-type Greeter struct{}
-
-func (g *Greeter) Register(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) error {
-	return greetergw.RegisterGreeterServiceHandlerFromEndpoint(ctx, mux, endpoint, opts)
+	return nil
 }

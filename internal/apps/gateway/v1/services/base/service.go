@@ -14,22 +14,24 @@
  * limitations under the License.
  */
 
-package init
+package base
 
 import (
-	"github.com/convrz/convers/core/cvzapp"
-	"github.com/convrz/convers/x/greeter/v1/internal/biz"
-	"github.com/convrz/convers/x/greeter/v1/internal/controllers"
-	"github.com/convrz/convers/x/greeter/v1/internal/repos"
+	"context"
+	"github.com/convrz/convers/core/cvzruntime"
+	"github.com/convrz/convers/internal/apps/gateway/v1/visitor"
+	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
+	"google.golang.org/grpc"
 )
 
-var (
-	// delivery layer
-	_ = cvzapp.Inject(controllers.New)
+var _ visitor.IService = (*Service)(nil)
 
-	// domain layer
-	_ = cvzapp.Inject(biz.New)
+type Service struct{}
 
-	// repo layer
-	_ = cvzapp.InjectLifeCycle(repos.New, repos.OnStart, repos.OnStop)
-)
+func (s *Service) Register(_ context.Context, _ *runtime.ServeMux, _ string, _ []grpc.DialOption) error {
+	panic("unimplemented")
+}
+
+func (s *Service) Accept(_ context.Context, _ cvzruntime.IServeMux, _ visitor.IVisitor) error {
+	panic("unimplemented")
+}

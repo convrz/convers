@@ -18,13 +18,20 @@ package controllers
 
 import (
 	"context"
+	"github.com/convrz/convers/x/greeter/v1/internal/biz"
 
 	greeterBiz "github.com/convrz/convers/api/biz/greeter/v1"
 	"github.com/convrz/convers/api/x/greeter/v1"
 	"github.com/convrz/convers/pkg/copier"
-	"github.com/convrz/convers/x/greeter/v1/internal/biz"
 	"github.com/convrz/convers/x/greeter/v1/internal/repos"
 )
+
+// New creates a new Greeter module.
+func New(biz biz.IGreeter) IGreeter {
+	return &Greeter{
+		biz: biz,
+	}
+}
 
 type IGreeter interface {
 	greeter.GreeterServiceServer
@@ -35,13 +42,6 @@ type Greeter struct {
 	greeter.UnimplementedGreeterServiceServer
 	repos repos.IDB
 	biz   greeterBiz.GreeterServiceServer
-}
-
-// New creates a new Greeter module.
-func New(biz biz.IGreeter) IGreeter {
-	return &Greeter{
-		biz: biz,
-	}
 }
 
 // SayHello implements GreeterServer.

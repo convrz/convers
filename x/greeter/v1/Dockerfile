@@ -18,7 +18,7 @@ FROM ghcr.io/convrz/convers/cvz.go:1.23.3-alpine AS builder
 WORKDIR /src
 
 COPY . ./
-RUN go services download
+RUN go mod download
 
 WORKDIR /src/x/greeter/v1
 

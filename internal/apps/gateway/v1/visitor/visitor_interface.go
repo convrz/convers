@@ -14,22 +14,18 @@
  * limitations under the License.
  */
 
-package init
+package visitor
 
 import (
-	"github.com/convrz/convers/core/cvzapp"
-	"github.com/convrz/convers/x/greeter/v1/internal/biz"
-	"github.com/convrz/convers/x/greeter/v1/internal/controllers"
-	"github.com/convrz/convers/x/greeter/v1/internal/repos"
+	"context"
+	"github.com/convrz/convers/core/cvzruntime"
 )
 
-var (
-	// delivery layer
-	_ = cvzapp.Inject(controllers.New)
+type IService interface {
+	cvzruntime.GrpcService
+	Accept(context.Context, cvzruntime.IServeMux, IVisitor) error
+}
 
-	// domain layer
-	_ = cvzapp.Inject(biz.New)
-
-	// repo layer
-	_ = cvzapp.InjectLifeCycle(repos.New, repos.OnStart, repos.OnStop)
-)
+type IVisitor interface {
+	VisitGreeterService(ctx context.Context, mux cvzruntime.IServeMux, service IService) error
+}

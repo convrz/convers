@@ -34,16 +34,16 @@ type Greeter struct {
 }
 
 // New creates a new Greeter module.
-func New(service *cvzservice.ServiceRegistrar, server controllers.IGreeter) cvzapp.App {
+func New(server controllers.IGreeter) cvzapp.App {
 	return &Greeter{
-		ServiceRegistrar: service,
+		ServiceRegistrar: cvzservice.NewDefault(),
 		srv:              server,
 	}
 }
 
 // Run implements IGreeter.
 func (g *Greeter) Run() error {
-	listener, err := net.Listen("tcp", fmt.Sprintf("localhost:%d", 8000))
+	listener, err := net.Listen("tcp", fmt.Sprintf(":%d", 8000))
 	if err != nil {
 		return err
 	}
@@ -51,5 +51,6 @@ func (g *Greeter) Run() error {
 	// Listen gRPC srv here
 	greeter.RegisterGreeterServiceServer(g.AsServer(), g.srv)
 	log.Printf("gRPC srv listening on %s \n", listener.Addr().String())
+
 	return g.Serve(listener)
 }

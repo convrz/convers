@@ -19,22 +19,24 @@ package cvzruntime
 import (
 	"context"
 	"google.golang.org/grpc"
-	"log"
 	"net/http"
-	"reflect"
 
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 )
 
-func NewServeMux(opts ...runtime.ServeMuxOption) IServeMux {
-	return &ServeMux{
-		ServeMux: runtime.NewServeMux(opts...),
-	}
+type GrpcService interface {
+	Register(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) error
 }
 
 type IServeMux interface {
 	Listen(addr string) error
 	AsRuntimeMux() *runtime.ServeMux
+}
+
+func NewServeMux(opts ...runtime.ServeMuxOption) IServeMux {
+	return &ServeMux{
+		ServeMux: runtime.NewServeMux(opts...),
+	}
 }
 
 type ServeMux struct {
@@ -47,17 +49,4 @@ func (mux *ServeMux) Listen(addr string) error {
 
 func (mux *ServeMux) AsRuntimeMux() *runtime.ServeMux {
 	return mux.ServeMux
-}
-
-type GrpcService interface {
-	Register(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) error
-}
-
-func RegisterService(ctx context.Context, mux IServeMux, endpoint string, opts []grpc.DialOption, service GrpcService) error {
-	serviceType := reflect.TypeOf(service).Elem().Name()
-	log.Printf("Registering service: %s", serviceType)
-	if err := service.Register(ctx, mux.AsRuntimeMux(), endpoint, opts); err != nil {
-		return err
-	}
-	return nil
 }
