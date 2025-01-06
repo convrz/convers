@@ -8,10 +8,10 @@ modules:
   - path: biz/greeter/v1
   - path: biz/shared/v1
     ####################
-  - path: x/media/v1
-  - path: x/greeter/v1
-  - path: x/react/v1
-  - path: x/shared/v1
+  - path: services/media/v1
+  - path: services/greeter/v1
+  - path: services/react/v1
+  - path: services/shared/v1
 deps:
   - buf.build/bufbuild/protovalidate
   - buf.build/googleapis/googleapis

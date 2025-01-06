@@ -21,7 +21,7 @@ import (
 	"log"
 	"net"
 
-	"github.com/convrz/convers/api/x/greeter/v1"
+	"github.com/convrz/convers/api/services/greeter/v1"
 	"github.com/convrz/convers/core/cvzapp"
 	"github.com/convrz/convers/x/greeter/v1/internal/controllers"
 

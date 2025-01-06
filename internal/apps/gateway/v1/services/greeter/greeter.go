@@ -18,7 +18,7 @@ package greeter
 
 import (
 	"context"
-	greetergw "github.com/convrz/convers/api/x/greeter/v1"
+	greetergw "github.com/convrz/convers/api/services/greeter/v1"
 	"github.com/convrz/convers/core/cvzruntime"
 	"github.com/convrz/convers/internal/apps/gateway/v1/services/base"
 	"github.com/convrz/convers/internal/apps/gateway/v1/visitor"

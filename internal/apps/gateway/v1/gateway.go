@@ -20,7 +20,6 @@ import (
 	"context"
 	"github.com/convrz/convers/core/cvzapp"
 	"github.com/convrz/convers/core/cvzruntime"
-	_ "github.com/convrz/convers/internal/apps/gateway/v1/init"
 	"github.com/convrz/convers/internal/apps/gateway/v1/services/greeter"
 	"github.com/convrz/convers/internal/apps/gateway/v1/visitor"
 	"log"
@@ -48,17 +47,22 @@ func (app *App) visit(ctx context.Context, services ...visitor.IService) error {
 	return nil
 }
 
+func (app *App) register(ctx context.Context) error {
+	// TODO: Register gRPC server endpoint
+	// Note: Make sure the gRPC server is running properly and accessible
+	services := []visitor.IService{
+		&greeter.Greeter{},
+	}
+
+	return app.visit(ctx, services...)
+}
+
 func (app *App) Run() error {
 	ctx := context.Background()
 	ctx, cancel := context.WithCancel(ctx)
 	defer cancel()
 
-	// Register gRPC server endpoint
-	// Note: Make sure the gRPC server is running properly and accessible
-	services := []visitor.IService{
-		&greeter.Greeter{},
-	}
-	if err := app.visit(ctx, services...); err != nil {
+	if err := app.register(ctx); err != nil {
 		return err
 	}
 

@@ -746,7 +746,7 @@ func RegisterGreeterServiceHandlerServer(ctx context.Context, mux *runtime.Serve
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.react.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/{name}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.services.react.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/{name}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -771,7 +771,7 @@ func RegisterGreeterServiceHandlerServer(ctx context.Context, mux *runtime.Serve
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.react.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/strval/{str_val}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.services.react.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/strval/{str_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -796,7 +796,7 @@ func RegisterGreeterServiceHandlerServer(ctx context.Context, mux *runtime.Serve
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.react.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/floatval/{float_val}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.services.react.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/floatval/{float_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -821,7 +821,7 @@ func RegisterGreeterServiceHandlerServer(ctx context.Context, mux *runtime.Serve
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.react.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/doubleval/{double_val}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.services.react.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/doubleval/{double_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -846,7 +846,7 @@ func RegisterGreeterServiceHandlerServer(ctx context.Context, mux *runtime.Serve
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.react.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/boolval/{bool_val}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.services.react.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/boolval/{bool_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -871,7 +871,7 @@ func RegisterGreeterServiceHandlerServer(ctx context.Context, mux *runtime.Serve
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.react.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/bytesval/{bytes_val}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.services.react.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/bytesval/{bytes_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -896,7 +896,7 @@ func RegisterGreeterServiceHandlerServer(ctx context.Context, mux *runtime.Serve
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.react.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/int32val/{int32_val}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.services.react.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/int32val/{int32_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -921,7 +921,7 @@ func RegisterGreeterServiceHandlerServer(ctx context.Context, mux *runtime.Serve
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.react.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/uint32val/{uint32_val}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.services.react.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/uint32val/{uint32_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -946,7 +946,7 @@ func RegisterGreeterServiceHandlerServer(ctx context.Context, mux *runtime.Serve
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.react.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/int64val/{int64_val}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.services.react.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/int64val/{int64_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -971,7 +971,7 @@ func RegisterGreeterServiceHandlerServer(ctx context.Context, mux *runtime.Serve
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.react.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/uint64val/{uint64_val}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/convers.services.react.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/uint64val/{uint64_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1035,7 +1035,7 @@ func RegisterGreeterServiceHandlerClient(ctx context.Context, mux *runtime.Serve
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.react.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/{name}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.services.react.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/{name}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1057,7 +1057,7 @@ func RegisterGreeterServiceHandlerClient(ctx context.Context, mux *runtime.Serve
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.react.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/strval/{str_val}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.services.react.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/strval/{str_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1079,7 +1079,7 @@ func RegisterGreeterServiceHandlerClient(ctx context.Context, mux *runtime.Serve
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.react.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/floatval/{float_val}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.services.react.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/floatval/{float_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1101,7 +1101,7 @@ func RegisterGreeterServiceHandlerClient(ctx context.Context, mux *runtime.Serve
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.react.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/doubleval/{double_val}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.services.react.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/doubleval/{double_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1123,7 +1123,7 @@ func RegisterGreeterServiceHandlerClient(ctx context.Context, mux *runtime.Serve
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.react.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/boolval/{bool_val}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.services.react.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/boolval/{bool_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1145,7 +1145,7 @@ func RegisterGreeterServiceHandlerClient(ctx context.Context, mux *runtime.Serve
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.react.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/bytesval/{bytes_val}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.services.react.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/bytesval/{bytes_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1167,7 +1167,7 @@ func RegisterGreeterServiceHandlerClient(ctx context.Context, mux *runtime.Serve
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.react.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/int32val/{int32_val}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.services.react.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/int32val/{int32_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1189,7 +1189,7 @@ func RegisterGreeterServiceHandlerClient(ctx context.Context, mux *runtime.Serve
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.react.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/uint32val/{uint32_val}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.services.react.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/uint32val/{uint32_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1211,7 +1211,7 @@ func RegisterGreeterServiceHandlerClient(ctx context.Context, mux *runtime.Serve
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.react.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/int64val/{int64_val}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.services.react.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/int64val/{int64_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1233,7 +1233,7 @@ func RegisterGreeterServiceHandlerClient(ctx context.Context, mux *runtime.Serve
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.react.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/uint64val/{uint64_val}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/convers.services.react.v1.GreeterService/SayHello", runtime.WithHTTPPathPattern("/say/uint64val/{uint64_val}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return

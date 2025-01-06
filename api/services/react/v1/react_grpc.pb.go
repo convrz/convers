@@ -33,7 +33,7 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	GreeterService_SayHello_FullMethodName = "/convers.react.v1.GreeterService/SayHello"
+	GreeterService_SayHello_FullMethodName = "/convers.services.react.v1.GreeterService/SayHello"
 )
 
 // GreeterServiceClient is the client API for GreeterService service.
@@ -122,7 +122,7 @@ func _GreeterService_SayHello_Handler(srv interface{}, ctx context.Context, dec 
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var GreeterService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "convers.react.v1.GreeterService",
+	ServiceName: "convers.services.react.v1.GreeterService",
 	HandlerType: (*GreeterServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

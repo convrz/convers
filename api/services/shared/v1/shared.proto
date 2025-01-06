@@ -14,12 +14,12 @@
 
 syntax = "proto3";
 
-package convers.shared.v1;
+package convers.services.shared.v1;
 
 import "buf/validate/validate.proto";
 import "google/protobuf/wrappers.proto";
 
-option go_package = "github.com/convrz/convers/api/shared/v1;shared";
+option go_package = "github.com/convrz/convers/api/services/shared/v1;shared";
 
 message HelloRequest {
   string name = 1 [(buf.validate.field).string.min_len = 1];;
