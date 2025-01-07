@@ -22,12 +22,12 @@ COPY ./api ./
 
 RUN go mod download
 
-COPY v1 .
+COPY . .
 
 # Set necessary environment variables needed for our image and build the API server.
 ENV CGO_ENABLED=0 GOOS=linux GOARCH=amd64
 # Build the application
-RUN go build -ldflags="-s -w" -o /bin/main ./cmd/gateway/v1
+RUN go build -ldflags="-s -w" -o /bin/main ./cmd/gateway
 
 # Remove all source code files
 RUN rm -r *
