@@ -22,10 +22,10 @@ import (
 	"net"
 
 	"github.com/convrz/convers/api/services/greeter/v1"
-	"github.com/convrz/convers/core/cvzapp"
+	"github.com/convrz/convers/v1/core/cvzapp"
 	"github.com/convrz/convers/x/greeter/v1/internal/controllers"
 
-	"github.com/convrz/convers/core/cvzservice"
+	"github.com/convrz/convers/v1/core/cvzservice"
 )
 
 type Greeter struct {

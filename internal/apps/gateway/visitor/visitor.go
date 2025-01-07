@@ -18,14 +18,27 @@ package visitor
 
 import (
 	"context"
-	"github.com/convrz/convers/core/cvzruntime"
+
+	"github.com/convrz/convers/v1/core/cvzruntime"
+	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials/insecure"
 )
 
-type IService interface {
-	cvzruntime.GrpcService
-	Accept(context.Context, cvzruntime.IServeMux, IVisitor) error
+func New() IVisitor {
+	return &Visitor{}
 }
 
-type IVisitor interface {
-	VisitGreeterService(ctx context.Context, mux cvzruntime.IServeMux, service IService) error
+var _ IVisitor = (*Visitor)(nil)
+
+type Visitor struct{}
+
+func (v *Visitor) VisitGreeterService(ctx context.Context, mux cvzruntime.IServeMux, service IService) error {
+	opts := []grpc.DialOption{grpc.WithTransportCredentials(insecure.NewCredentials())}
+
+	greeterAddr := ":8000"
+	if err := cvzruntime.RegisterService(ctx, mux, service, greeterAddr, opts); err != nil {
+		return err
+	}
+
+	return nil
 }

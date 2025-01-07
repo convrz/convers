@@ -18,10 +18,11 @@ package greeter
 
 import (
 	"context"
+
 	greetergw "github.com/convrz/convers/api/services/greeter/v1"
-	"github.com/convrz/convers/core/cvzruntime"
-	"github.com/convrz/convers/internal/apps/gateway/v1/services/base"
-	"github.com/convrz/convers/internal/apps/gateway/v1/visitor"
+	"github.com/convrz/convers/v1/core/cvzruntime"
+	"github.com/convrz/convers/v1/internal/apps/gateway/services/base"
+	"github.com/convrz/convers/v1/internal/apps/gateway/visitor"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"google.golang.org/grpc"
 )

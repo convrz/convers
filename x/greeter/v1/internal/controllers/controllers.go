@@ -22,7 +22,7 @@ import (
 
 	greeterBiz "github.com/convrz/convers/api/biz/greeter/v1"
 	"github.com/convrz/convers/api/services/greeter/v1"
-	"github.com/convrz/convers/pkg/copier"
+	"github.com/convrz/convers/v1/pkg/copier"
 	"github.com/convrz/convers/x/greeter/v1/internal/repos"
 )
 

@@ -14,17 +14,19 @@
  * limitations under the License.
  */
 
-package registry
+package visitor
 
-import "github.com/convrz/convers/core/cvzapp"
+import (
+	"context"
 
-func New() cvzapp.App {
-	return &App{}
+	"github.com/convrz/convers/v1/core/cvzruntime"
+)
+
+type IService interface {
+	cvzruntime.GrpcService
+	Accept(context.Context, cvzruntime.IServeMux, IVisitor) error
 }
 
-type App struct{}
-
-func (a *App) Run() error {
-	//TODO implement me
-	panic("implement me")
+type IVisitor interface {
+	VisitGreeterService(ctx context.Context, mux cvzruntime.IServeMux, service IService) error
 }
