@@ -22,7 +22,7 @@ COPY ./api ./
 
 RUN go mod download
 
-COPY . .
+COPY v1 .
 
 # Set necessary environment variables needed for our image and build the API server.
 ENV CGO_ENABLED=0 GOOS=linux GOARCH=amd64

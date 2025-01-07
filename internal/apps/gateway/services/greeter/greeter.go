@@ -14,24 +14,26 @@
  * limitations under the License.
  */
 
-package base
+package greeter
 
 import (
 	"context"
+	greetergw "github.com/convrz/convers/api/services/greeter/v1"
 	"github.com/convrz/convers/core/cvzruntime"
-	"github.com/convrz/convers/internal/apps/gateway/v1/visitor"
+	"github.com/convrz/convers/internal/apps/gateway/services/base"
+	"github.com/convrz/convers/internal/apps/gateway/visitor"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"google.golang.org/grpc"
 )
 
-var _ visitor.IService = (*Service)(nil)
-
-type Service struct{}
-
-func (s *Service) Register(_ context.Context, _ *runtime.ServeMux, _ string, _ []grpc.DialOption) error {
-	panic("unimplemented")
+type Greeter struct {
+	base.Service
 }
 
-func (s *Service) Accept(_ context.Context, _ cvzruntime.IServeMux, _ visitor.IVisitor) error {
-	panic("unimplemented")
+func (g *Greeter) Accept(ctx context.Context, mux cvzruntime.IServeMux, v visitor.IVisitor) error {
+	return v.VisitGreeterService(ctx, mux, g)
+}
+
+func (g *Greeter) Register(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) error {
+	return greetergw.RegisterGreeterServiceHandlerFromEndpoint(ctx, mux, endpoint, opts)
 }
