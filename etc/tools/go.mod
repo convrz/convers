@@ -1,4 +1,4 @@
-module github.com/convrz/convers/build/tools
+module github.com/convrz/convers/etc/tools
 
 go 1.23.3
 
