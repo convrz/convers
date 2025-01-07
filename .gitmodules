@@ -7,6 +7,3 @@
 [submodule "third_party/protovalidate"]
 	path = third_party/protovalidate
 	url = https://github.com/bufbuild/protovalidate.git
-[submodule "web"]
-	path = web
-	url = https://github.com/convrz/web.git
