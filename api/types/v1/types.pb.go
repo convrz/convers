@@ -103,25 +103,25 @@ type Context struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// Dùng để theo dõi từng request qua các microservices.
+	// Tracks each request across microservices.
 	TraceId *wrapperspb.StringValue `protobuf:"bytes,1,opt,name=trace_id,json=traceId,proto3" json:"trace_id,omitempty"`
-	// Định danh duy nhất cho mỗi request. Hữu ích để debug và logging.
+	// Unique identifier for each request. Useful for debugging and logging.
 	RequestId *wrapperspb.StringValue `protobuf:"bytes,2,opt,name=request_id,json=requestId,proto3" json:"request_id,omitempty"`
-	// Định danh người dùng thực hiện yêu cầu.
+	// Identifies the user making the request.
 	UserId *wrapperspb.StringValue `protobuf:"bytes,3,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
-	// Truyền token hoặc thông tin xác thực qua context
+	// Passes tokens or authentication information through the context.
 	Authorization *wrapperspb.StringValue `protobuf:"bytes,4,opt,name=authorization,proto3" json:"authorization,omitempty"`
-	// Truyền thông tin ngôn ngữ cho hệ thống đa ngôn ngữ
+	// Passes language information for multilingual systems.
 	Locale *wrapperspb.StringValue `protobuf:"bytes,5,opt,name=locale,proto3" json:"locale,omitempty"`
-	// Dùng để liên kết nhiều request liên quan trong một workflow.
+	// Links multiple related requests in a workflow.
 	CorrelationId *wrapperspb.StringValue `protobuf:"bytes,6,opt,name=correlation_id,json=correlationId,proto3" json:"correlation_id,omitempty"`
-	// Xác định dịch vụ hiện tại đang xử lý yêu cầu
+	// Identifies the current service processing the request.
 	ServiceName *wrapperspb.StringValue `protobuf:"bytes,7,opt,name=service_name,json=serviceName,proto3" json:"service_name,omitempty"`
-	// Theo dõi số lần retry để ngăn việc lặp vô hạn.
+	// Tracks the number of retries to prevent infinite loops.
 	RetryCount *wrapperspb.UInt32Value `protobuf:"bytes,8,opt,name=retry_count,json=retryCount,proto3" json:"retry_count,omitempty"`
-	// Định danh từng phần nhỏ trong request (tracing).
+	// Identifies individual parts within a request (tracing).
 	SpanId *wrapperspb.StringValue `protobuf:"bytes,9,opt,name=span_id,json=spanId,proto3" json:"span_id,omitempty"`
-	// Xác định IP của client gửi request.
+	// Identifies the IP address of the client sending the request.
 	Ip *wrapperspb.StringValue `protobuf:"bytes,10,opt,name=ip,proto3" json:"ip,omitempty"`
 }
 

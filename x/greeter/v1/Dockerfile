@@ -12,22 +12,20 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM golang:1.23-alpine AS builder
+FROM ghcr.io/convrz/convers/cvz.go:1.23.3-alpine AS builder
 
 # Move to working directory (/app).
-WORKDIR /app
+WORKDIR /src
 
-# Copy and download dependency using go mod.
-COPY go.mod go.sum ./
+COPY . ./
 RUN go mod download
 
-# Copy the code into the container.
-COPY .. .
+WORKDIR /src/x/greeter/v1
 
 # Set necessary environment variables needed for our image and build the API server.
 ENV CGO_ENABLED=0 GOOS=linux GOARCH=amd64
 # Build the application
-RUN go build -ldflags="-s -w" -o /bin/greeter ./cmd
+RUN go build -ldflags="-s -w" -o /bin/main ./cmd
 
 # Remove all source code files
 RUN rm -r *
@@ -35,12 +33,12 @@ RUN rm -r *
 RUN go clean -modcache
 
 # Stage run
-FROM alpine:edge AS runner
+FROM ghcr.io/convrz/convers/cvz.alpine:edge AS runner
 WORKDIR /app
 
-COPY --from=builder /bin/greeter /bin/greeter
+COPY --from=builder /bin/main /bin/main
 
 # Set the timezone and install CA certificates
 RUN apk --no-cache add ca-certificates tzdata
 
-CMD [ "./greeter" ]
+CMD [ "./main" ]

@@ -1,0 +1,30 @@
+name: publish-cvz-go
+
+on:
+  push:
+    branches:
+      - docker/go
+
+jobs:
+  publish-cvz-go:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+      attestations: write
+      id-token: write
+    steps:
+      - name: Checkout source code.
+        uses: actions/checkout@v2
+
+      - name: Login to GitHub Container Registry.
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and Push Docker Image
+        run: |
+          docker build ./build/cvz/go -t ghcr.io/convrz/convers/cvz.go:1.23.3-alpine
+          docker push ghcr.io/convrz/convers/cvz.go:1.23.3-alpine

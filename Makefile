@@ -14,3 +14,12 @@
 
 test:
 	@echo "Running tests..."
+
+build.greeter:
+	docker buildx build -f ./x/greeter/v1/Dockerfile -t cvz.x.greeter.v1:latest .
+
+build.gateway:
+	docker buildx build -f ./cmd/gateway/v1/Dockerfile -t cvz.gateway.v1:latest .
+
+build.srx:
+	docker buildx build -f ./cmd/srx/v1/Dockerfile -t cvz.srx.v1:latest .
