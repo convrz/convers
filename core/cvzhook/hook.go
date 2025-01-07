@@ -18,8 +18,7 @@ package cvzhook
 
 import (
 	"context"
-
-	cvzinternal "github.com/convrz/convers/v1/core/internal"
+	"github.com/convrz/convers/core/internal"
 	"go.uber.org/fx"
 )
 

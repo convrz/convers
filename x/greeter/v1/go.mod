@@ -3,10 +3,12 @@ module github.com/convrz/convers/x/greeter/v1
 go 1.23.3
 
 replace (
+	github.com/convrz/convers => ./../../../
 	github.com/convrz/convers/api => ./../../../api
 )
 
 require (
+	github.com/convrz/convers v0.0.0-00010101000000-000000000000
 	github.com/convrz/convers/api v0.0.0-00010101000000-000000000000
 )
 

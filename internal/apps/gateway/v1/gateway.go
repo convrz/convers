@@ -18,12 +18,11 @@ package gateway
 
 import (
 	"context"
+	"github.com/convrz/convers/core/cvzapp"
+	"github.com/convrz/convers/core/cvzruntime"
+	"github.com/convrz/convers/internal/apps/gateway/v1/services/greeter"
+	"github.com/convrz/convers/internal/apps/gateway/v1/visitor"
 	"log"
-
-	"github.com/convrz/convers/v1/core/cvzapp"
-	"github.com/convrz/convers/v1/core/cvzruntime"
-	"github.com/convrz/convers/v1/internal/apps/gateway/services/greeter"
-	"github.com/convrz/convers/v1/internal/apps/gateway/visitor"
 )
 
 func New() cvzapp.App {

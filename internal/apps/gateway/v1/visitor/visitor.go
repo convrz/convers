@@ -14,16 +14,30 @@
  * limitations under the License.
  */
 
-package main
+package visitor
 
 import (
-	"log"
-
-	"github.com/convrz/convers/v1/core/cvzfactory"
-	"github.com/convrz/convers/v1/internal/apps/gateway"
+	"context"
+	"github.com/convrz/convers/core/cvzruntime"
+	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials/insecure"
 )
 
-func main() {
-	app := cvzfactory.Build(gateway.New)
-	log.Fatal(app.Run())
+func New() IVisitor {
+	return &Visitor{}
+}
+
+var _ IVisitor = (*Visitor)(nil)
+
+type Visitor struct{}
+
+func (v *Visitor) VisitGreeterService(ctx context.Context, mux cvzruntime.IServeMux, service IService) error {
+	opts := []grpc.DialOption{grpc.WithTransportCredentials(insecure.NewCredentials())}
+
+	greeterAddr := ":8000"
+	if err := cvzruntime.RegisterService(ctx, mux, service, greeterAddr, opts); err != nil {
+		return err
+	}
+
+	return nil
 }
