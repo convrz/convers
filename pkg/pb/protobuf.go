@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+// Package pb provides utilities for working with protobuf messages.
 package pb
 
 import (
@@ -35,6 +36,7 @@ func FromTime(from *timestamppb.Timestamp) time.Time {
 	return from.AsTime()
 }
 
+// Compare compares two proto messages.
 var Compare = cmp.FilterValues(
 	func(x, y interface{}) bool {
 		_, xok := x.(proto.Message)

@@ -26,5 +26,5 @@ jobs:
 
       - name: Build and Push Docker Image
         run: |
-          docker build ./build/cvz/alpine -t ghcr.io/convrz/convers/cvz.alpine:edge
+          docker build ./etc/cvz/alpine -t ghcr.io/convrz/convers/cvz.alpine:edge
           docker push ghcr.io/convrz/convers/cvz.alpine:edge

@@ -14,27 +14,31 @@
  * limitations under the License.
  */
 
+// Package cvzapp provides the application layer for the service.
 package cvzapp
 
 import (
 	"context"
-	"github.com/convrz/convers/core/internal"
+
+	cvzinternal "github.com/convrz/convers/core/internal"
 	"go.uber.org/fx"
 )
 
+// App represents the application interface.
 type App interface {
 	Run() error
 }
 
+// InjectLifeCycle injects the given constructor into the application with lifecycle hooks.
 func InjectLifeCycle[T any](constructor func() T, onStart func(T) error, onStop func(T) error) func() T {
 	decorateConstructor := func(lc fx.Lifecycle) T {
 		ins := constructor()
 
 		lc.Append(fx.Hook{
-			OnStart: func(ctx context.Context) error {
+			OnStart: func(_ context.Context) error {
 				return onStart(ins)
 			},
-			OnStop: func(ctx context.Context) error {
+			OnStop: func(_ context.Context) error {
 				return onStop(ins)
 			},
 		})
@@ -47,6 +51,7 @@ func InjectLifeCycle[T any](constructor func() T, onStart func(T) error, onStop 
 	return constructor
 }
 
+// Inject injects the given constructor into the application.
 func Inject[fn any](constructor fn) fn {
 	cvzinternal.Provide(constructor)
 	return constructor

@@ -14,10 +14,12 @@
  * limitations under the License.
  */
 
+// Package greeter provides the greeter service.
 package greeter
 
 import (
 	"context"
+
 	greetergw "github.com/convrz/convers/api/services/greeter/v1"
 	"github.com/convrz/convers/core/cvzruntime"
 	"github.com/convrz/convers/internal/apps/gateway/services/base"
@@ -26,14 +28,17 @@ import (
 	"google.golang.org/grpc"
 )
 
+// Greeter represents the Greeter service
 type Greeter struct {
 	base.Service
 }
 
+// Accept accepts the Greeter service
 func (g *Greeter) Accept(ctx context.Context, mux cvzruntime.IServeMux, v visitor.IVisitor) error {
 	return v.VisitGreeterService(ctx, mux, g)
 }
 
+// Register registers the Greeter service
 func (g *Greeter) Register(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) error {
 	return greetergw.RegisterGreeterServiceHandlerFromEndpoint(ctx, mux, endpoint, opts)
 }

@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+// Package types provides the types for the service.
 package types
 
 import (
@@ -22,6 +23,11 @@ import (
 	fieldmask "google.golang.org/protobuf/types/known/fieldmaskpb"
 )
 
+// Empty is an alias of emptypb.Empty.
 type Empty = emptypb.Empty
+
+// Any is an alias of anypb.Any.
 type Any = anypb.Any
+
+// FieldMask is an alias of fieldmask.FieldMask.
 type FieldMask = fieldmask.FieldMask

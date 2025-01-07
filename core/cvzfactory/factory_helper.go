@@ -18,8 +18,9 @@ package cvzfactory
 
 import (
 	"context"
-	"github.com/convrz/convers/core/internal"
 	"log"
+
+	cvzinternal "github.com/convrz/convers/core/internal"
 
 	"github.com/convrz/convers/core/cvzapp"
 
@@ -42,6 +43,7 @@ func _main(lc fx.Lifecycle, app cvzapp.App) {
 	})
 }
 
+// Build builds the application.
 func Build(constructor interface{}) cvzapp.App {
 	cvzinternal.Provide(constructor)
 

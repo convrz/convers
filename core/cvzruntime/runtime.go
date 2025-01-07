@@ -14,39 +14,47 @@
  * limitations under the License.
  */
 
+// Package cvzruntime provides the runtime for the service.
 package cvzruntime
 
 import (
 	"context"
-	"google.golang.org/grpc"
 	"net/http"
+
+	"google.golang.org/grpc"
 
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 )
 
+// GrpcService is an interface for registering a gRPC service.
 type GrpcService interface {
 	Register(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) error
 }
 
+// IServeMux is an interface for a runtime mux.
 type IServeMux interface {
 	Listen(addr string) error
 	AsRuntimeMux() *runtime.ServeMux
 }
 
+// NewServeMux creates a new runtime mux.
 func NewServeMux(opts ...runtime.ServeMuxOption) IServeMux {
 	return &ServeMux{
 		ServeMux: runtime.NewServeMux(opts...),
 	}
 }
 
+// ServeMux is a runtime mux.
 type ServeMux struct {
 	*runtime.ServeMux
 }
 
+// Listen starts the runtime mux.
 func (mux *ServeMux) Listen(addr string) error {
 	return http.ListenAndServe(addr, mux)
 }
 
+// AsRuntimeMux returns the underlying runtime mux.
 func (mux *ServeMux) AsRuntimeMux() *runtime.ServeMux {
 	return mux.ServeMux
 }

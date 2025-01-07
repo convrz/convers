@@ -14,10 +14,12 @@
  * limitations under the License.
  */
 
+// Package db provides the database interface.
 package db
 
 import "context"
 
+// IRepository provides the interface for the database.
 type IRepository[T any] interface {
 	List(ctx context.Context) ([]T, error)
 	Get(ctx context.Context, id string) (T, error)
