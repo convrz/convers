@@ -17,10 +17,10 @@
 package main
 
 import (
+	"github.com/convrz/convers/internal/apps/gateway"
 	"log"
 
 	"github.com/convrz/convers/core/cvzfactory"
-	"github.com/convrz/convers/internal/apps/gateway/v1"
 )
 
 func main() {

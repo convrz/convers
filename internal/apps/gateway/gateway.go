@@ -20,8 +20,8 @@ import (
 	"context"
 	"github.com/convrz/convers/core/cvzapp"
 	"github.com/convrz/convers/core/cvzruntime"
-	"github.com/convrz/convers/internal/apps/gateway/v1/services/greeter"
-	"github.com/convrz/convers/internal/apps/gateway/v1/visitor"
+	"github.com/convrz/convers/internal/apps/gateway/services/greeter"
+	"github.com/convrz/convers/internal/apps/gateway/visitor"
 	"log"
 )
 
