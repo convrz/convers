@@ -21,7 +21,7 @@ import (
 	"time"
 
 	"github.com/convrz/convers/api/types/v1"
-	"github.com/convrz/convers/pkg/pb/proto"
+	"github.com/convrz/convers/v1/pkg/pb/proto"
 )
 
 const contextKey = 0

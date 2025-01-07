@@ -17,7 +17,7 @@
 package init
 
 import (
-	"github.com/convrz/convers/core/cvzapp"
+	"github.com/convrz/convers/v1/core/cvzapp"
 	"github.com/convrz/convers/x/greeter/v1/internal/biz"
 	"github.com/convrz/convers/x/greeter/v1/internal/controllers"
 	"github.com/convrz/convers/x/greeter/v1/internal/repos"

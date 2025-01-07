@@ -14,16 +14,17 @@
  * limitations under the License.
  */
 
-package main
+package registry
 
-import (
-	"log"
+import "github.com/convrz/convers/v1/core/cvzapp"
 
-	"github.com/convrz/convers/core/cvzfactory"
-	"github.com/convrz/convers/internal/apps/gateway/v1"
-)
+func New() cvzapp.App {
+	return &App{}
+}
 
-func main() {
-	app := cvzfactory.Build(gateway.New)
-	log.Fatal(app.Run())
+type App struct{}
+
+func (a *App) Run() error {
+	//TODO implement me
+	panic("implement me")
 }
