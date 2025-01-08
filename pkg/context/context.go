@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+// Package context provides a context with a message.
 package context
 
 import (
@@ -24,8 +25,12 @@ import (
 	"github.com/convrz/convers/pkg/pb/proto"
 )
 
-const contextKey = 0
+// Key is the key type for the context.
+type Key int
 
+const contextKey Key = 0
+
+// New returns a new context with the given message and deadline.
 func New(ctxBase context.Context, msg *types.Context, deadline time.Time) (context.Context, context.CancelFunc) {
 	if msg == nil {
 		return context.WithDeadline(ctxBase, deadline)
@@ -38,6 +43,7 @@ func New(ctxBase context.Context, msg *types.Context, deadline time.Time) (conte
 	return context.WithDeadline(ctx, deadline)
 }
 
+// Value returns the context value.
 func Value(ctx context.Context) (*types.Context, bool) {
 	msgBin, ok := ctx.Value(contextKey).([]byte)
 	if !ok {

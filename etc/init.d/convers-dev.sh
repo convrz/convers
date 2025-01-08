@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Copyright 2024 The Convērs Authors.
 
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,17 +14,5 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-test:
-	@echo "Running tests..."
-
-lint:
-	@golangci-lint run
-
-build.greeter:
-	docker buildx build -f ./x/greeter/v1/Dockerfile -t cvz.x.greeter.v1:latest .
-
-build.gateway:
-	docker buildx build -f ./cmd/gateway/Dockerfile -t cvz.gateway:latest .
-
-build.srx:
-	docker buildx build -f ./cmd/srx/Dockerfile -t cvz.srx:latest .
+export CVZ_MODE=dev
+export CVZ_GATEWAY_PORT=8080

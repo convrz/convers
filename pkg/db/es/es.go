@@ -14,4 +14,5 @@
  * limitations under the License.
  */
 
+// Package es provides an implementation of the database using elasticsearch.
 package es

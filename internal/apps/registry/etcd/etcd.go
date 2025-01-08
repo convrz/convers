@@ -14,4 +14,5 @@
  * limitations under the License.
  */
 
+// Package etcd provides an implementation of the registry using etcd.
 package etcd

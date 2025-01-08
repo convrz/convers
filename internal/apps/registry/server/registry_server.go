@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+// Package server provides the server for the service registry.
 package server
 
 import (
@@ -24,20 +25,24 @@ import (
 
 var _ registry.ServiceRegistryServiceServer = (*ServiceRegistryX)(nil)
 
+// ServiceRegistryX implements the ServiceRegistryService.
 type ServiceRegistryX struct {
 	registry.UnimplementedServiceRegistryServiceServer
 }
 
+// RegisterService implements the RegisterService method of the ServiceRegistryService.
 func (srx *ServiceRegistryX) RegisterService(ctx context.Context, info *registry.RegisterServiceRequest) (*registry.RegisterServiceResponse, error) {
 	//TODO implement me
 	panic("implement me")
 }
 
+// DiscoverService implements the DiscoverService method of the ServiceRegistryService.
 func (srx *ServiceRegistryX) DiscoverService(ctx context.Context, request *registry.DiscoverServiceRequest) (*registry.DiscoverServiceResponse, error) {
 	//TODO implement me
 	panic("implement me")
 }
 
+// Heartbeat implements the Heartbeat method of the ServiceRegistryService.
 func (srx *ServiceRegistryX) Heartbeat(ctx context.Context, info *registry.HeartbeatRequest) (*registry.HeartbeatResponse, error) {
 	//TODO implement me
 	panic("implement me")

@@ -14,4 +14,5 @@
  * limitations under the License.
  */
 
+// Package logger provides the logger for the service.
 package logger

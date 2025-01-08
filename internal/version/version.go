@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+// Package version provides the version of the package.
 package version
 
 import "runtime"

@@ -14,11 +14,13 @@
  * limitations under the License.
  */
 
+// Package main provides the entry point for the gateway service.
 package main
 
 import (
-	"github.com/convrz/convers/internal/apps/gateway"
 	"log"
+
+	"github.com/convrz/convers/internal/apps/gateway"
 
 	"github.com/convrz/convers/core/cvzfactory"
 )

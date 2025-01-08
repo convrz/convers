@@ -14,10 +14,12 @@
  * limitations under the License.
  */
 
+// Package base provides the base service.
 package base
 
 import (
 	"context"
+
 	"github.com/convrz/convers/core/cvzruntime"
 	"github.com/convrz/convers/internal/apps/gateway/visitor"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
@@ -26,12 +28,15 @@ import (
 
 var _ visitor.IService = (*Service)(nil)
 
+// Service represents the base service
 type Service struct{}
 
+// Register registers the base service
 func (s *Service) Register(_ context.Context, _ *runtime.ServeMux, _ string, _ []grpc.DialOption) error {
 	panic("unimplemented")
 }
 
+// Accept accepts the base service
 func (s *Service) Accept(_ context.Context, _ cvzruntime.IServeMux, _ visitor.IVisitor) error {
 	panic("unimplemented")
 }

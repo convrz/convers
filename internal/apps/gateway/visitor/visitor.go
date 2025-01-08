@@ -14,23 +14,28 @@
  * limitations under the License.
  */
 
+// Package visitor provides an implementation of the visitor pattern.
 package visitor
 
 import (
 	"context"
+
 	"github.com/convrz/convers/core/cvzruntime"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )
 
+// New returns a new visitor.
 func New() IVisitor {
 	return &Visitor{}
 }
 
 var _ IVisitor = (*Visitor)(nil)
 
+// Visitor represents the visitor interface.
 type Visitor struct{}
 
+// VisitGreeterService visits the greeter service.
 func (v *Visitor) VisitGreeterService(ctx context.Context, mux cvzruntime.IServeMux, service IService) error {
 	opts := []grpc.DialOption{grpc.WithTransportCredentials(insecure.NewCredentials())}
 

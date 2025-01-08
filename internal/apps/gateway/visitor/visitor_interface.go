@@ -18,14 +18,17 @@ package visitor
 
 import (
 	"context"
+
 	"github.com/convrz/convers/core/cvzruntime"
 )
 
+// IService represents the service interface.
 type IService interface {
 	cvzruntime.GrpcService
 	Accept(context.Context, cvzruntime.IServeMux, IVisitor) error
 }
 
+// IVisitor represents the visitor interface.
 type IVisitor interface {
 	VisitGreeterService(ctx context.Context, mux cvzruntime.IServeMux, service IService) error
 }

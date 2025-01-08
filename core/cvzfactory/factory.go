@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+// Package cvzfactory provides the factory for the service.
 package cvzfactory
 
 import (

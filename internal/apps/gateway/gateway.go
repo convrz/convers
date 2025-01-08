@@ -14,17 +14,20 @@
  * limitations under the License.
  */
 
+// Package gateway provides the gateway app.
 package gateway
 
 import (
 	"context"
+	"log"
+
 	"github.com/convrz/convers/core/cvzapp"
 	"github.com/convrz/convers/core/cvzruntime"
 	"github.com/convrz/convers/internal/apps/gateway/services/greeter"
 	"github.com/convrz/convers/internal/apps/gateway/visitor"
-	"log"
 )
 
+// New creates a new gateway app
 func New() cvzapp.App {
 	return &App{
 		mux:     cvzruntime.NewServeMux(),
@@ -32,6 +35,7 @@ func New() cvzapp.App {
 	}
 }
 
+// App represents the gateway app
 type App struct {
 	mux     cvzruntime.IServeMux
 	visitor visitor.IVisitor
@@ -57,6 +61,7 @@ func (app *App) register(ctx context.Context) error {
 	return app.visit(ctx, services...)
 }
 
+// Run the gateway app
 func (app *App) Run() error {
 	ctx := context.Background()
 	ctx, cancel := context.WithCancel(ctx)

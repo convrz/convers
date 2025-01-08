@@ -14,14 +14,17 @@
  * limitations under the License.
  */
 
+// Package cvzhook provides a way to hook into the application lifecycle.
 package cvzhook
 
 import (
 	"context"
-	"github.com/convrz/convers/core/internal"
+
+	cvzinternal "github.com/convrz/convers/core/internal"
 	"go.uber.org/fx"
 )
 
+// UseBefore uses the given function before the application starts.
 func UseBefore(fn func(ctx context.Context) error) {
 	function := func(lc fx.Lifecycle) {
 		lc.Append(fx.Hook{
@@ -32,6 +35,7 @@ func UseBefore(fn func(ctx context.Context) error) {
 	cvzinternal.Invoke(function)
 }
 
+// UseAfter adds a hook to be executed after the application has stopped.
 func UseAfter(fn func(ctx context.Context) error) {
 	function := func(lc fx.Lifecycle) {
 		lc.Append(fx.Hook{

@@ -14,16 +14,20 @@
  * limitations under the License.
  */
 
+// Package registry provides the registry service.
 package registry
 
 import "github.com/convrz/convers/core/cvzapp"
 
+// New creates a new registry service.
 func New() cvzapp.App {
 	return &App{}
 }
 
+// App represents the registry service.
 type App struct{}
 
+// Run starts the registry service.
 func (a *App) Run() error {
 	//TODO implement me
 	panic("implement me")

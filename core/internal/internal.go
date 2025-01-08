@@ -14,20 +14,24 @@
  * limitations under the License.
  */
 
+// Package cvzinternal provides internal utilities for the Convērs service.
 package cvzinternal
 
 import "go.uber.org/fx"
 
 var options = fx.Provide()
 
+// Provide provides the given constructors.
 func Provide(constructors ...interface{}) {
 	options = fx.Options(options, fx.Provide(constructors...))
 }
 
+// Option returns the internal option.
 func Option() fx.Option {
 	return options
 }
 
+// Invoke invokes the given constructors.
 func Invoke(constructors ...interface{}) {
 	options = fx.Options(options, fx.Invoke(constructors...))
 }

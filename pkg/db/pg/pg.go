@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+// Package pg provides an implementation of the database using PostgreSQL.
 package pg
 
 import (
@@ -23,6 +24,7 @@ import (
 	"github.com/jackc/pgx/v5/pgconn"
 )
 
+// DBTX is the interface for the database.
 type DBTX interface {
 	Exec(context.Context, string, ...interface{}) (pgconn.CommandTag, error)
 	Query(context.Context, string, ...interface{}) (pgx.Rows, error)

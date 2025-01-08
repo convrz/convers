@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+// Package main provides the entry point for the service registry.
 package main
 
 func main() {

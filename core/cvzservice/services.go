@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+// Package cvzservice provides a service registrar.
 package cvzservice
 
 import (
@@ -22,29 +23,35 @@ import (
 
 var _ IServiceRegistrar = (*ServiceRegistrar)(nil)
 
+// IServiceRegistrar is a service registrar.
 type IServiceRegistrar interface {
 	AsServer() *grpc.Server
 	Run() error
 }
 
+// New returns a new service registrar.
 func New(opts ...grpc.ServerOption) *ServiceRegistrar {
 	return &ServiceRegistrar{
 		Server: grpc.NewServer(opts...),
 	}
 }
 
+// NewDefault returns a new service registrar with default options.
 func NewDefault() *ServiceRegistrar {
 	return New()
 }
 
+// ServiceRegistrar is a gRPC server that registers services.
 type ServiceRegistrar struct {
 	*grpc.Server
 }
 
+// AsServer returns the underlying gRPC server.
 func (s *ServiceRegistrar) AsServer() *grpc.Server {
 	return s.Server
 }
 
+// Run starts the service registrar.
 func (s *ServiceRegistrar) Run() error {
 	panic("unimplemented")
 }
