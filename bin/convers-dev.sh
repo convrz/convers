@@ -16,3 +16,8 @@
 
 export CVZ_MODE=dev
 export CVZ_GATEWAY_PORT=8080
+
+docker compose \ 
+    -f ./devops/docker/mesh/docker-compose.yml \ 
+    -f ./devops/docker/resource/docker-compose.resources.yml \
+    up
