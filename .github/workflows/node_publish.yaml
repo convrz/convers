@@ -1,0 +1,30 @@
+name: publish-cvz-node
+
+on:
+  push:
+    branches:
+      - docker/node
+
+jobs:
+  publish-cvz-node:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+      attestations: write
+      id-token: write
+    steps:
+      - name: Checkout source code.
+        uses: actions/checkout@v2
+
+      - name: Login to GitHub Container Registry.
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and Push Docker Image
+        run: |
+          docker build ./devops/cvz/node -t ghcr.io/convrz/convers/cvz.node:20-alpine
+          docker push ghcr.io/convrz/convers/cvz.node:20-alpine
