@@ -1,2 +1,5 @@
-devops/
+.github/
+.idea/
+
+tools/
 third_party/
