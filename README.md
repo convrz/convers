@@ -1,7 +1,7 @@
 <img src="./docs/logo/convers1.png#gh-light-mode-only" alt="convers banner light mode" width="300" />
 
 
-<img src="./docs//logo/convers2.png#gh-dark-mode-only" alt="convers banner light mode" width="300" />
+<img src="./docs/logo/convers2.png#gh-dark-mode-only" alt="convers banner light mode" width="300" />
 
 
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
