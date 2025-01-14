@@ -12,11 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-test:
-	@echo "Running tests..."
-
-lint:
+lint: go-lint proto-lint
+go-lint:
 	@golangci-lint run
+proto-lint:
+	@cd ./api && buf lint
 
 build.greeter:
 	docker buildx build -f ./x/greeter/v1/Dockerfile -t cvz.x.greeter.v1:latest .
