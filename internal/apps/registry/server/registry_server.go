@@ -23,27 +23,27 @@ import (
 	"github.com/convrz/convers/api/registry/v1"
 )
 
-var _ registry.ServiceRegistryServiceServer = (*ServiceRegistryX)(nil)
+var _ registry.ServiceRegistryServiceServer = (*ServiceRegistry)(nil)
 
-// ServiceRegistryX implements the ServiceRegistryService.
-type ServiceRegistryX struct {
+// ServiceRegistry implements the ServiceRegistryService.
+type ServiceRegistry struct {
 	registry.UnimplementedServiceRegistryServiceServer
 }
 
 // RegisterService implements the RegisterService method of the ServiceRegistryService.
-func (srx *ServiceRegistryX) RegisterService(ctx context.Context, info *registry.RegisterServiceRequest) (*registry.RegisterServiceResponse, error) {
+func (srx *ServiceRegistry) RegisterService(ctx context.Context, info *registry.RegisterServiceRequest) (*registry.RegisterServiceResponse, error) {
 	//TODO implement me
 	panic("implement me")
 }
 
 // DiscoverService implements the DiscoverService method of the ServiceRegistryService.
-func (srx *ServiceRegistryX) DiscoverService(ctx context.Context, request *registry.DiscoverServiceRequest) (*registry.DiscoverServiceResponse, error) {
+func (srx *ServiceRegistry) DiscoverService(ctx context.Context, request *registry.DiscoverServiceRequest) (*registry.DiscoverServiceResponse, error) {
 	//TODO implement me
 	panic("implement me")
 }
 
 // Heartbeat implements the Heartbeat method of the ServiceRegistryService.
-func (srx *ServiceRegistryX) Heartbeat(ctx context.Context, info *registry.HeartbeatRequest) (*registry.HeartbeatResponse, error) {
+func (srx *ServiceRegistry) Heartbeat(ctx context.Context, info *registry.HeartbeatRequest) (*registry.HeartbeatResponse, error) {
 	//TODO implement me
 	panic("implement me")
 }

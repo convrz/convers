@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+// Package biz provides the business logic for the greeter service.
 package biz
 
 import (
@@ -24,6 +25,7 @@ import (
 	"github.com/convrz/convers/x/greeter/v1/internal/repos"
 )
 
+// IGreeter defines the interface for the Greeter biz module.
 type IGreeter interface {
 	greeter.GreeterServiceServer
 }
@@ -35,11 +37,13 @@ func New(db repos.IDB) IGreeter {
 	}
 }
 
+// Greeter implements GreeterServiceServer, business logic for the Greeter service.
 type Greeter struct {
 	greeter.UnimplementedGreeterServiceServer
 	repos repos.IDB
 }
 
+// SayHello implements GreeterServiceServer.
 func (g *Greeter) SayHello(ctx context.Context, msg *greeter.SayHelloRequest) (*greeter.SayHelloResponse, error) {
 	name := msg.GetName()
 	t := time.Now().String()

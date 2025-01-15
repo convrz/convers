@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+// Package main provides the entry point for the greeter service.
 package main
 
 import (

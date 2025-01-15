@@ -12,17 +12,21 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-lint: go-lint proto-lint
-go-lint:
+# Go linting tool
+lint: lint.go lint.proto
+lint.go:
 	@golangci-lint run
-proto-lint:
+lint.proto:
 	@cd ./api && buf lint
 
+lint.x.greeter.v1: 
+	cd ./x/greeter/v1 && golangci-lint run
+
+
+# Docker build commands
 build.greeter:
 	docker buildx build -f ./x/greeter/v1/Dockerfile -t cvz.x.greeter.v1:latest .
-
 build.gateway:
 	docker buildx build -f ./cmd/gateway/Dockerfile -t cvz.gateway:latest .
-
 build.srx:
 	docker buildx build -f ./cmd/srx/Dockerfile -t cvz.srx:latest .

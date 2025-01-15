@@ -14,23 +14,28 @@
  * limitations under the License.
  */
 
+// Package repos provides the database repository for the greeter service.
 package repos
 
 import "fmt"
 
+// IDB defines the database interface.
 type IDB interface {
 }
 
-func OnStart(db IDB) error {
+// OnStart performs the initialization logic.
+func OnStart(_ IDB) error {
 	fmt.Println("OnStart...")
 	return nil
 }
 
-func OnStop(db IDB) error {
+// OnStop performs the cleanup logic.
+func OnStop(_ IDB) error {
 	fmt.Println("OnStop...")
 	return nil
 }
 
+// New creates a new database repository.
 func New() IDB {
 	return nil
 }

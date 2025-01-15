@@ -14,16 +14,17 @@
  * limitations under the License.
  */
 
+// Package controllers provides the controller for the greeter service.
 package controllers
 
 import (
 	"context"
+
 	"github.com/convrz/convers/x/greeter/v1/internal/biz"
 
 	greeterBiz "github.com/convrz/convers/api/biz/greeter/v1"
 	"github.com/convrz/convers/api/services/greeter/v1"
 	"github.com/convrz/convers/pkg/copier"
-	"github.com/convrz/convers/x/greeter/v1/internal/repos"
 )
 
 // New creates a new Greeter module.
@@ -33,6 +34,7 @@ func New(biz biz.IGreeter) IGreeter {
 	}
 }
 
+// IGreeter defines the interface for the Greeter controller.
 type IGreeter interface {
 	greeter.GreeterServiceServer
 }
@@ -40,8 +42,7 @@ type IGreeter interface {
 // Greeter is the module for Greeter.
 type Greeter struct {
 	greeter.UnimplementedGreeterServiceServer
-	repos repos.IDB
-	biz   greeterBiz.GreeterServiceServer
+	biz greeterBiz.GreeterServiceServer
 }
 
 // SayHello implements GreeterServer.
