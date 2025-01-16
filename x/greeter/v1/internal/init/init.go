@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+// Package init provides the initialization logic for the greeter service.
 package init
 
 import (

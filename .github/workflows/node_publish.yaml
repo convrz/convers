@@ -26,5 +26,5 @@ jobs:
 
       - name: Build and Push Docker Image
         run: |
-          docker build ./devops/cvz/node -t ghcr.io/convrz/convers/cvz.node:20-alpine
+          docker build ./deploy/cvz/node -t ghcr.io/convrz/convers/cvz.node:20-alpine
           docker push ghcr.io/convrz/convers/cvz.node:20-alpine

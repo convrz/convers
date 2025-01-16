@@ -32,7 +32,7 @@ type IServiceRegistrar interface {
 // New returns a new service registrar.
 func New(opts ...grpc.ServerOption) *ServiceRegistrar {
 	return &ServiceRegistrar{
-		Server: grpc.NewServer(opts...),
+		server: grpc.NewServer(opts...),
 	}
 }
 
@@ -43,12 +43,12 @@ func NewDefault() *ServiceRegistrar {
 
 // ServiceRegistrar is a gRPC server that registers services.
 type ServiceRegistrar struct {
-	*grpc.Server
+	server *grpc.Server
 }
 
 // AsServer returns the underlying gRPC server.
 func (s *ServiceRegistrar) AsServer() *grpc.Server {
-	return s.Server
+	return s.server
 }
 
 // Run starts the service registrar.

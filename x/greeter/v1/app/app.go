@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+// Package app implements the Greeter service.
 package app
 
 import (
@@ -28,6 +29,7 @@ import (
 	"github.com/convrz/convers/core/cvzservice"
 )
 
+// Greeter implements GreeterServiceServer.
 type Greeter struct {
 	*cvzservice.ServiceRegistrar
 	srv greeter.GreeterServiceServer
@@ -52,5 +54,5 @@ func (g *Greeter) Run() error {
 	greeter.RegisterGreeterServiceServer(g.AsServer(), g.srv)
 	log.Printf("gRPC srv listening on %s \n", listener.Addr().String())
 
-	return g.Serve(listener)
+	return g.AsServer().Serve(listener)
 }

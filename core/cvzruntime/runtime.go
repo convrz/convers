@@ -40,21 +40,21 @@ type IServeMux interface {
 // NewServeMux creates a new runtime mux.
 func NewServeMux(opts ...runtime.ServeMuxOption) IServeMux {
 	return &ServeMux{
-		ServeMux: runtime.NewServeMux(opts...),
+		mux: runtime.NewServeMux(opts...),
 	}
 }
 
 // ServeMux is a runtime mux.
 type ServeMux struct {
-	*runtime.ServeMux
+	mux *runtime.ServeMux
 }
 
 // Listen starts the runtime mux.
 func (mux *ServeMux) Listen(addr string) error {
-	return http.ListenAndServe(addr, mux)
+	return http.ListenAndServe(addr, mux.AsRuntimeMux())
 }
 
 // AsRuntimeMux returns the underlying runtime mux.
 func (mux *ServeMux) AsRuntimeMux() *runtime.ServeMux {
-	return mux.ServeMux
+	return mux.mux
 }
