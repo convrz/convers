@@ -19,6 +19,7 @@ lint.go:
 lint.proto:
 	@cd ./api && buf lint
 
+# lint external modules
 lint.x.greeter.v1: 
 	cd ./x/greeter/v1 && golangci-lint run
 

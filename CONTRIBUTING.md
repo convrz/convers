@@ -95,5 +95,17 @@ Signed-off-by: Joe Smith <joe.smith@email.com>
 If you set your `user.name` and `user.email` git configs, you can sign your commit automatically with `git commit -s.`
 
 ## Naming packages
-
 ### Where to put packages
+- `api` define proto file for all service mesh
+- `bin` contain script start app
+- `cmd` main file, apps endpoint
+- `core` core library, apply in this project
+- `deploy` contain script and config deploy
+- `docs` documentations
+- `hack` scripts used by developer
+- `internal` packages internal, no export
+- `pkg` common packages, share to external modules
+- `third_party` proto library third party
+- `tools` install deps tools in this project
+- `website` convers web ui monorepo
+- `x` plugin service, all of them built on microservice network
