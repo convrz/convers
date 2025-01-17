@@ -1,7 +1,5 @@
 <img src="./docs/logo/new_cvz.png" alt="convers banner light mode" width="50" />
-
 <img src="./docs/logo/convers1.png#gh-light-mode-only" alt="convers banner light mode" width="150" />
-
 <img src="./docs/logo/convers2.png#gh-dark-mode-only" alt="convers banner light mode" width="150" />
 
 Start your conversation threads securely across distributed systems.
