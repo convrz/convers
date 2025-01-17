@@ -7,11 +7,10 @@
 <img src="./docs/logo/convers2.png#gh-dark-mode-only" alt="convers banner light mode" width="150" />
 </p>
 
-Start your conversation threads securely across distributed systems.
-
+#
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
-#
+Start your conversation threads securely across distributed systems.
 
 ## Getting Started
 
