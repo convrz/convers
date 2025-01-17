@@ -1,13 +1,12 @@
+<img src="./docs/logo/new_cvz.png" alt="convers banner light mode" width="80" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="./docs/logo/convers1.png#gh-light-mode-only" alt="convers banner light mode" width="300" />
-
-
 <img src="./docs/logo/convers2.png#gh-dark-mode-only" alt="convers banner light mode" width="300" />
 
+Start your conversation threads securely across distributed systems.
 
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
-# Convērs
-Start your conversation threads securely across distributed systems.
+# 
 
 ## Getting Started
 
