@@ -1,11 +1,16 @@
 name: CI / Test
 
 on:
-  workflow_run:
-    workflows:
-      - CI / Lint
-    types:
-      - completed
+  # workflow_run:
+  #   workflows:
+  #     - CI / Lint
+  #   types:
+  #     - completed
+  push:
+    branches:
+      - main
+      - "release/*"
+  pull_request:
 
 jobs:
   test:
