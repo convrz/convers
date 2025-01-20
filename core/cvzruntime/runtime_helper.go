@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+// Package cvzruntime provides the runtime layer for the service.
 package cvzruntime
 
 import (

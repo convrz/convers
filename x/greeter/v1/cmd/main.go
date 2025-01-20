@@ -18,9 +18,8 @@
 package main
 
 import (
-	"github.com/convrz/convers/pkg/log"
-
 	"github.com/convrz/convers/core/cvzfactory"
+	"github.com/convrz/convers/pkg/logger"
 	"github.com/convrz/convers/x/greeter/v1/app"
 
 	_ "github.com/convrz/convers/x/greeter/v1/internal/init"
@@ -28,5 +27,5 @@ import (
 
 func main() {
 	app := cvzfactory.Build(app.New)
-	log.Fatal(app.Run())
+	logger.Fatal(app.Run())
 }

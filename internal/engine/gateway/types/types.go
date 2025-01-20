@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+// Package types provides the types for the gateway.
 package types
 
 import (

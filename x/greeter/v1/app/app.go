@@ -21,10 +21,9 @@ import (
 	"fmt"
 	"net"
 
-	"github.com/convrz/convers/pkg/log"
-
 	"github.com/convrz/convers/api/services/greeter/v1"
 	"github.com/convrz/convers/core/cvzapp"
+	"github.com/convrz/convers/pkg/logger"
 	"github.com/convrz/convers/x/greeter/v1/internal/controllers"
 
 	"github.com/convrz/convers/core/cvzservice"
@@ -53,7 +52,7 @@ func (g *Greeter) Run() error {
 
 	// Listen gRPC srv here
 	greeter.RegisterGreeterServiceServer(g.AsServer(), g.srv)
-	log.Infof("gRPC srv listening on %s \n", listener.Addr().String())
+	logger.Infof("gRPC srv listening on %s \n", listener.Addr().String())
 
 	return g.AsServer().Serve(listener)
 }

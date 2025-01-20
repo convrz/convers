@@ -14,15 +14,9 @@
  * limitations under the License.
  */
 
-// Package cvzconfig provides the configuration for the service.
-package cvzconfig
+// Package settings provides the settings for the service.
+package settings
 
-import "os"
-
-var (
-	// CvzGateway is the gateway service.
-	CvzGateway = os.Getenv("CVZ_GATEWAY")
-
-	// CvzServiceGreeter is the greeter service.
-	CvzServiceGreeter = os.Getenv("CVZ_SERVICE_GREETER")
+import (
+	_ "github.com/joho/godotenv/autoload" // load .env file automatically
 )

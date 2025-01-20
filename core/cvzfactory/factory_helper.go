@@ -20,7 +20,7 @@ import (
 	"context"
 
 	cvzinternal "github.com/convrz/convers/core/internal"
-	"github.com/convrz/convers/pkg/log"
+	"github.com/convrz/convers/pkg/logger"
 
 	"github.com/convrz/convers/core/cvzapp"
 
@@ -29,7 +29,7 @@ import (
 
 func _main(lc fx.Lifecycle, app cvzapp.Application) {
 	start := func() {
-		log.Fatal(app.Run())
+		logger.Fatal(app.Run())
 	}
 
 	lc.Append(fx.Hook{

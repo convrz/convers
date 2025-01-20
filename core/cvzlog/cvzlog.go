@@ -22,6 +22,7 @@ import (
 	"os"
 	"runtime"
 
+	"github.com/convrz/convers/pkg/utils"
 	"go.uber.org/zap"
 )
 
@@ -37,7 +38,7 @@ func New() *zap.Logger {
 
 func Info(message string) {
 	logger := New()
-	defer logger.Sync()
+	defer utils.CallBack(logger.Sync)
 
 	funcName := ""
 	sugar := logger.Sugar()
@@ -55,7 +56,7 @@ func Info(message string) {
 
 func Warn(message string) {
 	logger := New()
-	defer logger.Sync()
+	defer utils.CallBack(logger.Sync)
 
 	funcName := ""
 	sugar := logger.Sugar()
@@ -73,7 +74,7 @@ func Warn(message string) {
 
 func Debug(message string) {
 	logger := New()
-	defer logger.Sync()
+	defer utils.CallBack(logger.Sync)
 
 	funcName := ""
 	sugar := logger.Sugar()
@@ -91,7 +92,7 @@ func Debug(message string) {
 
 func Error(message string) {
 	logger := New()
-	defer logger.Sync()
+	defer utils.CallBack(logger.Sync)
 
 	funcName := ""
 	sugar := logger.Sugar()
@@ -109,7 +110,7 @@ func Error(message string) {
 
 func Fatal(message string) {
 	logger := New()
-	defer logger.Sync()
+	defer utils.CallBack(logger.Sync)
 
 	funcName := ""
 	sugar := logger.Sugar()

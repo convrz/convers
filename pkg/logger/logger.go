@@ -15,7 +15,7 @@
  */
 
 // Package logger provides the logger for the service.
-package log
+package logger
 
 import (
 	"github.com/convrz/convers/pkg/utils"

@@ -25,7 +25,7 @@ import (
 	"github.com/convrz/convers/internal/engine/gateway/services/greeter"
 	"github.com/convrz/convers/internal/engine/gateway/types"
 	"github.com/convrz/convers/internal/engine/gateway/visitor"
-	"github.com/convrz/convers/pkg/log"
+	"github.com/convrz/convers/pkg/logger"
 )
 
 // New creates a new gateway app
@@ -73,6 +73,6 @@ func (g *Gateway) Run() error {
 	}
 
 	// Listen HTTP server (and mux calls to gRPC server endpoint)
-	log.Infof("HTTP server listening on %s \n", ":9000")
+	logger.Infof("HTTP server listening on %s \n", ":9000")
 	return g.mux.Listen(":9000")
 }

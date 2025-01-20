@@ -9,6 +9,7 @@ require (
 	github.com/google/go-cmp v0.6.0
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.25.1
 	github.com/jackc/pgx/v5 v5.7.2
+	github.com/joho/godotenv v1.5.1
 	go.uber.org/fx v1.23.0
 	go.uber.org/zap v1.27.0
 	google.golang.org/grpc v1.69.2
