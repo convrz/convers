@@ -18,16 +18,16 @@ package cvzfactory
 
 import (
 	"context"
-	"log"
 
 	cvzinternal "github.com/convrz/convers/core/internal"
+	"github.com/convrz/convers/pkg/log"
 
 	"github.com/convrz/convers/core/cvzapp"
 
 	"go.uber.org/fx"
 )
 
-func _main(lc fx.Lifecycle, app cvzapp.App) {
+func _main(lc fx.Lifecycle, app cvzapp.Application) {
 	start := func() {
 		log.Fatal(app.Run())
 	}
@@ -44,7 +44,7 @@ func _main(lc fx.Lifecycle, app cvzapp.App) {
 }
 
 // Build builds the application.
-func Build(constructor interface{}) cvzapp.App {
+func Build(constructor interface{}) cvzapp.Application {
 	cvzinternal.Provide(constructor)
 
 	return &container{

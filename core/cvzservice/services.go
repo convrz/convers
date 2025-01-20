@@ -21,37 +21,37 @@ import (
 	"google.golang.org/grpc"
 )
 
-var _ IServiceRegistrar = (*ServiceRegistrar)(nil)
+var _ IServiceServer = (*ServiceServer)(nil)
 
-// IServiceRegistrar is a service registrar.
-type IServiceRegistrar interface {
+// IServiceServer is a service registrar.
+type IServiceServer interface {
 	AsServer() *grpc.Server
 	Run() error
 }
 
 // New returns a new service registrar.
-func New(opts ...grpc.ServerOption) *ServiceRegistrar {
-	return &ServiceRegistrar{
+func New(opts ...grpc.ServerOption) *ServiceServer {
+	return &ServiceServer{
 		server: grpc.NewServer(opts...),
 	}
 }
 
 // NewDefault returns a new service registrar with default options.
-func NewDefault() *ServiceRegistrar {
+func NewDefault() *ServiceServer {
 	return New()
 }
 
-// ServiceRegistrar is a gRPC server that registers services.
-type ServiceRegistrar struct {
+// ServiceServer is a gRPC server that registers services.
+type ServiceServer struct {
 	server *grpc.Server
 }
 
 // AsServer returns the underlying gRPC server.
-func (s *ServiceRegistrar) AsServer() *grpc.Server {
+func (s *ServiceServer) AsServer() *grpc.Server {
 	return s.server
 }
 
 // Run starts the service registrar.
-func (s *ServiceRegistrar) Run() error {
+func (s *ServiceServer) Run() error {
 	panic("unimplemented")
 }

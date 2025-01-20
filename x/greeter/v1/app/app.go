@@ -19,8 +19,9 @@ package app
 
 import (
 	"fmt"
-	"log"
 	"net"
+
+	"github.com/convrz/convers/pkg/log"
 
 	"github.com/convrz/convers/api/services/greeter/v1"
 	"github.com/convrz/convers/core/cvzapp"
@@ -31,15 +32,15 @@ import (
 
 // Greeter implements GreeterServiceServer.
 type Greeter struct {
-	*cvzservice.ServiceRegistrar
+	*cvzservice.ServiceServer
 	srv greeter.GreeterServiceServer
 }
 
 // New creates a new Greeter module.
-func New(server controllers.IGreeter) cvzapp.App {
+func New(server controllers.IGreeter) cvzapp.Application {
 	return &Greeter{
-		ServiceRegistrar: cvzservice.NewDefault(),
-		srv:              server,
+		ServiceServer: cvzservice.NewDefault(),
+		srv:           server,
 	}
 }
 
@@ -52,7 +53,7 @@ func (g *Greeter) Run() error {
 
 	// Listen gRPC srv here
 	greeter.RegisterGreeterServiceServer(g.AsServer(), g.srv)
-	log.Printf("gRPC srv listening on %s \n", listener.Addr().String())
+	log.Infof("gRPC srv listening on %s \n", listener.Addr().String())
 
 	return g.AsServer().Serve(listener)
 }

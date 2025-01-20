@@ -20,7 +20,7 @@ package copier
 import (
 	"encoding/json"
 
-	"github.com/convrz/convers/pkg/pb/proto"
+	"github.com/convrz/convers/pkg/protobuf/proto"
 	google "google.golang.org/protobuf/proto"
 )
 

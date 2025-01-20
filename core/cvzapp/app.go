@@ -24,8 +24,8 @@ import (
 	"go.uber.org/fx"
 )
 
-// App represents the application interface.
-type App interface {
+// Application represents the application interface.
+type Application interface {
 	Run() error
 }
 

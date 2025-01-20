@@ -17,32 +17,5 @@
 // Package namespace provides a namespace.
 package namespace
 
-import (
-	"context"
-	"errors"
-)
-
-// Key represents a context key.
-type Key string
-
-const cvzNamespace Key = "cvz.namespace"
-
-// Namespace represents a namespace.
 type Namespace struct {
-	Name   string
-	Labels map[string]string
-}
-
-// WithNamespace returns a new context with the namespace.
-func WithNamespace(ctx context.Context, ns string) context.Context {
-	return context.WithValue(ctx, cvzNamespace, ns)
-}
-
-// FromContext returns the namespace from the context.
-func FromContext(ctx context.Context) (string, error) {
-	ns := ctx.Value(cvzNamespace)
-	if ns == nil {
-		return "", errors.New("namespace not found in context")
-	}
-	return ns.(string), nil
 }

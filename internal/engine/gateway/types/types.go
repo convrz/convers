@@ -14,5 +14,21 @@
  * limitations under the License.
  */
 
-// Package etcd provides an implementation of the registry using etcd.
-package etcd
+package types
+
+import (
+	"context"
+
+	"github.com/convrz/convers/core/cvzruntime"
+)
+
+// IService represents the service interface.
+type IService interface {
+	cvzruntime.GrpcService
+	Accept(context.Context, cvzruntime.IServeMux, IVisitor) error
+}
+
+// IVisitor represents the visitor interface.
+type IVisitor interface {
+	VisitGreeterService(ctx context.Context, mux cvzruntime.IServeMux, service IService) error
+}

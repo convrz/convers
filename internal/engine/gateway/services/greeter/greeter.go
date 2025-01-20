@@ -14,29 +14,31 @@
  * limitations under the License.
  */
 
-// Package base provides the base service.
-package base
+// Package greeter provides the greeter service.
+package greeter
 
 import (
 	"context"
 
+	greetergw "github.com/convrz/convers/api/services/greeter/v1"
 	"github.com/convrz/convers/core/cvzruntime"
-	"github.com/convrz/convers/internal/apps/gateway/visitor"
+	"github.com/convrz/convers/internal/engine/gateway/services/base"
+	"github.com/convrz/convers/internal/engine/gateway/types"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"google.golang.org/grpc"
 )
 
-var _ visitor.IService = (*Service)(nil)
-
-// Service represents the base service
-type Service struct{}
-
-// Register registers the base service
-func (s *Service) Register(_ context.Context, _ *runtime.ServeMux, _ string, _ []grpc.DialOption) error {
-	panic("unimplemented")
+// Greeter represents the Greeter service
+type Greeter struct {
+	base.Service
 }
 
-// Accept accepts the base service
-func (s *Service) Accept(_ context.Context, _ cvzruntime.IServeMux, _ visitor.IVisitor) error {
-	panic("unimplemented")
+// Accept accepts the Greeter service
+func (g *Greeter) Accept(ctx context.Context, mux cvzruntime.IServeMux, v types.IVisitor) error {
+	return v.VisitGreeterService(ctx, mux, g)
+}
+
+// Register registers the Greeter service
+func (g *Greeter) Register(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) error {
+	return greetergw.RegisterGreeterServiceHandlerFromEndpoint(ctx, mux, endpoint, opts)
 }

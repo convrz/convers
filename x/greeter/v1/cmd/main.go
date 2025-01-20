@@ -18,7 +18,7 @@
 package main
 
 import (
-	"log"
+	"github.com/convrz/convers/pkg/log"
 
 	"github.com/convrz/convers/core/cvzfactory"
 	"github.com/convrz/convers/x/greeter/v1/app"

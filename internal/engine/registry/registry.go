@@ -14,21 +14,21 @@
  * limitations under the License.
  */
 
-package visitor
+// Package registry provides the registry service.
+package registry
 
-import (
-	"context"
+import "github.com/convrz/convers/core/cvzapp"
 
-	"github.com/convrz/convers/core/cvzruntime"
-)
-
-// IService represents the service interface.
-type IService interface {
-	cvzruntime.GrpcService
-	Accept(context.Context, cvzruntime.IServeMux, IVisitor) error
+// New creates a new registry service.
+func New() cvzapp.Application {
+	return &Registry{}
 }
 
-// IVisitor represents the visitor interface.
-type IVisitor interface {
-	VisitGreeterService(ctx context.Context, mux cvzruntime.IServeMux, service IService) error
+// Registry represents the registry service.
+type Registry struct{}
+
+// Run starts the registry service.
+func (r *Registry) Run() error {
+	//TODO implement me
+	panic("implement me")
 }

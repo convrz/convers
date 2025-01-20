@@ -18,9 +18,8 @@
 package main
 
 import (
-	"log"
-
-	"github.com/convrz/convers/internal/apps/gateway"
+	"github.com/convrz/convers/internal/engine/gateway"
+	"github.com/convrz/convers/pkg/log"
 
 	"github.com/convrz/convers/core/cvzfactory"
 )

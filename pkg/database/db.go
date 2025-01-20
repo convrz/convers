@@ -14,5 +14,16 @@
  * limitations under the License.
  */
 
-// Package logger provides the logger for the service.
-package logger
+// Package database provides the database interface.
+package database
+
+import "context"
+
+// IRepository provides the interface for the database.
+type IRepository[T any] interface {
+	List(ctx context.Context) ([]T, error)
+	Get(ctx context.Context, id string) (T, error)
+	Update(ctx context.Context, args T) error
+	Create(ctx context.Context, args T) (string, error)
+	Delete(ctx context.Context, id string) error
+}
