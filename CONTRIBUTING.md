@@ -1,30 +1,30 @@
 # Contributors' Guide
-This guide will help familiar contributors to the `convrz/convers` repository.
+This guide will assist contributors to the `convrz/convers` repository.
 
 ## Prerequisites
 
 ### Applications used in this project
 - Design: Lottiefiles & Figma
 - Backend Go & Protobuf: GoLand
-- Frontend: Visual Studio Code or any IDE you prefer
+- Frontend: Visual Studio Code or any preferred IDE
 - Mobile: Android Studio or Visual Studio Code
 
 ### Go Coding Style
-In this project, we follow the Uber Go Style Guide. Please ensure you are familiar with the Go programming style as per the guide.
+We follow the Uber Go Style Guide in this project. Please ensure you are familiar with the Go programming style as per the guide.
 
 > See more at: https://github.com/uber-go/guide
 
-Make sure that:
-- Go files comply with the standard Go formatting and style
-- Protobuf files comply with the format and use tabs for indentation
-- Files do not contain trailing whitespaces and must end with a single newline character
+Ensure that:
+- Go files comply with the standard Go formatting and style.
+- Protobuf files comply with the format and use tabs for indentation.
+- Files do not contain trailing whitespaces and must end with a single newline character.
 
 Use the following command to ensure your code meets expectations:
 ```
 make lint
 ```
 
-### Conventional commits
+### Conventional Commits
 All pull requests to the main branch must adhere to Conventional Commits. Otherwise, they will not be accepted.
 
 > See more at: https://www.conventionalcommits.org/en/v1.0.0/
@@ -48,8 +48,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ```
 
-### Sign your work
-The sign-off is a simple line at the end of the explanation for the patch. Your signature certifies that you wrote the patch or otherwise have the right to pass it on as an open-source patch. The rules are pretty simple: if you can certify the below (from https://developercertificate.org/):
+### Sign Your Work
+The sign-off is a simple line at the end of the explanation for the patch. Your signature certifies that you wrote the patch or otherwise have the right to pass it on as an open-source patch. The rules are simple: if you can certify the below (from https://developercertificate.org/):
 
 ```
 Developer Certificate of Origin
@@ -92,20 +92,20 @@ Then you just add a line to every git commit message:
 ```
 Signed-off-by: Joe Smith <joe.smith@email.com>
 ```
-If you set your `user.name` and `user.email` git configs, you can sign your commit automatically with `git commit -s.`
+If you set your `user.name` and `user.email` git configs, you can sign your commit automatically with `git commit -s`.
 
-## Naming packages
-### Where to put packages
-- `api` define proto file for all service mesh
-- `bin` contain script start app
-- `cmd` main file, apps endpoint
-- `core` core library, apply in this project
-- `deploy` contain script and config deploy
-- `docs` documentations
-- `hack` scripts used by developer
-- `internal` packages internal, no export
-- `pkg` common packages, share to external modules
-- `third_party` proto library third party
-- `tools` install deps tools in this project
-- `website` convers web ui monorepo
-- `x` plugin service, all of them built on microservice network
+## Naming Packages
+### Where to Put Packages
+- `api`: Define proto files for all service mesh.
+- `bin`: Contains scripts to start the app.
+- `cmd`: Main files, app endpoints.
+- `core`: Core library, applied in this project.
+- `deploy`: Contains scripts and config for deployment.
+- `docs`: Documentation.
+- `hack`: Scripts used by developers.
+- `internal`: Internal packages, not exported.
+- `pkg`: Common packages, shared with external modules.
+- `third_party`: Third-party proto libraries.
+- `tools`: Install dependency tools for this project.
+- `website`: Web UI monorepo.
+- `x`: Plugin services, all built on a microservice network.
