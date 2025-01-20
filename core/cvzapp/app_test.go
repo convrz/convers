@@ -14,24 +14,5 @@
  * limitations under the License.
  */
 
-// Package version provides the version of the package.
-package version
-
-import "runtime"
-
-var (
-	// Package is filled at linking time
-	Package = "github.com/convrz/convers"
-
-	// Version holds the complete version number. Filled in at linking time.
-	Version = "0.0.1"
-
-	// GoVersion is Go tree's version.
-	GoVersion = runtime.Version()
-
-	// FullName is the full name of the project.
-	FullName = "Convērs"
-
-	// Code is the code of the project.
-	Code = "cvz"
-)
+// Package cvzapp provides the application layer for the service.
+package cvzapp

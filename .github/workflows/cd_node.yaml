@@ -1,4 +1,4 @@
-name: publish-cvz-node
+name: CD / Node
 
 on:
   push:

@@ -12,6 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+test:
+	@go test ./... -cover
+
 # Go linting tool
 lint: lint.go lint.proto
 lint.go:

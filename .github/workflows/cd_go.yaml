@@ -1,4 +1,4 @@
-name: publish-cvz-go
+name: CD / Go
 
 on:
   push:
