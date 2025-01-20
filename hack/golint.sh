@@ -13,3 +13,23 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
+set -e 
+set -o pipefail
+
+error_exit() {
+  echo "Error: $1"
+  exit 1
+}
+
+commands=(
+  "golangci-lint run"
+  "cd ./x/greeter/v1 && golangci-lint run"
+)
+
+for cmd in "${commands[@]}"; do
+  echo "Executing: $cmd"
+  eval "$cmd" || error_exit "Command failed: $cmd"
+done
+
+echo "All commands executed successfully."
