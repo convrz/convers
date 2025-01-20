@@ -18,6 +18,7 @@
 package log
 
 import (
+	"github.com/convrz/convers/pkg/utils"
 	"go.uber.org/zap"
 )
 
@@ -32,7 +33,7 @@ func Info(message ...interface{}) {
 	}
 
 	logger := New()
-	defer logger.Sync()
+	defer utils.CallBack(logger.Sync)
 
 	sugar := logger.Sugar()
 	sugar.Info(message...)
@@ -44,7 +45,7 @@ func Infof(template string, message ...interface{}) {
 	}
 
 	logger := New()
-	defer logger.Sync()
+	defer utils.CallBack(logger.Sync)
 
 	sugar := logger.Sugar()
 	sugar.Infof(template, message...)
@@ -56,7 +57,7 @@ func Debug(message ...interface{}) {
 	}
 
 	logger := New()
-	defer logger.Sync()
+	defer utils.CallBack(logger.Sync)
 
 	sugar := logger.Sugar()
 	sugar.Debug(message...)
@@ -68,7 +69,7 @@ func Error(message ...interface{}) {
 	}
 
 	logger := New()
-	defer logger.Sync()
+	defer utils.CallBack(logger.Sync)
 
 	sugar := logger.Sugar()
 	sugar.Error(message...)
@@ -80,7 +81,7 @@ func Fatal(message ...interface{}) {
 	}
 
 	logger := New()
-	defer logger.Sync()
+	defer utils.CallBack(logger.Sync)
 
 	sugar := logger.Sugar()
 	sugar.Fatal(message...)

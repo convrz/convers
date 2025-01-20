@@ -16,3 +16,8 @@
 
 // Package utils provides utility functions for the service.
 package utils
+
+// CallBack calls the function and ignores the error.
+func CallBack(fn func() error) {
+	_ = fn()
+}
