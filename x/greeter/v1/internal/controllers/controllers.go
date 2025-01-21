@@ -20,10 +20,10 @@ package controllers
 import (
 	"context"
 
-	greeterBiz "github.com/convrz/convers/api/biz/greeter/v1"
+	greeterdomain "github.com/convrz/convers/api/domain/greeter/v1"
 	"github.com/convrz/convers/api/services/greeter/v1"
 	"github.com/convrz/convers/pkg/copier"
-	"github.com/convrz/convers/x/greeter/v1/internal/biz"
+	"github.com/convrz/convers/x/greeter/v1/internal/domain"
 )
 
 // IGreeter defines the interface for the Greeter controller.
@@ -34,17 +34,17 @@ type IGreeter interface {
 // Greeter is the module for Greeter.
 type Greeter struct {
 	greeter.UnimplementedGreeterServiceServer
-	biz greeterBiz.GreeterServiceServer
+	domain greeterdomain.GreeterServiceServer
 }
 
 // SayHello implements GreeterServer.
 func (g *Greeter) SayHello(ctx context.Context, msg *greeter.SayHelloRequest) (*greeter.SayHelloResponse, error) {
-	var SayHelloReq greeterBiz.SayHelloRequest
+	var SayHelloReq greeterdomain.SayHelloRequest
 	if err := copier.CopyMsg(msg, &SayHelloReq); err != nil {
 		return nil, err
 	}
 
-	sayHelloResp, err := g.biz.SayHello(ctx, &SayHelloReq)
+	sayHelloResp, err := g.domain.SayHello(ctx, &SayHelloReq)
 	if err != nil {
 		return nil, err
 	}
@@ -58,8 +58,8 @@ func (g *Greeter) SayHello(ctx context.Context, msg *greeter.SayHelloRequest) (*
 }
 
 // New creates a new Greeter module.
-func New(biz biz.IGreeter) IGreeter {
+func New(biz domain.IGreeter) IGreeter {
 	return &Greeter{
-		biz: biz,
+		domain: biz,
 	}
 }
