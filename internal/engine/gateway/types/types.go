@@ -14,29 +14,23 @@
  * limitations under the License.
  */
 
-// Package base provides the base service.
-package base
+// Package types provides the types for the gateway.
+package types
 
 import (
 	"context"
 
 	"github.com/convrz/convers/core/cvzruntime"
-	"github.com/convrz/convers/internal/apps/gateway/visitor"
-	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
-	"google.golang.org/grpc"
+	"github.com/convrz/convers/core/cvzservice"
 )
 
-var _ visitor.IService = (*Service)(nil)
-
-// Service represents the base service
-type Service struct{}
-
-// Register registers the base service
-func (s *Service) Register(_ context.Context, _ *runtime.ServeMux, _ string, _ []grpc.DialOption) error {
-	panic("unimplemented")
+// IService represents the service interface.
+type IService interface {
+	cvzservice.GRPCServicer
+	Accept(context.Context, cvzruntime.IServeMux, IVisitor) error
 }
 
-// Accept accepts the base service
-func (s *Service) Accept(_ context.Context, _ cvzruntime.IServeMux, _ visitor.IVisitor) error {
-	panic("unimplemented")
+// IVisitor represents the visitor interface.
+type IVisitor interface {
+	VisitGreeterService(ctx context.Context, mux cvzruntime.IServeMux, service IService) error
 }

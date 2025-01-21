@@ -25,8 +25,8 @@ type container struct {
 	engine *fx.App
 }
 
-// Run implements IContainer.
-func (c *container) Run() error {
+// Start implements IContainer.
+func (c *container) Start() error {
 	c.engine.Run()
 	return c.engine.Err()
 }

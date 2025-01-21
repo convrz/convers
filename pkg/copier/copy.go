@@ -14,5 +14,32 @@
  * limitations under the License.
  */
 
-// Package etcd provides an implementation of the registry using etcd.
-package etcd
+// Package copier provides functions to copy objects.
+package copier
+
+import (
+	"encoding/json"
+
+	"github.com/convrz/convers/pkg/protobuf/proto"
+	google "google.golang.org/protobuf/proto"
+)
+
+// CopyMsg copies the src message to the dst message.
+func CopyMsg(src, dst google.Message) error {
+	bytes, err := proto.Marshal(src)
+	if err != nil {
+		return err
+	}
+
+	return proto.Unmarshal(bytes, dst)
+}
+
+// Copy copies the src object to the dst object.
+func Copy(src, dst interface{}) error {
+	bytes, err := json.Marshal(src)
+	if err != nil {
+		return err
+	}
+
+	return json.Unmarshal(bytes, dst)
+}

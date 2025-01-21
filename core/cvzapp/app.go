@@ -24,9 +24,14 @@ import (
 	"go.uber.org/fx"
 )
 
-// App represents the application interface.
-type App interface {
-	Run() error
+// Application represents the application interface.
+type Application interface {
+	Start() error
+}
+
+// Server represents the HTTP server interface.
+type Server interface {
+	ListenAndServe() error
 }
 
 // InjectLifeCycle injects the given constructor into the application with lifecycle hooks.

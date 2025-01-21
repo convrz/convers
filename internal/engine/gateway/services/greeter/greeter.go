@@ -22,8 +22,8 @@ import (
 
 	greetergw "github.com/convrz/convers/api/services/greeter/v1"
 	"github.com/convrz/convers/core/cvzruntime"
-	"github.com/convrz/convers/internal/apps/gateway/services/base"
-	"github.com/convrz/convers/internal/apps/gateway/visitor"
+	"github.com/convrz/convers/internal/engine/gateway/services/base"
+	"github.com/convrz/convers/internal/engine/gateway/types"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"google.golang.org/grpc"
 )
@@ -34,7 +34,7 @@ type Greeter struct {
 }
 
 // Accept accepts the Greeter service
-func (g *Greeter) Accept(ctx context.Context, mux cvzruntime.IServeMux, v visitor.IVisitor) error {
+func (g *Greeter) Accept(ctx context.Context, mux cvzruntime.IServeMux, v types.IVisitor) error {
 	return v.VisitGreeterService(ctx, mux, g)
 }
 

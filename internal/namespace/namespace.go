@@ -18,31 +18,85 @@
 package namespace
 
 import (
-	"context"
 	"errors"
+	"fmt"
+	"regexp"
+	"sync"
 )
-
-// Key represents a context key.
-type Key string
-
-const cvzNamespace Key = "cvz.namespace"
 
 // Namespace represents a namespace.
 type Namespace struct {
-	Name   string
-	Labels map[string]string
+	spaces map[string]struct{}
+	mu     sync.RWMutex
 }
 
-// WithNamespace returns a new context with the namespace.
-func WithNamespace(ctx context.Context, ns string) context.Context {
-	return context.WithValue(ctx, cvzNamespace, ns)
-}
-
-// FromContext returns the namespace from the context.
-func FromContext(ctx context.Context) (string, error) {
-	ns := ctx.Value(cvzNamespace)
-	if ns == nil {
-		return "", errors.New("namespace not found in context")
+// Validate validates a namespace.
+func (ns *Namespace) Validate(env, domain, service string) error {
+	if env == "" || domain == "" || service == "" {
+		return errors.New("ENVIRONMENT, DOMAIN, and SERVICE cannot be empty")
 	}
-	return ns.(string), nil
+
+	// Format [ENVIRONMENT].[DOMAIN].[SERVICE]
+	re := regexp.MustCompile(`^(?:[a-zA-Z_][a-zA-Z0-9_-]*)\.(?:[a-zA-Z_][a-zA-Z0-9_-]*)\.(?:[a-zA-Z_][a-zA-Z0-9_-]*)$`)
+	fullNamespace := fmt.Sprintf("%s.%s.%s", env, domain, service)
+	if !re.MatchString(fullNamespace) {
+		return errors.New("namespace does not match the format [ENVIRONMENT].[DOMAIN].[SERVICE]")
+	}
+
+	return nil
+}
+
+// Create creates a new namespace.
+func (ns *Namespace) Create(env, domain, service string) (string, error) {
+	if err := ns.Validate(env, domain, service); err != nil {
+		return "", err
+	}
+
+	ns.mu.Lock()
+	defer ns.mu.Unlock()
+
+	fullNamespace := fmt.Sprintf("%s.%s.%s", env, domain, service)
+	if _, exists := ns.spaces[fullNamespace]; exists {
+		return "", errors.New("namespace already exists")
+	}
+
+	ns.spaces[fullNamespace] = struct{}{}
+	return fullNamespace, nil
+}
+
+// Delete deletes a namespace.
+func (ns *Namespace) Delete(env, domain, service string) error {
+	ns.mu.Lock()
+	defer ns.mu.Unlock()
+
+	fullNamespace := fmt.Sprintf("%s.%s.%s", env, domain, service)
+	if _, exists := ns.spaces[fullNamespace]; !exists {
+		return errors.New("namespace does not exist")
+	}
+
+	delete(ns.spaces, fullNamespace)
+	return nil
+}
+
+// List returns a list of all namespaces.
+func (ns *Namespace) List() []string {
+	ns.mu.RLock()
+	defer ns.mu.RUnlock()
+
+	namespaces := make([]string, 0, len(ns.spaces))
+	for ns := range ns.spaces {
+		namespaces = append(namespaces, ns)
+	}
+
+	return namespaces
+}
+
+// Exists checks if a namespace exists.
+func (ns *Namespace) Exists(env, domain, service string) bool {
+	ns.mu.RLock()
+	defer ns.mu.RUnlock()
+
+	fullNamespace := fmt.Sprintf("%s.%s.%s", env, domain, service)
+	_, exists := ns.spaces[fullNamespace]
+	return exists
 }

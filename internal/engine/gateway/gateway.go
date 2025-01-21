@@ -19,31 +19,26 @@ package gateway
 
 import (
 	"context"
-	"log"
 
 	"github.com/convrz/convers/core/cvzapp"
 	"github.com/convrz/convers/core/cvzruntime"
-	"github.com/convrz/convers/internal/apps/gateway/services/greeter"
-	"github.com/convrz/convers/internal/apps/gateway/visitor"
+	"github.com/convrz/convers/internal/engine/gateway/services/greeter"
+	"github.com/convrz/convers/internal/engine/gateway/types"
+	"github.com/convrz/convers/internal/engine/gateway/visitor"
+	"github.com/convrz/convers/pkg/logger"
 )
 
-// New creates a new gateway app
-func New() cvzapp.App {
-	return &App{
-		mux:     cvzruntime.NewServeMux(),
-		visitor: visitor.New(),
-	}
-}
+var _ cvzapp.Server = (*Gateway)(nil)
 
-// App represents the gateway app
-type App struct {
+// Gateway represents the gateway app
+type Gateway struct {
 	mux     cvzruntime.IServeMux
-	visitor visitor.IVisitor
+	visitor types.IVisitor
 }
 
-func (app *App) visit(ctx context.Context, services ...visitor.IService) error {
+func (g *Gateway) visit(ctx context.Context, services ...types.IService) error {
 	for _, service := range services {
-		if err := service.Accept(ctx, app.mux, app.visitor); err != nil {
+		if err := service.Accept(ctx, g.mux, g.visitor); err != nil {
 			return err
 		}
 	}
@@ -51,27 +46,35 @@ func (app *App) visit(ctx context.Context, services ...visitor.IService) error {
 	return nil
 }
 
-func (app *App) register(ctx context.Context) error {
+func (g *Gateway) register(ctx context.Context) error {
 	// TODO: Register gRPC server endpoint
 	// Note: Make sure the gRPC server is running properly and accessible
-	services := []visitor.IService{
+	services := []types.IService{
 		&greeter.Greeter{},
 	}
 
-	return app.visit(ctx, services...)
+	return g.visit(ctx, services...)
 }
 
-// Run the gateway app
-func (app *App) Run() error {
+// ListenAndServe the gateway app
+func (g *Gateway) ListenAndServe() error {
 	ctx := context.Background()
 	ctx, cancel := context.WithCancel(ctx)
 	defer cancel()
 
-	if err := app.register(ctx); err != nil {
+	if err := g.register(ctx); err != nil {
 		return err
 	}
 
 	// Listen HTTP server (and mux calls to gRPC server endpoint)
-	log.Printf("HTTP server listening on %s \n", ":9000")
-	return app.mux.Listen(":9000")
+	logger.Infof("HTTP server listening on %s", ":9000")
+	return g.mux.Listen(":9000")
+}
+
+// New creates a new gateway app
+func New() cvzapp.Server {
+	return &Gateway{
+		mux:     cvzruntime.NewServeMux(),
+		visitor: visitor.New(),
+	}
 }

@@ -1,4 +1,4 @@
-name: publish-cvz-alpine
+name: CD / Alpine
 
 on:
   push:

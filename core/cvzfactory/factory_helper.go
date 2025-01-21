@@ -18,23 +18,23 @@ package cvzfactory
 
 import (
 	"context"
-	"log"
 
 	cvzinternal "github.com/convrz/convers/core/internal"
+	"github.com/convrz/convers/pkg/logger"
 
 	"github.com/convrz/convers/core/cvzapp"
 
 	"go.uber.org/fx"
 )
 
-func _main(lc fx.Lifecycle, app cvzapp.App) {
-	start := func() {
-		log.Fatal(app.Run())
-	}
+func _start(srv cvzapp.Server) {
+	logger.Fatal(srv.ListenAndServe())
+}
 
+func _main(lc fx.Lifecycle, srv cvzapp.Server) {
 	lc.Append(fx.Hook{
 		OnStart: func(_ context.Context) error {
-			go start()
+			go _start(srv)
 			return nil
 		},
 		OnStop: func(_ context.Context) error {
@@ -44,7 +44,7 @@ func _main(lc fx.Lifecycle, app cvzapp.App) {
 }
 
 // Build builds the application.
-func Build(constructor interface{}) cvzapp.App {
+func Build(constructor interface{}) cvzapp.Application {
 	cvzinternal.Provide(constructor)
 
 	return &container{

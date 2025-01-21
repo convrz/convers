@@ -21,22 +21,23 @@ import (
 	"context"
 
 	"github.com/convrz/convers/core/cvzruntime"
+	"github.com/convrz/convers/internal/engine/gateway/types"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )
 
 // New returns a new visitor.
-func New() IVisitor {
+func New() types.IVisitor {
 	return &Visitor{}
 }
 
-var _ IVisitor = (*Visitor)(nil)
+var _ types.IVisitor = (*Visitor)(nil)
 
 // Visitor represents the visitor interface.
 type Visitor struct{}
 
 // VisitGreeterService visits the greeter service.
-func (v *Visitor) VisitGreeterService(ctx context.Context, mux cvzruntime.IServeMux, service IService) error {
+func (v *Visitor) VisitGreeterService(ctx context.Context, mux cvzruntime.IServeMux, service types.IService) error {
 	opts := []grpc.DialOption{grpc.WithTransportCredentials(insecure.NewCredentials())}
 
 	greeterAddr := ":8000"

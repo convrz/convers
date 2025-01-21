@@ -14,15 +14,16 @@
  * limitations under the License.
  */
 
-// Package cvzconfig provides the configuration for the service.
-package cvzconfig
+// Package database provides the database interface.
+package database
 
-import "os"
+import "context"
 
-var (
-	// CvzGateway is the gateway service.
-	CvzGateway = os.Getenv("CVZ_GATEWAY")
-
-	// CvzServiceGreeter is the greeter service.
-	CvzServiceGreeter = os.Getenv("CVZ_SERVICE_GREETER")
-)
+// IRepository provides the interface for the database.
+type IRepository[T any] interface {
+	List(ctx context.Context) ([]T, error)
+	Get(ctx context.Context, id string) (T, error)
+	Update(ctx context.Context, args T) error
+	Create(ctx context.Context, args T) (string, error)
+	Delete(ctx context.Context, id string) error
+}

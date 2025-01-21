@@ -16,3 +16,89 @@
 
 // Package logger provides the logger for the service.
 package logger
+
+import (
+	"github.com/convrz/convers/pkg/utils"
+	"go.uber.org/zap"
+)
+
+// New creates a new logger.
+func New() *zap.Logger {
+	logger, _ := zap.NewDevelopment()
+	return logger
+}
+
+// Info logs an info message.
+func Info(message ...interface{}) {
+	if len(removeNil(message)) == 0 {
+		return
+	}
+
+	logger := New()
+	defer utils.CallBack(logger.Sync)
+
+	sugar := logger.Sugar()
+	sugar.Info(message...)
+}
+
+// Infof logs an info message with a format.
+func Infof(template string, message ...interface{}) {
+	if len(removeNil(message)) == 0 {
+		return
+	}
+
+	logger := New()
+	defer utils.CallBack(logger.Sync)
+
+	sugar := logger.Sugar()
+	sugar.Infof(template, message...)
+}
+
+// Debug logs a debug message.
+func Debug(message ...interface{}) {
+	if len(removeNil(message)) == 0 {
+		return
+	}
+
+	logger := New()
+	defer utils.CallBack(logger.Sync)
+
+	sugar := logger.Sugar()
+	sugar.Debug(message...)
+}
+
+// Error logs an error message.
+func Error(message ...interface{}) {
+	if len(removeNil(message)) == 0 {
+		return
+	}
+
+	logger := New()
+	defer utils.CallBack(logger.Sync)
+
+	sugar := logger.Sugar()
+	sugar.Error(message...)
+}
+
+// Fatal logs a fatal message.
+func Fatal(message ...interface{}) {
+	if len(removeNil(message)) == 0 {
+		return
+	}
+
+	logger := New()
+	defer utils.CallBack(logger.Sync)
+
+	sugar := logger.Sugar()
+	sugar.Fatal(message...)
+}
+
+func removeNil(input []interface{}) []interface{} {
+	var result []interface{}
+	for _, item := range input {
+		if item != nil {
+			result = append(result, item)
+		}
+	}
+	return result
+}

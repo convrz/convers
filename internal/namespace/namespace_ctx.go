@@ -14,21 +14,29 @@
  * limitations under the License.
  */
 
-// Package registry provides the registry service.
-package registry
+// Package namespace provides a namespace.
+package namespace
 
-import "github.com/convrz/convers/core/cvzapp"
+import (
+	"context"
+	"errors"
+)
 
-// New creates a new registry service.
-func New() cvzapp.App {
-	return &App{}
+// Key represents a context key.
+type Key string
+
+const cvzNamespace Key = "cvz.namespace"
+
+// WithNamespace returns a new context with the namespace.
+func WithNamespace(ctx context.Context, ns string) context.Context {
+	return context.WithValue(ctx, cvzNamespace, ns)
 }
 
-// App represents the registry service.
-type App struct{}
-
-// Run starts the registry service.
-func (a *App) Run() error {
-	//TODO implement me
-	panic("implement me")
+// FromContext returns the namespace from the context.
+func FromContext(ctx context.Context) (string, error) {
+	ns := ctx.Value(cvzNamespace)
+	if ns == nil {
+		return "", errors.New("namespace not found in context")
+	}
+	return ns.(string), nil
 }

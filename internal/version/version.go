@@ -28,4 +28,10 @@ var (
 
 	// GoVersion is Go tree's version.
 	GoVersion = runtime.Version()
+
+	// FullName is the full name of the project.
+	FullName = "Convērs"
+
+	// Code is the code of the project.
+	Code = "cvz"
 )

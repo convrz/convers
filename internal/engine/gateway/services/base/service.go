@@ -14,21 +14,29 @@
  * limitations under the License.
  */
 
-// Package cvzruntime provides the runtime layer for the service.
-package cvzruntime
+// Package base provides the base service.
+package base
 
 import (
 	"context"
 
-	"github.com/convrz/convers/core/cvzservice"
+	"github.com/convrz/convers/core/cvzruntime"
+	"github.com/convrz/convers/internal/engine/gateway/types"
+	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"google.golang.org/grpc"
 )
 
-// RegisterService registers a service with the runtime.
-func RegisterService(ctx context.Context, mux IServeMux, service cvzservice.GRPCServicer, endpoint string, opts []grpc.DialOption) error {
-	if err := service.Register(ctx, mux.AsRuntimeMux(), endpoint, opts); err != nil {
-		return err
-	}
+var _ types.IService = (*Service)(nil)
 
-	return nil
+// Service represents the base service
+type Service struct{}
+
+// Register registers the base service
+func (s *Service) Register(_ context.Context, _ *runtime.ServeMux, _ string, _ []grpc.DialOption) error {
+	panic("unimplemented")
+}
+
+// Accept accepts the base service
+func (s *Service) Accept(_ context.Context, _ cvzruntime.IServeMux, _ types.IVisitor) error {
+	panic("unimplemented")
 }

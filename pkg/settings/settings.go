@@ -14,21 +14,9 @@
  * limitations under the License.
  */
 
-package visitor
+// Package settings provides the settings for the service.
+package settings
 
 import (
-	"context"
-
-	"github.com/convrz/convers/core/cvzruntime"
+	_ "github.com/joho/godotenv/autoload" // load .env file automatically
 )
-
-// IService represents the service interface.
-type IService interface {
-	cvzruntime.GrpcService
-	Accept(context.Context, cvzruntime.IServeMux, IVisitor) error
-}
-
-// IVisitor represents the visitor interface.
-type IVisitor interface {
-	VisitGreeterService(ctx context.Context, mux cvzruntime.IServeMux, service IService) error
-}

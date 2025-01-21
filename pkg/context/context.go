@@ -22,7 +22,7 @@ import (
 	"time"
 
 	"github.com/convrz/convers/api/types/v1"
-	"github.com/convrz/convers/pkg/pb/proto"
+	"github.com/convrz/convers/pkg/protobuf/proto"
 )
 
 // Key is the key type for the context.

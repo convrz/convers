@@ -18,40 +18,48 @@
 package cvzservice
 
 import (
+	"context"
+
+	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"google.golang.org/grpc"
 )
 
-var _ IServiceRegistrar = (*ServiceRegistrar)(nil)
+// GRPCServicer is an interface for registering a gRPC service.
+type GRPCServicer interface {
+	Register(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) error
+}
 
-// IServiceRegistrar is a service registrar.
-type IServiceRegistrar interface {
+// IServiceServer is a service registrar.
+type IServiceServer interface {
 	AsServer() *grpc.Server
 	Run() error
 }
 
+var _ IServiceServer = (*ServiceServer)(nil)
+
+// ServiceServer is a gRPC server that registers services.
+type ServiceServer struct {
+	server *grpc.Server
+}
+
+// AsServer returns the underlying gRPC server.
+func (s *ServiceServer) AsServer() *grpc.Server {
+	return s.server
+}
+
+// Run starts the service registrar.
+func (s *ServiceServer) Run() error {
+	panic("unimplemented")
+}
+
 // New returns a new service registrar.
-func New(opts ...grpc.ServerOption) *ServiceRegistrar {
-	return &ServiceRegistrar{
+func New(opts ...grpc.ServerOption) *ServiceServer {
+	return &ServiceServer{
 		server: grpc.NewServer(opts...),
 	}
 }
 
 // NewDefault returns a new service registrar with default options.
-func NewDefault() *ServiceRegistrar {
+func NewDefault() *ServiceServer {
 	return New()
-}
-
-// ServiceRegistrar is a gRPC server that registers services.
-type ServiceRegistrar struct {
-	server *grpc.Server
-}
-
-// AsServer returns the underlying gRPC server.
-func (s *ServiceRegistrar) AsServer() *grpc.Server {
-	return s.server
-}
-
-// Run starts the service registrar.
-func (s *ServiceRegistrar) Run() error {
-	panic("unimplemented")
 }

@@ -14,37 +14,30 @@
  * limitations under the License.
  */
 
-// Package app implements the Greeter service.
-package app
+// Package server implements the Greeter service server.
+package server
 
 import (
 	"fmt"
-	"log"
 	"net"
 
 	"github.com/convrz/convers/api/services/greeter/v1"
 	"github.com/convrz/convers/core/cvzapp"
-	"github.com/convrz/convers/x/greeter/v1/internal/controllers"
-
 	"github.com/convrz/convers/core/cvzservice"
+	"github.com/convrz/convers/pkg/logger"
+	"github.com/convrz/convers/x/greeter/v1/internal/controllers"
 )
+
+var _ cvzapp.Server = (*Greeter)(nil)
 
 // Greeter implements GreeterServiceServer.
 type Greeter struct {
-	*cvzservice.ServiceRegistrar
+	*cvzservice.ServiceServer
 	srv greeter.GreeterServiceServer
 }
 
-// New creates a new Greeter module.
-func New(server controllers.IGreeter) cvzapp.App {
-	return &Greeter{
-		ServiceRegistrar: cvzservice.NewDefault(),
-		srv:              server,
-	}
-}
-
-// Run implements IGreeter.
-func (g *Greeter) Run() error {
+// ListenAndServe implements IGreeter.
+func (g *Greeter) ListenAndServe() error {
 	listener, err := net.Listen("tcp", fmt.Sprintf(":%d", 8000))
 	if err != nil {
 		return err
@@ -52,7 +45,15 @@ func (g *Greeter) Run() error {
 
 	// Listen gRPC srv here
 	greeter.RegisterGreeterServiceServer(g.AsServer(), g.srv)
-	log.Printf("gRPC srv listening on %s \n", listener.Addr().String())
+	logger.Infof("gRPC srv listening on %s", listener.Addr().String())
 
 	return g.AsServer().Serve(listener)
+}
+
+// New creates a new Greeter module.
+func New(srv controllers.IGreeter) cvzapp.Server {
+	return &Greeter{
+		ServiceServer: cvzservice.NewDefault(),
+		srv:           srv,
+	}
 }

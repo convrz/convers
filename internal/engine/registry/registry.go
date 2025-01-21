@@ -14,32 +14,21 @@
  * limitations under the License.
  */
 
-// Package copier provides functions to copy objects.
-package copier
+// Package registry provides the registry service.
+package registry
 
-import (
-	"encoding/json"
+import "github.com/convrz/convers/core/cvzapp"
 
-	"github.com/convrz/convers/pkg/pb/proto"
-	google "google.golang.org/protobuf/proto"
-)
+// Registry represents the registry service.
+type Registry struct{}
 
-// CopyMsg copies the src message to the dst message.
-func CopyMsg(src, dst google.Message) error {
-	bytes, err := proto.Marshal(src)
-	if err != nil {
-		return err
-	}
-
-	return proto.Unmarshal(bytes, dst)
+// ListenAndServe starts the registry service.
+func (r *Registry) ListenAndServe() error {
+	//TODO implement me
+	panic("implement me")
 }
 
-// Copy copies the src object to the dst object.
-func Copy(src, dst interface{}) error {
-	bytes, err := json.Marshal(src)
-	if err != nil {
-		return err
-	}
-
-	return json.Unmarshal(bytes, dst)
+// New creates a new registry service.
+func New() cvzapp.Server {
+	return &Registry{}
 }
