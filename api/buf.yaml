@@ -5,8 +5,8 @@ modules:
     ####################
   - path: registry/v1
     ####################
-  - path: biz/greeter/v1
-  - path: biz/shared/v1
+  - path: domain/greeter/v1
+  - path: domain/shared/v1
     ####################
   - path: services/media/v1
   - path: services/greeter/v1

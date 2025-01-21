@@ -27,14 +27,14 @@ if [[ "$CURRENT_DIR" != *"$GOPATH_DIR"* ]]; then
   exit 1
 fi
 
-CVZ_PATH=$GOPATH/src/github.com/convrz/convers
+CVZPATH=$GOPATH/src/github.com/convrz/convers
 PROTO_FILE_PATH=*.proto
 
 protoc -I. \
-  --proto_path=$CVZ_PATH \
-  -I$CVZ_PATH/third_party/googleapis \
-  -I$CVZ_PATH/third_party/grpc-gateway \
-  -I$CVZ_PATH/third_party/protovalidate/proto/protovalidate \
+  --proto_path=$CVZPATH \
+  -I$CVZPATH/third_party/googleapis \
+  -I$CVZPATH/third_party/grpc-gateway \
+  -I$CVZPATH/third_party/protovalidate/proto/protovalidate \
   --go_out=. \
   --go_opt=paths=source_relative \
   --go-grpc_out=. \

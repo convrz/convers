@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-// Package biz provides the business logic for the greeter service.
-package biz
+// Package domain provides the business logic for the greeter service.
+package domain
 
 import (
 	"context"
 	"time"
 
-	"github.com/convrz/convers/api/biz/greeter/v1"
+	"github.com/convrz/convers/api/domain/greeter/v1"
 	"github.com/convrz/convers/x/greeter/v1/internal/repos"
 )
 

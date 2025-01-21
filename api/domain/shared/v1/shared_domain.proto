@@ -14,20 +14,14 @@
 
 syntax = "proto3";
 
-package convers.biz.greeter.v1;
+package convers.domain.shared.v1;
 
 import "buf/validate/validate.proto";
 import "google/protobuf/wrappers.proto";
 
-option go_package = "github.com/convrz/convers/api/biz/greeter/v1;greeter";
+option go_package = "github.com/convrz/convers/api/domain/shared/v1;shared";
 
-service GreeterService {
-  rpc SayHello(SayHelloRequest) returns (SayHelloResponse) {
-
-  }
-}
-
-message SayHelloRequest {
+message HelloRequest {
   string name = 1 [(buf.validate.field).string.min_len = 1];;
   google.protobuf.StringValue str_val = 2;
   google.protobuf.FloatValue float_val = 3;
@@ -40,6 +34,6 @@ message SayHelloRequest {
   google.protobuf.UInt64Value uint64_val = 10;
 }
 
-message SayHelloResponse {
+message HelloReply {
   string message = 1;
 }
