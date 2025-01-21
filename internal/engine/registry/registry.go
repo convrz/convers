@@ -19,16 +19,16 @@ package registry
 
 import "github.com/convrz/convers/core/cvzapp"
 
-// New creates a new registry service.
-func New() cvzapp.Application {
-	return &Registry{}
-}
-
 // Registry represents the registry service.
 type Registry struct{}
 
-// Run starts the registry service.
-func (r *Registry) Run() error {
+// ListenAndServe starts the registry service.
+func (r *Registry) ListenAndServe() error {
 	//TODO implement me
 	panic("implement me")
+}
+
+// New creates a new registry service.
+func New() cvzapp.Server {
+	return &Registry{}
 }

@@ -24,11 +24,13 @@ import (
 	"sync"
 )
 
+// Namespace represents a namespace.
 type Namespace struct {
 	spaces map[string]struct{}
 	mu     sync.RWMutex
 }
 
+// Validate validates a namespace.
 func (ns *Namespace) Validate(env, domain, service string) error {
 	if env == "" || domain == "" || service == "" {
 		return errors.New("ENVIRONMENT, DOMAIN, and SERVICE cannot be empty")

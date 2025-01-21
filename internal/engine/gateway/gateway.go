@@ -28,13 +28,7 @@ import (
 	"github.com/convrz/convers/pkg/logger"
 )
 
-// New creates a new gateway app
-func New() cvzapp.Application {
-	return &Gateway{
-		mux:     cvzruntime.NewServeMux(),
-		visitor: visitor.New(),
-	}
-}
+var _ cvzapp.Server = (*Gateway)(nil)
 
 // Gateway represents the gateway app
 type Gateway struct {
@@ -62,8 +56,8 @@ func (g *Gateway) register(ctx context.Context) error {
 	return g.visit(ctx, services...)
 }
 
-// Run the gateway app
-func (g *Gateway) Run() error {
+// ListenAndServe the gateway app
+func (g *Gateway) ListenAndServe() error {
 	ctx := context.Background()
 	ctx, cancel := context.WithCancel(ctx)
 	defer cancel()
@@ -73,6 +67,14 @@ func (g *Gateway) Run() error {
 	}
 
 	// Listen HTTP server (and mux calls to gRPC server endpoint)
-	logger.Infof("HTTP server listening on %s \n", ":9000")
+	logger.Infof("HTTP server listening on %s", ":9000")
 	return g.mux.Listen(":9000")
+}
+
+// New creates a new gateway app
+func New() cvzapp.Server {
+	return &Gateway{
+		mux:     cvzruntime.NewServeMux(),
+		visitor: visitor.New(),
+	}
 }

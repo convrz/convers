@@ -21,11 +21,12 @@ import (
 	"context"
 
 	"github.com/convrz/convers/core/cvzruntime"
+	"github.com/convrz/convers/core/cvzservice"
 )
 
 // IService represents the service interface.
 type IService interface {
-	cvzruntime.GrpcService
+	cvzservice.GRPCServicer
 	Accept(context.Context, cvzruntime.IServeMux, IVisitor) error
 }
 

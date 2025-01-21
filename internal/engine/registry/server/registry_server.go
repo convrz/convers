@@ -31,19 +31,19 @@ type ServiceRegistry struct {
 }
 
 // RegisterService implements the RegisterService method of the ServiceRegistryService.
-func (srx *ServiceRegistry) RegisterService(ctx context.Context, info *registry.RegisterServiceRequest) (*registry.RegisterServiceResponse, error) {
+func (srx *ServiceRegistry) RegisterService(_ context.Context, _ *registry.RegisterServiceRequest) (*registry.RegisterServiceResponse, error) {
 	//TODO implement me
 	panic("implement me")
 }
 
 // DiscoverService implements the DiscoverService method of the ServiceRegistryService.
-func (srx *ServiceRegistry) DiscoverService(ctx context.Context, request *registry.DiscoverServiceRequest) (*registry.DiscoverServiceResponse, error) {
+func (srx *ServiceRegistry) DiscoverService(_ context.Context, _ *registry.DiscoverServiceRequest) (*registry.DiscoverServiceResponse, error) {
 	//TODO implement me
 	panic("implement me")
 }
 
 // Heartbeat implements the Heartbeat method of the ServiceRegistryService.
-func (srx *ServiceRegistry) Heartbeat(ctx context.Context, info *registry.HeartbeatRequest) (*registry.HeartbeatResponse, error) {
+func (srx *ServiceRegistry) Heartbeat(_ context.Context, _ *registry.HeartbeatRequest) (*registry.HeartbeatResponse, error) {
 	//TODO implement me
 	panic("implement me")
 }

@@ -20,19 +20,11 @@ package controllers
 import (
 	"context"
 
-	"github.com/convrz/convers/x/greeter/v1/internal/biz"
-
 	greeterBiz "github.com/convrz/convers/api/biz/greeter/v1"
 	"github.com/convrz/convers/api/services/greeter/v1"
 	"github.com/convrz/convers/pkg/copier"
+	"github.com/convrz/convers/x/greeter/v1/internal/biz"
 )
-
-// New creates a new Greeter module.
-func New(biz biz.IGreeter) IGreeter {
-	return &Greeter{
-		biz: biz,
-	}
-}
 
 // IGreeter defines the interface for the Greeter controller.
 type IGreeter interface {
@@ -63,4 +55,11 @@ func (g *Greeter) SayHello(ctx context.Context, msg *greeter.SayHelloRequest) (*
 	}
 
 	return &resp, nil
+}
+
+// New creates a new Greeter module.
+func New(biz biz.IGreeter) IGreeter {
+	return &Greeter{
+		biz: biz,
+	}
 }

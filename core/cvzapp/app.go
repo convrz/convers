@@ -26,7 +26,12 @@ import (
 
 // Application represents the application interface.
 type Application interface {
-	Run() error
+	Start() error
+}
+
+// Server represents the HTTP server interface.
+type Server interface {
+	ListenAndServe() error
 }
 
 // InjectLifeCycle injects the given constructor into the application with lifecycle hooks.

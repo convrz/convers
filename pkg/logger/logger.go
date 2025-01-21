@@ -22,11 +22,13 @@ import (
 	"go.uber.org/zap"
 )
 
+// New creates a new logger.
 func New() *zap.Logger {
 	logger, _ := zap.NewDevelopment()
 	return logger
 }
 
+// Info logs an info message.
 func Info(message ...interface{}) {
 	if len(removeNil(message)) == 0 {
 		return
@@ -39,6 +41,7 @@ func Info(message ...interface{}) {
 	sugar.Info(message...)
 }
 
+// Infof logs an info message with a format.
 func Infof(template string, message ...interface{}) {
 	if len(removeNil(message)) == 0 {
 		return
@@ -51,6 +54,7 @@ func Infof(template string, message ...interface{}) {
 	sugar.Infof(template, message...)
 }
 
+// Debug logs a debug message.
 func Debug(message ...interface{}) {
 	if len(removeNil(message)) == 0 {
 		return
@@ -63,6 +67,7 @@ func Debug(message ...interface{}) {
 	sugar.Debug(message...)
 }
 
+// Error logs an error message.
 func Error(message ...interface{}) {
 	if len(removeNil(message)) == 0 {
 		return
@@ -75,6 +80,7 @@ func Error(message ...interface{}) {
 	sugar.Error(message...)
 }
 
+// Fatal logs a fatal message.
 func Fatal(message ...interface{}) {
 	if len(removeNil(message)) == 0 {
 		return

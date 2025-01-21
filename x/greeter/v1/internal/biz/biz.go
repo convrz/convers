@@ -30,13 +30,6 @@ type IGreeter interface {
 	greeter.GreeterServiceServer
 }
 
-// New creates a new Greeter module.
-func New(db repos.IDB) IGreeter {
-	return &Greeter{
-		repos: db,
-	}
-}
-
 // Greeter implements GreeterServiceServer, business logic for the Greeter service.
 type Greeter struct {
 	greeter.UnimplementedGreeterServiceServer
@@ -44,11 +37,18 @@ type Greeter struct {
 }
 
 // SayHello implements GreeterServiceServer.
-func (g *Greeter) SayHello(ctx context.Context, msg *greeter.SayHelloRequest) (*greeter.SayHelloResponse, error) {
+func (g *Greeter) SayHello(_ context.Context, msg *greeter.SayHelloRequest) (*greeter.SayHelloResponse, error) {
 	name := msg.GetName()
 	t := time.Now().String()
 
 	return &greeter.SayHelloResponse{
 		Message: "Reply " + name + " at " + t,
 	}, nil
+}
+
+// New creates a new Greeter module.
+func New(db repos.IDB) IGreeter {
+	return &Greeter{
+		repos: db,
+	}
 }

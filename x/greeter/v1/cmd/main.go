@@ -20,12 +20,12 @@ package main
 import (
 	"github.com/convrz/convers/core/cvzfactory"
 	"github.com/convrz/convers/pkg/logger"
-	"github.com/convrz/convers/x/greeter/v1/app"
 
 	_ "github.com/convrz/convers/x/greeter/v1/internal/init"
+	"github.com/convrz/convers/x/greeter/v1/server"
 )
 
 func main() {
-	app := cvzfactory.Build(app.New)
-	logger.Fatal(app.Run())
+	app := cvzfactory.Build(server.New)
+	logger.Fatal(app.Start())
 }

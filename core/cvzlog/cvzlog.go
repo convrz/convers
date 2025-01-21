@@ -26,6 +26,7 @@ import (
 	"go.uber.org/zap"
 )
 
+// New creates a new logger instance.
 func New() *zap.Logger {
 	if os.Getenv("MODE") == "dev" {
 		logger, _ := zap.NewDevelopment()
@@ -36,6 +37,7 @@ func New() *zap.Logger {
 	return logger
 }
 
+// Info logs an info message.
 func Info(message string) {
 	logger := New()
 	defer utils.CallBack(logger.Sync)
@@ -54,6 +56,7 @@ func Info(message string) {
 	)
 }
 
+// Warn logs a warning message.
 func Warn(message string) {
 	logger := New()
 	defer utils.CallBack(logger.Sync)
@@ -72,6 +75,7 @@ func Warn(message string) {
 	)
 }
 
+// Debug logs a debug message.
 func Debug(message string) {
 	logger := New()
 	defer utils.CallBack(logger.Sync)
@@ -90,6 +94,7 @@ func Debug(message string) {
 	)
 }
 
+// Error logs an error message.
 func Error(message string) {
 	logger := New()
 	defer utils.CallBack(logger.Sync)
@@ -108,6 +113,7 @@ func Error(message string) {
 	)
 }
 
+// Fatal logs a fatal message.
 func Fatal(message string) {
 	logger := New()
 	defer utils.CallBack(logger.Sync)

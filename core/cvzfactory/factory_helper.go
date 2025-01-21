@@ -27,14 +27,14 @@ import (
 	"go.uber.org/fx"
 )
 
-func _main(lc fx.Lifecycle, app cvzapp.Application) {
-	start := func() {
-		logger.Fatal(app.Run())
-	}
+func _start(srv cvzapp.Server) {
+	logger.Fatal(srv.ListenAndServe())
+}
 
+func _main(lc fx.Lifecycle, srv cvzapp.Server) {
 	lc.Append(fx.Hook{
 		OnStart: func(_ context.Context) error {
-			go start()
+			go _start(srv)
 			return nil
 		},
 		OnStop: func(_ context.Context) error {

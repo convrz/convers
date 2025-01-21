@@ -18,18 +18,10 @@
 package cvzruntime
 
 import (
-	"context"
 	"net/http"
-
-	"google.golang.org/grpc"
 
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 )
-
-// GrpcService is an interface for registering a gRPC service.
-type GrpcService interface {
-	Register(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) error
-}
 
 // IServeMux is an interface for a runtime mux.
 type IServeMux interface {

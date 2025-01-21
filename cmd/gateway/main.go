@@ -26,5 +26,5 @@ import (
 
 func main() {
 	app := cvzfactory.Build(gateway.New)
-	logger.Fatal(app.Run())
+	logger.Fatal(app.Start())
 }

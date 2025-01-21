@@ -20,11 +20,12 @@ package cvzruntime
 import (
 	"context"
 
+	"github.com/convrz/convers/core/cvzservice"
 	"google.golang.org/grpc"
 )
 
 // RegisterService registers a service with the runtime.
-func RegisterService(ctx context.Context, mux IServeMux, service GrpcService, endpoint string, opts []grpc.DialOption) error {
+func RegisterService(ctx context.Context, mux IServeMux, service cvzservice.GRPCServicer, endpoint string, opts []grpc.DialOption) error {
 	if err := service.Register(ctx, mux.AsRuntimeMux(), endpoint, opts); err != nil {
 		return err
 	}

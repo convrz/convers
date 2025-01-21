@@ -17,8 +17,6 @@
 // Package main provides the entry point for the service registry.
 package main
 
-import "github.com/convrz/convers/core/cvzlog"
-
 func main() {
-	cvzlog.Info("Hello, World!")
+
 }
