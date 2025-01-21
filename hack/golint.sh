@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-set -e 
+set -e
 set -o pipefail
 
 error_exit() {
@@ -23,8 +23,8 @@ error_exit() {
 }
 
 commands=(
-  "golangci-lint run"
-  "cd ./x/greeter/v1 && golangci-lint run"
+  "go mod tidy && golangci-lint run"
+  "cd ./x/greeter/v1 && go mod tidy && golangci-lint run"
 )
 
 for cmd in "${commands[@]}"; do
