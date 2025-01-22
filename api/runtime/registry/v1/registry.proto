@@ -14,9 +14,9 @@
 
 syntax = "proto3";
 
-package convers.registry.v1;
+package convers.runtime.registry.v1;
 
-option go_package = "github.com/convrz/convers/api/registry/v1;registry";
+option go_package = "github.com/convrz/convers/api/runtime/registry/v1;registry";
 
 // Define the service registry
 service ServiceRegistryService {

@@ -19,8 +19,7 @@ package server
 
 import (
 	"context"
-
-	"github.com/convrz/convers/api/registry/v1"
+	"github.com/convrz/convers/api/runtime/registry/v1"
 )
 
 var _ registry.ServiceRegistryServiceServer = (*ServiceRegistry)(nil)
