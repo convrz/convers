@@ -1,9 +1,8 @@
 # For details on buf.yaml configuration, visit https://buf.build/docs/configuration/v2/buf-yaml
 version: v2
 modules:
-  - path: types/v1
-    ####################
-  - path: registry/v1
+  - path: runtime/types/v1
+  - path: runtime/registry/v1
     ####################
   - path: domain/greeter/v1
   - path: domain/shared/v1

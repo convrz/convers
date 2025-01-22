@@ -33,9 +33,9 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	ServiceRegistryService_RegisterService_FullMethodName = "/convers.registry.v1.ServiceRegistryService/RegisterService"
-	ServiceRegistryService_DiscoverService_FullMethodName = "/convers.registry.v1.ServiceRegistryService/DiscoverService"
-	ServiceRegistryService_Heartbeat_FullMethodName       = "/convers.registry.v1.ServiceRegistryService/Heartbeat"
+	ServiceRegistryService_RegisterService_FullMethodName = "/convers.runtime.registry.v1.ServiceRegistryService/RegisterService"
+	ServiceRegistryService_DiscoverService_FullMethodName = "/convers.runtime.registry.v1.ServiceRegistryService/DiscoverService"
+	ServiceRegistryService_Heartbeat_FullMethodName       = "/convers.runtime.registry.v1.ServiceRegistryService/Heartbeat"
 )
 
 // ServiceRegistryServiceClient is the client API for ServiceRegistryService service.
@@ -201,7 +201,7 @@ func _ServiceRegistryService_Heartbeat_Handler(srv interface{}, ctx context.Cont
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var ServiceRegistryService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "convers.registry.v1.ServiceRegistryService",
+	ServiceName: "convers.runtime.registry.v1.ServiceRegistryService",
 	HandlerType: (*ServiceRegistryServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

@@ -14,13 +14,13 @@
 
 syntax = "proto3";
 
-package convers.types.v1;
+package convers.runtime.types.v1;
 
 import "buf/validate/validate.proto";
 import "google/protobuf/wrappers.proto";
 import "google/protobuf/timestamp.proto";
 
-option go_package = "github.com/convrz/convers/api/types/v1;types";
+option go_package = "github.com/convrz/convers/api/runtime/types/v1;types";
 
 message Metadata {
   google.protobuf.StringValue id = 1 [(buf.validate.field).string.min_len = 1];
