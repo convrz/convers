@@ -19,8 +19,9 @@ package context
 
 import (
 	"context"
-	"github.com/convrz/convers/api/runtime/types/v1"
 	"time"
+
+	"github.com/convrz/convers/api/runtime/types/v1"
 
 	"github.com/convrz/convers/pkg/protobuf/proto"
 )
