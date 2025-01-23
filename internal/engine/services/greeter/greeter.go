@@ -20,10 +20,11 @@ package greeter
 import (
 	"context"
 
+	"github.com/convrz/convers/internal/engine/services/base"
+	"github.com/convrz/convers/internal/engine/types"
+
 	greetergw "github.com/convrz/convers/api/services/greeter/v1"
 	"github.com/convrz/convers/core/cvzruntime"
-	"github.com/convrz/convers/internal/engine/gateway/services/base"
-	"github.com/convrz/convers/internal/engine/gateway/types"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"google.golang.org/grpc"
 )

@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 
-// Package main provides the entry point for the gateway service.
+// Package main provides the entry point for the convers app.
 package main
 
 import (
-	"github.com/convrz/convers/internal/engine/gateway"
+	"github.com/convrz/convers/internal/engine"
 	"github.com/convrz/convers/pkg/logger"
 
 	"github.com/convrz/convers/core/cvzfactory"
 )
 
 func main() {
-	app := cvzfactory.Build(gateway.New)
+	app := cvzfactory.Build(engine.New)
 	logger.Fatal(app.Start())
 }

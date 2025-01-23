@@ -14,9 +14,7 @@
  * limitations under the License.
  */
 
-// Package main provides the entry point for the service registry.
+// Package main provides the entrypoint for the convers service registry.
 package main
 
-func main() {
-
-}
+func main() {}

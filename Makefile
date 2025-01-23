@@ -28,9 +28,8 @@ lint.x.greeter.v1:
 
 
 # Docker build commands
-build.greeter:
+build.convers:
+	docker buildx build -f ./cmd/convers/Dockerfile -t cvz.convers:latest .
+
+build.x.greeter:
 	docker buildx build -f ./x/greeter/v1/Dockerfile -t cvz.x.greeter.v1:latest .
-build.gateway:
-	docker buildx build -f ./cmd/gateway/Dockerfile -t cvz.gateway:latest .
-build.srx:
-	docker buildx build -f ./cmd/srx/Dockerfile -t cvz.srx:latest .
