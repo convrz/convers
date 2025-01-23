@@ -45,7 +45,7 @@ func (g *Greeter) ListenAndServe() error {
 
 	// Listen gRPC srv here
 	greeter.RegisterGreeterServiceServer(g.AsServer(), g.srv)
-	logger.Infof("gRPC srv listening on %s", listener.Addr().String())
+	logger.Infof("gRPC server listening on %s", listener.Addr().String())
 
 	return g.AsServer().Serve(listener)
 }

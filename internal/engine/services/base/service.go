@@ -20,8 +20,9 @@ package base
 import (
 	"context"
 
+	"github.com/convrz/convers/internal/engine/types"
+
 	"github.com/convrz/convers/core/cvzruntime"
-	"github.com/convrz/convers/internal/engine/gateway/types"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"google.golang.org/grpc"
 )
