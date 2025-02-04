@@ -1,4 +1,4 @@
-module github.com/convrz/convers/tools
+module github.com/convrz/convers/x/tools
 
 go 1.23.3
 

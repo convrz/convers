@@ -26,7 +26,9 @@ import (
 
 	"github.com/convrz/convers/core/cvzapp"
 	"github.com/convrz/convers/core/cvzruntime"
+
 	"github.com/convrz/convers/pkg/logger"
+	"github.com/convrz/convers/pkg/msgf"
 )
 
 var _ cvzapp.Server = (*Engine)(nil)
@@ -68,7 +70,7 @@ func (e *Engine) ListenAndServe() error {
 	}
 
 	// Listen HTTP server (and mux calls to gRPC server endpoint)
-	logger.Infof("HTTP server listening on %s", ":9000")
+	logger.Infof(msgf.InfoHTTPServer, ":9000")
 	return e.mux.Listen(":9000")
 }
 

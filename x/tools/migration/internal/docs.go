@@ -14,23 +14,5 @@
  * limitations under the License.
  */
 
-// Package init provides the initialization logic for the greeter service.
-package init
-
-import (
-	"github.com/convrz/convers/core/cvzapp"
-	"github.com/convrz/convers/x/greeter/v1/internal/controllers"
-	"github.com/convrz/convers/x/greeter/v1/internal/domain"
-	"github.com/convrz/convers/x/greeter/v1/internal/repos"
-)
-
-var (
-	// delivery layer
-	_ = cvzapp.Inject(controllers.New)
-
-	// domain layer
-	_ = cvzapp.Inject(domain.New)
-
-	// repo layer
-	_ = cvzapp.InjectLifeCycle(repos.New, repos.OnStart, repos.OnStop)
-)
+// Package internal .
+package internal

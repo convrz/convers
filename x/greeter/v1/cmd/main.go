@@ -20,9 +20,9 @@ package main
 import (
 	"github.com/convrz/convers/core/cvzfactory"
 	"github.com/convrz/convers/pkg/logger"
+	"github.com/convrz/convers/x/greeter/v1/cmd/server"
 
-	_ "github.com/convrz/convers/x/greeter/v1/internal/init"
-	"github.com/convrz/convers/x/greeter/v1/server"
+	_ "github.com/convrz/convers/x/greeter/v1/cmd/init"
 )
 
 func main() {

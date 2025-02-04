@@ -14,19 +14,5 @@
  * limitations under the License.
  */
 
-// Package proto provides the proto package.
-package proto
-
-import (
-	google "google.golang.org/protobuf/proto"
-)
-
-// Marshal marshals the input.
-func Marshal(input google.Message) ([]byte, error) {
-	return google.Marshal(input)
-}
-
-// Unmarshal the input into the output.
-func Unmarshal(input []byte, output google.Message) error {
-	return google.Unmarshal(input, output)
-}
+// Package cmd .
+package cmd

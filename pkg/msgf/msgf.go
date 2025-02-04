@@ -14,5 +14,13 @@
  * limitations under the License.
  */
 
-// Package models provides the models for the service.
-package models
+// Package msgf contain log message title with format
+package msgf
+
+const (
+	// InfoGrpcServer gRPC server listening on [PORT]
+	InfoGrpcServer = "[gRPC] server listening on %s"
+
+	// InfoHTTPServer HTTP server listening on [PORT]
+	InfoHTTPServer = "[HTTP] server listening on %s"
+)
