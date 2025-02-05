@@ -21,7 +21,7 @@ import (
 	"context"
 	"time"
 
-	"github.com/convrz/convers/api/domain/greeter/v1"
+	"github.com/convrz/convers/api/gen/go/domain/greeter/v1"
 	"github.com/convrz/convers/x/greeter/v1/internal/repos"
 )
 

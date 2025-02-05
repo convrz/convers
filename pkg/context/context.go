@@ -21,7 +21,7 @@ import (
 	"context"
 	"time"
 
-	"github.com/convrz/convers/api/runtime/types/v1"
+	"github.com/convrz/convers/api/gen/go/runtime/types/v1"
 
 	"github.com/convrz/convers/pkg/protobuf/proto"
 )

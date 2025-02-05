@@ -1,6 +1,6 @@
 .github/
 .idea/
 
-tools/
+docs/
 third_party/
-website/
+x/tools/

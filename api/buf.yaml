@@ -1,16 +1,7 @@
 # For details on buf.yaml configuration, visit https://buf.build/docs/configuration/v2/buf-yaml
 version: v2
 modules:
-  - path: runtime/types/v1
-  - path: runtime/registry/v1
-    ####################
-  - path: domain/greeter/v1
-  - path: domain/shared/v1
-    ####################
-  - path: services/media/v1
-  - path: services/greeter/v1
-  - path: services/react/v1
-  - path: services/shared/v1
+  - path: proto
 deps:
   - buf.build/bufbuild/protovalidate
   - buf.build/googleapis/googleapis
@@ -18,8 +9,6 @@ deps:
 lint:
   use:
     - STANDARD
-  except:
-    - PACKAGE_DIRECTORY_MATCH
 breaking:
   use:
     - FILE

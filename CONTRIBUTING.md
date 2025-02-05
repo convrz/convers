@@ -7,7 +7,7 @@ This guide will assist contributors to the `convrz/convers` repository.
 - Design: Lottiefiles & Figma
 - Backend Go & Protobuf: GoLand
 - Frontend: Visual Studio Code or any preferred IDE
-- Mobile: Android Studio or Visual Studio Code
+- Mobile: Android Studio or Visual Studio Code with Flutter framework
 
 ### Go Coding Style
 We follow the Uber Go Style Guide in this project. Please ensure you are familiar with the Go programming style as per the guide.
@@ -97,7 +97,6 @@ If you set your `user.name` and `user.email` git configs, you can sign your comm
 ## Naming Packages
 ### Where to Put Packages
 - `api`: Define proto files for all service mesh.
-- `bin`: Contains scripts to start the app.
 - `cmd`: Main files, app endpoints.
 - `core`: Core library, applied in this project.
 - `deploy`: Contains scripts and config for deployment.
@@ -106,6 +105,4 @@ If you set your `user.name` and `user.email` git configs, you can sign your comm
 - `internal`: Internal packages, not exported.
 - `pkg`: Common packages, shared with external modules.
 - `third_party`: Third-party proto libraries.
-- `tools`: Install dependency tools for this project.
-- `website`: Web UI monorepo.
 - `x`: Plugin services, all built on a microservice network.
