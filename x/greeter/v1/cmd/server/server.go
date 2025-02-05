@@ -21,7 +21,7 @@ import (
 	"fmt"
 	"net"
 
-	"github.com/convrz/convers/api/services/greeter/v1"
+	"github.com/convrz/convers/api/gen/go/services/greeter/v1"
 	"github.com/convrz/convers/core/cvzapp"
 	"github.com/convrz/convers/core/cvzservice"
 	"github.com/convrz/convers/pkg/logger"
