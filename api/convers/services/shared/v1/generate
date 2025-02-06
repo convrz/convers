@@ -33,12 +33,10 @@ CVZOUT=$GOPATH/src
 
 protoc -I. \
   --proto_path=$CVZPATH \
-  -I$CVZPATH/api/proto \
+  -I$CVZPATH/api \
   -I$CVZPATH/third_party/googleapis \
   -I$CVZPATH/third_party/grpc-gateway \
   -I$CVZPATH/third_party/protovalidate/proto/protovalidate \
-  --openapiv2_out=$CVZPATH/api/openapi/v1 \
-  --grpc-gateway_out=$CVZOUT \
   --go_out=$CVZOUT \
   --go-grpc_out=$CVZOUT \
   --validate_out="lang=go,paths=:$CVZOUT" \
