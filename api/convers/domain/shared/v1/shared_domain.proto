@@ -20,8 +20,6 @@ import "buf/validate/validate.proto";
 import "google/protobuf/wrappers.proto";
 
 option go_package = "github.com/convrz/convers/api/gen/go/domain/shared/v1;shared";
-option java_package = "github.com/convrz/convers/api/gen/java/domain/shared/v1;shared";
-option java_multiple_files = true;
 
 message HelloRequest {
   string name = 1 [(buf.validate.field).string.min_len = 1];;
