@@ -23,9 +23,7 @@ import "convers/domain/shared/v1/shared_domain.proto";
 option go_package = "github.com/convrz/convers/api/gen/go/domain/greeter/v1;greeter";
 
 service GreeterService {
-  rpc SayHello(SayHelloRequest) returns (SayHelloResponse) {
-
-  }
+  rpc SayHello(SayHelloRequest) returns (SayHelloResponse) {}
 }
 
 message SayHelloRequest {
