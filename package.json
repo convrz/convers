@@ -1,0 +1,39 @@
+{
+  "name": "convers",
+  "version": "0.0.1",
+  "description": "Start your conversation threads securely across distributed systems.",
+  "private": true,
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+  },
+  "devDependencies": {
+    "@convers/eslint-config": "workspace:*",
+    "@convers/typescript-config": "workspace:*",
+    "prettier": "^3.2.5",
+    "turbo": "^2.3.0",
+    "typescript": "5.5.4"
+  },
+  "packageManager": "pnpm@9.12.3",
+  "engines": {
+    "yarn": "use pnpm!",
+    "npm" : "use pnpm!",
+    "pnpm": ">=9.0.0",
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/convrz/web.git"
+  },
+  "keywords": [
+    "cvz-web"
+  ],
+  "author": "ConversLabs",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/convrz/web/issues"
+  },
+  "homepage": "https://github.com/convrz/web#readme"
+}

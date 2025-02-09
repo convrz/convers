@@ -34,7 +34,7 @@ type IGreeter interface {
 // Greeter is the module for Greeter.
 type Greeter struct {
 	greeter.UnimplementedGreeterServiceServer
-	domain greeterdomain.GreeterServiceServer
+	domain greeterdomain.GreeterDomainServiceServer
 }
 
 // SayHello implements GreeterServer.

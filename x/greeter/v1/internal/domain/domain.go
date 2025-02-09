@@ -27,12 +27,12 @@ import (
 
 // IGreeter defines the interface for the Greeter biz module.
 type IGreeter interface {
-	greeter.GreeterServiceServer
+	greeter.GreeterDomainServiceServer
 }
 
 // Greeter implements GreeterServiceServer, business logic for the Greeter service.
 type Greeter struct {
-	greeter.UnimplementedGreeterServiceServer
+	greeter.UnimplementedGreeterDomainServiceServer
 	repos repos.IDB
 }
 
