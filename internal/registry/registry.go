@@ -17,7 +17,9 @@
 // Package registry provides the registry service.
 package registry
 
-import "github.com/convrz/convers/core/cvzapp"
+import (
+	"github.com/convrz/convers/pkg/core/cvzapp"
+)
 
 // Registry represents the registry service.
 type Registry struct{}

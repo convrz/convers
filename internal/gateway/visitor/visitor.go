@@ -20,9 +20,10 @@ package visitor
 import (
 	"context"
 
-	"github.com/convrz/convers/internal/engine/types"
+	cvzruntime "github.com/convrz/convers/pkg/core/cvzruntime"
 
-	"github.com/convrz/convers/core/cvzruntime"
+	"github.com/convrz/convers/internal/gateway/types"
+
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )

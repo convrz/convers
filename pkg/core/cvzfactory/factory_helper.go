@@ -19,10 +19,10 @@ package cvzfactory
 import (
 	"context"
 
-	cvzinternal "github.com/convrz/convers/core/internal"
-	"github.com/convrz/convers/pkg/logger"
+	"github.com/convrz/convers/pkg/core/cvzapp"
+	cvzinternal "github.com/convrz/convers/pkg/core/internal"
 
-	"github.com/convrz/convers/core/cvzapp"
+	"github.com/convrz/convers/pkg/logger"
 
 	"go.uber.org/fx"
 )

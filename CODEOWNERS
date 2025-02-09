@@ -6,9 +6,8 @@
 #
 # Use git ls-files '<pattern>' without a / prefix to see the list of matching files.
 
-/core/ @kyerand
-/internal/engine/ @kyerand
-/internal/registry/ @kyerand
+/internal/ @kyerand
+/pkg/ @kyerand
 /x/greeter/ @kyerand
 
 

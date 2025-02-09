@@ -14,18 +14,18 @@
  * limitations under the License.
  */
 
-// Package engine provides the engine of convers.
-package engine
+// Package gateway provides the gateway of convers.
+package gateway
 
 import (
 	"context"
 
-	"github.com/convrz/convers/internal/engine/services/greeter"
-	"github.com/convrz/convers/internal/engine/types"
-	"github.com/convrz/convers/internal/engine/visitor"
+	"github.com/convrz/convers/pkg/core/cvzapp"
+	"github.com/convrz/convers/pkg/core/cvzruntime"
 
-	"github.com/convrz/convers/core/cvzapp"
-	"github.com/convrz/convers/core/cvzruntime"
+	"github.com/convrz/convers/internal/gateway/services/greeter"
+	"github.com/convrz/convers/internal/gateway/types"
+	"github.com/convrz/convers/internal/gateway/visitor"
 
 	"github.com/convrz/convers/pkg/logger"
 	"github.com/convrz/convers/pkg/msgf"

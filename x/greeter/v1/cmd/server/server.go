@@ -22,8 +22,8 @@ import (
 	"net"
 
 	"github.com/convrz/convers/api/gen/go/services/greeter/v1"
-	"github.com/convrz/convers/core/cvzapp"
-	"github.com/convrz/convers/core/cvzservice"
+	"github.com/convrz/convers/pkg/core/cvzapp"
+	"github.com/convrz/convers/pkg/core/cvzservice"
 	"github.com/convrz/convers/pkg/logger"
 	"github.com/convrz/convers/pkg/msgf"
 	"github.com/convrz/convers/x/greeter/v1/internal/controllers"

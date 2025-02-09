@@ -14,18 +14,23 @@
  * limitations under the License.
  */
 
-// Package main provides the entry point for the greeter service.
-package main
+// Package types provides the types for the gateway.
+package types
 
 import (
-	"github.com/convrz/convers/pkg/core/cvzfactory"
-	"github.com/convrz/convers/pkg/logger"
-	"github.com/convrz/convers/x/greeter/v1/cmd/server"
+	"context"
 
-	_ "github.com/convrz/convers/x/greeter/v1/cmd/init"
+	"github.com/convrz/convers/pkg/core/cvzruntime"
+	"github.com/convrz/convers/pkg/core/cvzservice"
 )
 
-func main() {
-	app := cvzfactory.Build(server.New)
-	logger.Fatal(app.Start())
+// IService represents the service interface.
+type IService interface {
+	cvzservice.GRPCServicer
+	Accept(context.Context, cvzruntime.IServeMux, IVisitor) error
+}
+
+// IVisitor represents the visitor interface.
+type IVisitor interface {
+	VisitGreeterService(ctx context.Context, mux cvzruntime.IServeMux, service IService) error
 }
