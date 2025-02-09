@@ -18,13 +18,12 @@
 package main
 
 import (
-	"github.com/convrz/convers/internal/engine"
+	"github.com/convrz/convers/internal/gateway"
+	"github.com/convrz/convers/pkg/core/cvzfactory"
 	"github.com/convrz/convers/pkg/logger"
-
-	"github.com/convrz/convers/core/cvzfactory"
 )
 
 func main() {
-	app := cvzfactory.Build(engine.New)
+	app := cvzfactory.Build(gateway.New)
 	logger.Fatal(app.Start())
 }

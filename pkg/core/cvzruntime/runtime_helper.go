@@ -14,23 +14,22 @@
  * limitations under the License.
  */
 
-// Package types provides the types for the gateway.
-package types
+// Package cvzruntime provides the runtime layer for the service.
+package cvzruntime
 
 import (
 	"context"
 
-	"github.com/convrz/convers/core/cvzruntime"
-	"github.com/convrz/convers/core/cvzservice"
+	"github.com/convrz/convers/pkg/core/cvzservice"
+
+	"google.golang.org/grpc"
 )
 
-// IService represents the service interface.
-type IService interface {
-	cvzservice.GRPCServicer
-	Accept(context.Context, cvzruntime.IServeMux, IVisitor) error
-}
+// RegisterService registers a service with the runtime.
+func RegisterService(ctx context.Context, mux IServeMux, service cvzservice.GRPCServicer, endpoint string, opts []grpc.DialOption) error {
+	if err := service.Register(ctx, mux.AsRuntimeMux(), endpoint, opts); err != nil {
+		return err
+	}
 
-// IVisitor represents the visitor interface.
-type IVisitor interface {
-	VisitGreeterService(ctx context.Context, mux cvzruntime.IServeMux, service IService) error
+	return nil
 }

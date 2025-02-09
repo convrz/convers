@@ -20,7 +20,8 @@ package cvzapp
 import (
 	"context"
 
-	cvzinternal "github.com/convrz/convers/core/internal"
+	cvzinternal "github.com/convrz/convers/pkg/core/internal"
+
 	"go.uber.org/fx"
 )
 
