@@ -67,7 +67,7 @@ service GreeterService {
 }
 
 message SayHelloRequest {
-  string name = 1 [(buf.validate.field).string.min_len = 1];;
+  string name = 1 [(buf.validate.field).string.min_len = 1];
   google.protobuf.StringValue str_val = 2;
   google.protobuf.FloatValue float_val = 3;
   google.protobuf.DoubleValue double_val = 4;

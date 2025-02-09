@@ -1,0 +1,4 @@
+{
+  "extends": "@convers/typescript-config/base.json"
+}
+
