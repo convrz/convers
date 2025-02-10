@@ -98,7 +98,6 @@ If you set your `user.name` and `user.email` git configs, you can sign your comm
 ### Where to Put Packages
 - `api`: Define proto files for all service mesh.
 - `cmd`: Main files, app endpoints.
-- `core`: Core library, applied in this project.
 - `deploy`: Contains scripts and config for deployment.
 - `docs`: Documentation.
 - `hack`: Scripts used by developers.

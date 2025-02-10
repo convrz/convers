@@ -26,7 +26,7 @@ import (
 )
 
 var (
-	// delivery layer
+	// handlers/controllers layer
 	_ = cvzapp.Inject(controllers.New)
 
 	// domain layer

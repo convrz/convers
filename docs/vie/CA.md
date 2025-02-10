@@ -1,1 +1,0 @@
-# Clean Architecture (Kiến Trúc Sạch)

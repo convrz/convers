@@ -1,1 +1,1 @@
-# Technical Stack
+Technical Stack
