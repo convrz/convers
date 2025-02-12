@@ -53,7 +53,9 @@ func (e *Engine) register(ctx context.Context) error {
 	// TODO: Register gRPC server endpoint
 	// Note: Make sure the gRPC server is running properly and accessible
 	services := []types.IService{
+		// Example: register the greeter service to the gateway
 		&greeter.Greeter{},
+		// Add more services here ...
 	}
 
 	return e.visit(ctx, services...)

@@ -14,13 +14,13 @@
 
 syntax = "proto3";
 
-package convers.inter.types.v1;
+package convers.types.v1;
 
 import "buf/validate/validate.proto";
 import "google/protobuf/wrappers.proto";
 import "google/protobuf/timestamp.proto";
 
-option go_package = "github.com/convrz/convers/api/gen/go/inter/types/v1;types";
+option go_package = "github.com/convrz/convers/api/gen/go/types/v1;types";
 
 message Metadata {
   google.protobuf.StringValue id = 1 [(buf.validate.field).string.min_len = 1];
@@ -58,4 +58,9 @@ message Context {
 
   // Identifies the IP address of the client sending the request.
   google.protobuf.StringValue ip = 10 [(buf.validate.field).string.min_len = 1];
+}
+
+message Environment {
+  string service_registry_address = 1;
+  string gateway_address = 2;
 }

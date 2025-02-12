@@ -18,5 +18,15 @@
 package settings
 
 import (
+	"os"
+
+	"github.com/convrz/convers/api/gen/go/types/v1"
 	_ "github.com/joho/godotenv/autoload" // load .env file automatically
 )
+
+func GetEnv() *types.Environment {
+	return &types.Environment{
+		ServiceRegistryAddress: os.Getenv("SERVICE_REGISTRY_ADDRESS"),
+		GatewayAddress:         os.Getenv("GATEWAY_ADDRESS"),
+	}
+}

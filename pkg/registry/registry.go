@@ -20,30 +20,30 @@ package server
 import (
 	"context"
 
-	"github.com/convrz/convers/api/gen/go/inter/registry/v1"
+	"github.com/convrz/convers/api/gen/go/utils/srx/v1"
 )
 
-var _ registry.ServiceRegistryServiceServer = (*ServiceRegistry)(nil)
+var _ srx.ServiceRegistryServiceServer = (*ServiceRegistry)(nil)
 
 // ServiceRegistry implements the ServiceRegistryService.
 type ServiceRegistry struct {
-	registry.UnimplementedServiceRegistryServiceServer
+	srx.UnimplementedServiceRegistryServiceServer
 }
 
 // RegisterService implements the RegisterService method of the ServiceRegistryService.
-func (srx *ServiceRegistry) RegisterService(_ context.Context, _ *registry.RegisterServiceRequest) (*registry.RegisterServiceResponse, error) {
+func (srx *ServiceRegistry) RegisterService(_ context.Context, _ *srx.RegisterServiceRequest) (*srx.RegisterServiceResponse, error) {
 	//TODO implement me
 	panic("implement me")
 }
 
 // DiscoverService implements the DiscoverService method of the ServiceRegistryService.
-func (srx *ServiceRegistry) DiscoverService(_ context.Context, _ *registry.DiscoverServiceRequest) (*registry.DiscoverServiceResponse, error) {
+func (srx *ServiceRegistry) DiscoverService(_ context.Context, _ *srx.DiscoverServiceRequest) (*srx.DiscoverServiceResponse, error) {
 	//TODO implement me
 	panic("implement me")
 }
 
 // Heartbeat implements the Heartbeat method of the ServiceRegistryService.
-func (srx *ServiceRegistry) Heartbeat(_ context.Context, _ *registry.HeartbeatRequest) (*registry.HeartbeatResponse, error) {
+func (srx *ServiceRegistry) Heartbeat(_ context.Context, _ *srx.HeartbeatRequest) (*srx.HeartbeatResponse, error) {
 	//TODO implement me
 	panic("implement me")
 }
